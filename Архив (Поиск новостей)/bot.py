@@ -8,6 +8,8 @@ from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup, Bot
 from telegram.ext import Application, CommandHandler, CallbackQueryHandler, ContextTypes
 from telegram.error import RetryAfter
 import html
+import hashlib
+
 
 # Конфигурация
 TOKEN = "8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8"
@@ -22,6 +24,20 @@ NEWS_DB_FILE = "news_db.json"
 
 NEWS_DB = {}  # {id: {... данные ...}}
 
+
+def make_news_id(item, index=0):
+    """Генерация детерминированного ID для новости"""
+    # Берём URL, если есть
+    key = (item.get("url") or "").strip()
+    if not key:
+        # fallback: title+date
+        key = f"{item.get('title','')}-{item.get('date','')}".strip()
+    if not key:
+        # fallback: preview (обрезаем)
+        key = item.get("preview", "")[:120]
+
+    # Возвращаем короткий sha256-хеш (16 символов)
+    return hashlib.sha256(key.encode("utf-8")).hexdigest()[:16]
 
 def safe_clean_text(text: str) -> str:
     if not text:
@@ -196,9 +212,9 @@ async def load_and_send_news_if_requested(bot: Bot, sent_ids: set):
         if not all(k in item for k in ["title", "source", "date", "url", "preview", "full_text"]):
             continue
         # генерируем id
-        item_id = f"{datetime.now().strftime('%Y%m%d%H%M%S')}{i}"
+        item_id = make_news_id(item, i)
         if item_id in sent_ids:
-            continue  # уже отправляли раньше
+            continue
         item["id"] = item_id
         # отправляем
         await send_to_moderation(bot, item, sent_ids)

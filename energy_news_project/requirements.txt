@@ -1,0 +1,8 @@
+feedparser
+requests
+beautifulsoup4
+transformers
+torch
+deep-translator
+python-telegram-bot
+
