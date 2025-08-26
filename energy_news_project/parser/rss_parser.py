@@ -31,7 +31,11 @@ RSS_FEEDS = [
     {"url": "https://www.pv-magazine.com/feed/", "name": "PV Magazine"},
     {"url": "https://www.renewableenergyworld.com/feed/", "name": "Renewable Energy World"},
     {"url": "https://www.greencarcongress.com/index.xml", "name": "Green Car Congress"},
-    {"url": "https://www.energy-storage.news/feed/", "name": "Energy Storage News"}
+    {"url": "https://www.energy-storage.news/feed/", "name": "Energy Storage News"},
+    {"url": "https://eenergy.media/rubric/news", "name": "E-Energy"},
+    {"url": "https://www.in-power.ru/news/alternativnayaenergetika", "name": "In-Power"},
+    {"url": "https://neftegaz.ru/news/Alternative-energy/", "name": "Neftegaz"},
+    {"url": "https://oilcapital.ru/tags/vie", "name": "Oilcapital"},
 ]
 
 def get_full_text(url):
