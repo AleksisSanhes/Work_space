@@ -35,7 +35,7 @@ RSS_FEEDS = [
     {"url": "https://eenergy.media/rubric/news", "name": "E-Energy"},
     {"url": "https://www.in-power.ru/news/alternativnayaenergetika", "name": "In-Power"},
     {"url": "https://neftegaz.ru/news/Alternative-energy/", "name": "Neftegaz"},
-    {"url": "https://oilcapital.ru/tags/vie", "name": "Oilcapital"},
+    {"url": "https://oilcapital.ru/rss", "name": "Oilcapital"},
 ]
 
 def get_full_text(url):

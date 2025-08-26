@@ -1,0 +1,1344 @@
+14:50:39 | INFO | Запуск парсера новостей
+14:50:39 | INFO | Парсинг RSS-фидов
+14:50:39 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/rossiyskiy-student-poshutil-pro-chay-i-blokadnyy-leningrad-i-poplatilsya/
+14:50:42 | INFO | Fetched 1022 chars | duration: 2.87 sec
+14:50:42 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/rossiyskiy-poselok-ostalsya-bez-vody/
+14:50:42 | INFO | Fetched 894 chars | duration: 0.08 sec
+14:50:42 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/diplomaty/
+14:50:43 | INFO | Fetched 1378 chars | duration: 0.05 sec
+14:50:43 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/v-gosdume-podveli-itogi-odnogo-etapa-spetsoperatsii/
+14:50:43 | INFO | Fetched 924 chars | duration: 0.04 sec
+14:50:43 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/yana-rudkovskaya-vyshla-v-svet-v-platie-stoimostyu-bolee-milliona-rubley/
+14:50:44 | INFO | Fetched 614 chars | duration: 1.05 sec
+14:50:44 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/kurier-spas-zhenschinu-blagodarya-krovavomu-poslaniyu-na-podushke/
+14:50:44 | INFO | Fetched 1307 chars | duration: 0.04 sec
+14:50:44 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/putin-prodlil-srok-sluzhby-predsedatelya-sledstvennogo-komiteta-rossii-bystrykina/
+14:50:44 | INFO | Fetched 580 chars | duration: 0.04 sec
+14:50:44 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/bezopasnost-max-usilili/
+14:50:44 | INFO | Fetched 986 chars | duration: 0.07 sec
+14:50:44 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/v-moskve-elektrichka-pereehala-perehodivshuyu-puti-devushku/
+14:50:44 | INFO | Fetched 698 chars | duration: 0.17 sec
+14:50:44 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/zelenskiy-anonsiroval-novye-vstrechi-po-garantiyam-bezopasnosti/
+14:50:44 | INFO | Fetched 878 chars | duration: 0.03 sec
+14:50:44 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/dvoe-rossiyan-raspravilis-s-nepriyatelyami-iz-za-isporchennoy-mashiny/
+16:31:12 | INFO | Запуск парсера новостей
+16:31:13 | INFO | Парсинг RSS-фидов
+16:31:13 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/pozhilym-podskazali-sposoby-sohranit-horoshuyu-pamyat-i-ostryy-um/
+16:31:13 | INFO | Fetched 1251 chars | duration: 0.04 sec
+16:31:13 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/zhenschina-kupila-v-restorane-roll-s-chelovecheskim-myasom/
+16:31:13 | INFO | Fetched 1380 chars | duration: 0.04 sec
+16:31:13 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/v-mid-rasskazali-o-popytkah-podorvat-dogovorennosti-rossii-i-ssha/
+16:31:13 | INFO | Fetched 544 chars | duration: 0.04 sec
+16:31:13 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/dzyuba-nazval-sposobnogo-privesti-spartak-k-chempionstvu-trenera/
+16:31:13 | INFO | Fetched 751 chars | duration: 0.22 sec
+16:31:13 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/amerikantsy-vyskazalis-ob-initsiative-trampa-po-ukraine/
+16:31:13 | INFO | Fetched 795 chars | duration: 0.04 sec
+16:31:13 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/strana-eaes-ob-yavila-o-stremlenii-povysheniya-urovnya-otnosheniy-s-velikobritaniey/
+16:31:14 | INFO | Fetched 1101 chars | duration: 0.05 sec
+16:31:14 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/posolstvo-rossii-v-kirgizii-rasskazalo-o-kontaktah-s-synom-alpinistki-nagovitsinoy/
+16:31:14 | INFO | Fetched 1167 chars | duration: 0.04 sec
+16:31:14 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/meditsina/
+16:31:14 | INFO | Fetched 2443 chars | duration: 0.04 sec
+16:31:14 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/v-rossii-razreshili-lishat-voditelskih-prav-za-pyanuyu-ezdu-na-elektrosamokate/
+16:31:14 | INFO | Fetched 769 chars | duration: 0.04 sec
+16:31:14 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/google/
+16:31:14 | INFO | Fetched 925 chars | duration: 0.03 sec
+16:31:14 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/kongressmeny-ssha-okazalis-v-opasnosti/
+16:31:14 | INFO | Fetched 1290 chars | duration: 0.04 sec
+16:31:14 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/stali-izvestny-masshtaby-vypuska-lada-iskra-na-byvshem-zavode-nissan/
+16:31:14 | INFO | Fetched 948 chars | duration: 0.03 sec
+16:31:14 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/s25fe/
+16:31:14 | INFO | Fetched 1341 chars | duration: 0.06 sec
+16:31:14 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/v-rossii-otsenili-sostoyanie-peregovorov-vokrug-ukrainy/
+16:31:14 | INFO | Fetched 2226 chars | duration: 0.04 sec
+16:31:14 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/v-morge-harkovskoy-oblasti-massovo-obvorovyvali-tela-boytsov-vsu/
+16:31:14 | INFO | Fetched 695 chars | duration: 0.04 sec
+16:31:14 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/rost/
+16:31:14 | INFO | Fetched 1168 chars | duration: 0.04 sec
+16:31:14 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/maksim-galkin-nakrasil-guby-i-primeril-platie-na-video/
+16:31:14 | INFO | Fetched 755 chars | duration: 0.05 sec
+16:31:14 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/otpravivshiesya-na-goru-v-kirgizii-alpinisty-vstretilis-s-nagovitsinoy-po-puti-i-ne-vyzhili/
+16:31:14 | INFO | Fetched 1438 chars | duration: 0.18 sec
+16:31:14 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/esche-odin-sotrudnik-eltsin-tsentra-poydet-pod-sud/
+16:31:14 | INFO | Fetched 932 chars | duration: 0.20 sec
+16:31:14 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/premier-frantsii-vyskazalsya-o-vozmozhnom-rospuske-parlamenta/
+16:31:15 | INFO | Fetched 798 chars | duration: 0.04 sec
+16:31:15 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/glava-mid-germanii-obratilsya-s-prizyvom-k-putinu/
+16:31:15 | INFO | Fetched 938 chars | duration: 0.06 sec
+16:31:15 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/uchiteley-rossiyskih-shkol-obyazhut-rasskazyvat-detyam-o-tolerantnosti-iz-za-migrantov/
+16:31:15 | INFO | Fetched 724 chars | duration: 0.18 sec
+16:31:15 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/na-avtozapravke-v-rossiyskom-regione-predotvraschen-terakt/
+16:31:15 | INFO | Fetched 930 chars | duration: 0.15 sec
+16:31:15 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/nazvan-plan-zapada-protiv-zelenskogo/
+16:31:15 | INFO | Fetched 650 chars | duration: 0.16 sec
+16:31:15 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/zarabatyvayuschego-20-millionov-za-kontsert-shnurova-prizvali-pomoch-boytsam-svo/
+16:31:15 | INFO | Fetched 1042 chars | duration: 0.18 sec
+16:31:15 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/zvezda-elok-prizvala-ne-ograzhdat-detey-ot-zhizni/
+16:31:15 | INFO | Fetched 929 chars | duration: 0.18 sec
+16:31:15 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/v-es-zahoteli-usilit-davlenie-na-rossiyu/
+16:31:16 | INFO | Fetched 1021 chars | duration: 0.17 sec
+16:31:16 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/zhena-dibrova-vyskazalas-ob-izmene-suprugu-i-podtverdila-novye-otnosheniya/
+16:31:16 | INFO | Fetched 1208 chars | duration: 0.20 sec
+16:31:16 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/kantsler-germanii-prigrozil-rossii-esli-vstrecha-putina-i-zelenskogo-ne-sostoitsya-chto-on-poobeschal-i-kakoy-otvet-iz-moskvy-poluchil/
+16:31:16 | INFO | Fetched 3110 chars | duration: 0.25 sec
+16:31:16 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/v-es-nazvali-obschuyu-summu-pomoschi-ukraine/
+16:31:16 | INFO | Fetched 812 chars | duration: 0.04 sec
+16:31:16 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/ii-nachal-otbirat-rabotu-u-molodyh-spetsialistov/
+16:31:16 | INFO | Fetched 1376 chars | duration: 0.04 sec
+16:31:16 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/putin-poruchil-obespechit-rossiyskiy-region-bronirovannymi-skorymi/
+16:31:16 | INFO | Fetched 937 chars | duration: 0.22 sec
+16:31:16 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/petrol/
+16:31:16 | INFO | Fetched 1663 chars | duration: 0.03 sec
+16:31:16 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/na-zapade-otsenili-sposobnye-atakovat-ssha-podlodki-rossii/
+16:31:17 | INFO | Fetched 1102 chars | duration: 0.19 sec
+16:31:17 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/rossiyanka-uehala-iz-doma-na-mashine-i-ischezla/
+16:31:17 | INFO | Fetched 678 chars | duration: 0.06 sec
+16:31:17 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/zhenschinu-oshtrafovali-na-desyat-tysyach-rubley-za-myaukanie-kota-v-poezde/
+16:31:17 | INFO | Fetched 1545 chars | duration: 0.23 sec
+16:31:17 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/v-rossii-dve-shkolnitsy-izbili-malchika-i-zastavili-ego-vstat-na-koleni/
+16:31:17 | INFO | Fetched 588 chars | duration: 0.20 sec
+16:31:17 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/rossiyskaya-aktrisa-rasskazala-o-stolknovenii-so-staey-bezdomnyh-sobak/
+16:31:17 | INFO | Fetched 798 chars | duration: 0.17 sec
+16:31:17 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/boliviya-poobeschala-razorvat-mnogomilliardnye-kontrakty-po-dobyche-litiya-chem-eto-grozit-rossii/
+16:31:17 | INFO | Fetched 2777 chars | duration: 0.04 sec
+16:31:17 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/vrach-razveyal-glavnye-mify-o-varikoze/
+16:31:17 | INFO | Fetched 1126 chars | duration: 0.04 sec
+16:31:17 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/izbivavshaya-detey-na-kameru-banda-podrostkov-izbezhala-nakazaniya-v-rossiyskom-regione/
+16:31:18 | INFO | Fetched 806 chars | duration: 0.21 sec
+16:31:18 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/v-litve-nachalis-massovye-protesty-protiv-novoy-pravyaschey-koalitsii/
+16:31:18 | INFO | Fetched 884 chars | duration: 0.18 sec
+16:31:18 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/v-belgii-otsenili-posledstviya-konfiskatsii-rossiyskih-aktivov/
+16:31:18 | INFO | Fetched 1210 chars | duration: 0.07 sec
+16:31:18 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/pugachevoy-predrekli-finansovye-problemy-iz-za-poteri-tovarnogo-znaka/
+16:31:18 | INFO | Fetched 837 chars | duration: 0.04 sec
+16:31:18 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/dzyuba-otsenil-konkurentosposobnost-klubov-rpl-v-evropeyskih-turnirah/
+16:31:18 | INFO | Fetched 711 chars | duration: 0.04 sec
+16:31:18 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/rossiyanke-s-10-detmi-iz-kavkazskogo-regiona-dvazhdy-otkazali-v-zvanii-mat-geroinya/
+16:31:18 | INFO | Fetched 1845 chars | duration: 0.06 sec
+16:31:18 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/studentka-popala-v-bolnitsu-posle-ukusa-skorpiona-v-primerochnoy-zara/
+16:31:18 | INFO | Fetched 1302 chars | duration: 0.04 sec
+16:31:18 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/otsenena-pereplata-rossiyan-po-ipoteke/
+16:31:18 | INFO | Fetched 1077 chars | duration: 0.15 sec
+16:31:18 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/glava-zenita-sygraet-v-kubke-rossii-v-vozraste-70-let/
+16:31:19 | INFO | Fetched 836 chars | duration: 0.18 sec
+16:31:19 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/slova-blagodarnosti-rukovodstvu-strany-vsemu-kitayskomu-narodu-za-takoe-vnimanie-zabotu-o-memorialah-osvoboditelyam-tem-kto-pogib-otdav-svoyu-zhizn-radi-svobody-kitayskogo-naroda-mira-na-zemle/
+16:31:19 | INFO | Fetched 1103 chars | duration: 0.06 sec
+16:31:19 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/passazhir-samoleta-byl-iskusan-obitavshimi-v-kresle-klopami-i-napugal-polzovateley-seti/
+16:31:19 | INFO | Fetched 1043 chars | duration: 0.18 sec
+16:31:19 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/osuzhdennyy-eks-general-popov-vydvinul-uslovie-dlya-svoego-uchastiya-v-svo-kakoe/
+16:31:19 | INFO | Fetched 3078 chars | duration: 0.06 sec
+16:31:19 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/v-germanii-vozmutilis-mnogomilliardnymi-tratami-na-ukrainu/
+16:31:19 | INFO | Fetched 1233 chars | duration: 0.04 sec
+16:31:19 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/krupneyshiy-v-mire-pensionnyy-fond-prodal-aktsii-caterpillar-iz-za-buldozerov-v-gaze/
+16:31:19 | INFO | Fetched 1232 chars | duration: 0.16 sec
+16:31:19 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/v-vsu-nazvali-bespoleznymi-peredannye-nato-bespilotniki/
+16:31:19 | INFO | Fetched 1061 chars | duration: 0.17 sec
+16:31:19 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/eks-sotrudnika-yandeksa-irina-prigovorili-k-15-godam-kolonii/
+16:31:19 | INFO | Fetched 841 chars | duration: 0.04 sec
+16:31:19 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/v-peterburge-za-10-let-postroyat-16-novyh-stantsiy-metro/
+16:31:19 | INFO | Fetched 1789 chars | duration: 0.19 sec
+16:31:20 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/rossiyanin-treboval-ot-10-letney-devochki-obnazhennye-foto/
+16:31:20 | INFO | Fetched 869 chars | duration: 0.04 sec
+16:31:20 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/v-rossii-ustanovili-vremya-na-vypolnenie-shkolnikami-domashnego-zadaniya/
+16:31:20 | INFO | Fetched 866 chars | duration: 0.04 sec
+16:31:20 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/akter-iz-igry-prestolov-otreagiroval-na-popadanie-v-spisok-ugroz-bezopasnosti-ukrainy/
+16:31:20 | INFO | Fetched 694 chars | duration: 0.04 sec
+16:31:20 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/punctum/
+16:31:20 | INFO | Fetched 1706 chars | duration: 0.04 sec
+16:31:20 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/nazvano-vozmozhnoe-mesto-zapuska-atakovavshih-peterburg-bespilotnikov-vsu/
+16:31:20 | INFO | Fetched 865 chars | duration: 0.04 sec
+16:31:20 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/dvoe-migrantov-ustroili-gruppovoe-iznasilovanie-rossiyanki/
+16:31:20 | INFO | Fetched 857 chars | duration: 0.19 sec
+16:31:20 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/rossiyskie-shturmoviki-stolknulis-v-strelkovom-boyu-s-polskimi-naemnikami/
+16:31:20 | INFO | Fetched 666 chars | duration: 0.18 sec
+16:31:20 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/taro/
+16:31:20 | INFO | Fetched 1214 chars | duration: 0.19 sec
+16:31:20 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/es-oprotestoval-otkaz-polshi-soderzhat-bezrabotnyh-ukraintsev/
+16:31:21 | INFO | Fetched 698 chars | duration: 0.17 sec
+16:31:21 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/v-rade-zaluzhnogo-nazvali-bratom-bliznetsom-zelenskogo/
+16:31:21 | INFO | Fetched 794 chars | duration: 0.22 sec
+16:31:21 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/eks-glavkom-vsu-predlozhil-izuchat-istoriyu-azova-v-ukrainskih-shkolah/
+16:31:21 | INFO | Fetched 1043 chars | duration: 0.05 sec
+16:31:21 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/rossiyskiy-student-poshutil-pro-chay-i-blokadnyy-leningrad-i-poplatilsya/
+16:31:21 | INFO | Fetched 1028 chars | duration: 0.22 sec
+16:31:21 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/rossiyskiy-poselok-ostalsya-bez-vody/
+16:31:21 | INFO | Fetched 894 chars | duration: 0.03 sec
+16:31:21 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/diplomaty/
+16:31:21 | INFO | Fetched 1390 chars | duration: 0.05 sec
+16:31:21 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/v-gosdume-podveli-itogi-odnogo-etapa-spetsoperatsii/
+16:31:21 | INFO | Fetched 924 chars | duration: 0.04 sec
+16:31:21 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/yana-rudkovskaya-vyshla-v-svet-v-platie-stoimostyu-bolee-milliona-rubley/
+16:31:21 | INFO | Fetched 614 chars | duration: 0.03 sec
+16:31:21 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/kurier-spas-zhenschinu-blagodarya-krovavomu-poslaniyu-na-podushke/
+16:31:21 | INFO | Fetched 1307 chars | duration: 0.04 sec
+16:31:21 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/putin-prodlil-srok-sluzhby-predsedatelya-sledstvennogo-komiteta-rossii-bystrykina/
+16:31:21 | INFO | Fetched 569 chars | duration: 0.03 sec
+16:31:21 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/v-moskve-elektrichka-pereehala-perehodivshuyu-puti-devushku/
+16:31:21 | INFO | Fetched 698 chars | duration: 0.10 sec
+16:31:21 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/bezopasnost-max-usilili/
+16:31:22 | INFO | Fetched 986 chars | duration: 0.18 sec
+16:31:22 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/zelenskiy-anonsiroval-novye-vstrechi-po-garantiyam-bezopasnosti/
+16:31:22 | INFO | Fetched 878 chars | duration: 0.04 sec
+16:31:22 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/dvoe-rossiyan-raspravilis-s-nepriyatelyami-iz-za-isporchennoy-mashiny/
+16:31:22 | INFO | Fetched 1091 chars | duration: 0.28 sec
+16:31:22 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/vuchich-serdechno-pogovoril-s-lavrovym/
+16:31:22 | INFO | Fetched 1043 chars | duration: 0.04 sec
+16:31:22 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/zastryavshaya-v-gorah-rossiyanka-okazalas-ryadom-s-ne-vyzhivshim-10-let-nazad-alpinistom/
+16:31:22 | INFO | Fetched 1375 chars | duration: 0.05 sec
+16:31:22 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/zvezda-operatsii-y-rasskazala-o-svoem-sostoyanii-posle-vyzova-skoroy/
+16:31:22 | INFO | Fetched 822 chars | duration: 0.20 sec
+16:31:22 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/v-rossii-devushka-ogolilas-vozle-mecheti-i-popala-na-video/
+16:31:22 | INFO | Fetched 760 chars | duration: 0.18 sec
+16:31:22 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/otkryt-sposob-zamedleniya-stareniya-mozga/
+16:31:22 | INFO | Fetched 1458 chars | duration: 0.06 sec
+16:31:22 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/zamglavy-mid-rossii-vstretilsya-s-poslom-turtsii/
+16:31:23 | INFO | Fetched 822 chars | duration: 0.16 sec
+16:31:23 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/iran-poobeschal-prinyat-otvetnye-mery-na-odno-reshenie-ukrainy/
+16:31:23 | INFO | Fetched 987 chars | duration: 0.04 sec
+16:31:23 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/vrach-perechislila-polozhitelnye-izmeneniya-v-organizme-posle-otkaza-ot-sahara/
+16:31:23 | INFO | Fetched 1126 chars | duration: 0.16 sec
+16:31:23 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/v-polshe-nazvali-sroki-priravnivaniya-banderovskoy-simvoliki-k-fashistskoy/
+16:31:23 | INFO | Fetched 882 chars | duration: 0.18 sec
+16:31:23 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/oppozitsiya-moldavii-zayavila-o-zahvate-vseh-gosuchrezhdeniy-strany/
+16:31:23 | INFO | Fetched 965 chars | duration: 0.04 sec
+16:31:23 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/regulyator-obyazal-banki-soobschat-o-prichinah-blokirovok-kart/
+16:31:23 | INFO | Fetched 1189 chars | duration: 0.18 sec
+16:31:23 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/afganistan-predlozhil/
+16:31:23 | INFO | Fetched 1290 chars | duration: 0.04 sec
+16:31:23 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/protiv-organizovavshey-voshozhdenie-alpinistki-turfirmy-vozbudyat-ugolovnoe-delo-v-kirgizii/
+16:31:24 | INFO | Fetched 1128 chars | duration: 0.29 sec
+16:31:24 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/bonya-obmaterila-blogera-inoagenta-i-prigrozila-otrubit-emu-golovu/
+16:31:24 | INFO | Fetched 1484 chars | duration: 0.04 sec
+16:31:24 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/aktsii-krupneyshego-v-mire-proizvoditelya-titana-rezko-podorozhali-posle-slov-manturova/
+16:31:24 | INFO | Fetched 1057 chars | duration: 0.18 sec
+16:31:24 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/v-rossii-nashli-sposob-povysit-tochnost-diagnostiki-dtsp-i-terapii-dlya-novorozhdennyh/
+16:31:24 | INFO | Fetched 1635 chars | duration: 0.04 sec
+16:31:24 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/plenennyy-zhitel-sudzhi-rasskazal-o-vyvoze-lyudey-na-ukrainu/
+16:31:24 | INFO | Fetched 1019 chars | duration: 0.24 sec
+16:31:24 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/rossiyanin-neskolko-dney-dreyfoval-s-mertvym-bratom-po-reke-na-slomannoy-lodke/
+16:31:24 | INFO | Fetched 941 chars | duration: 0.19 sec
+16:31:24 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/v-rossii-otvetili-na-ugrozy-mertsa/
+16:31:25 | INFO | Fetched 1473 chars | duration: 0.17 sec
+16:31:25 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/ukrainka-ne-perezhila-vstrechu-s-amerikasnkim-bomzhom/
+16:31:25 | INFO | Fetched 697 chars | duration: 0.18 sec
+16:31:25 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/byvshaya-vozlyublennaya-rossiyskogo-milliardera-vyskazalas-o-plastike-grudi/
+16:31:25 | INFO | Fetched 822 chars | duration: 0.20 sec
+16:31:25 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/na-ukraine-zayavili-ob-ugroze-blokady-hersona/
+16:31:25 | INFO | Fetched 1230 chars | duration: 0.20 sec
+16:31:25 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/denis-maydanov-otsenil-krym/
+16:31:25 | INFO | Fetched 714 chars | duration: 0.16 sec
+16:31:25 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/mid-katara-zayavil-o-nezhelanii-izrailya-dat-otvet-na-predlozhenie-po-gaze/
+16:31:25 | INFO | Fetched 887 chars | duration: 0.16 sec
+16:31:25 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/poluchivshiy-rossiyskiy-pasport-igrok-kluba-khl-zayavil-o-zhelanii-polnostyu-stat-russkim/
+16:31:26 | INFO | Fetched 606 chars | duration: 0.23 sec
+16:31:26 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/rossiyanin-razmeschal-v-sotsialnyh-setyah-prizyvy-k-rasprave-nad-silovikami-i-poplatilsya/
+16:31:26 | INFO | Fetched 900 chars | duration: 0.21 sec
+16:31:26 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/pogoda-snova-pomeshala-spasatelyam-zapustit-dron-k-zastryavshey-na-pike-pobedy-rossiyanke/
+16:31:26 | INFO | Fetched 1305 chars | duration: 0.20 sec
+16:31:26 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/v-rpts-prokommentirovali-temu-blagoslovleniya-bankovskih-kart/
+16:31:26 | INFO | Fetched 1151 chars | duration: 0.22 sec
+16:31:26 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/v-rossiyskom-pravitelstve-vyskazalis-o-vozobnovlenii-raboty-s-boeing/
+16:31:27 | INFO | Fetched 1526 chars | duration: 0.65 sec
+16:31:27 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/vengriya-prigrozila-ukraine-katastroficheskimi-trudnostyami/
+16:31:27 | INFO | Fetched 1111 chars | duration: 0.06 sec
+16:31:27 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/premier-kanady-rasskazal-o-novyh-merah-protiv-rossii/
+16:31:27 | INFO | Fetched 1065 chars | duration: 0.21 sec
+16:31:27 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/max-smartphones/
+16:31:28 | INFO | Fetched 1364 chars | duration: 0.69 sec
+16:31:28 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/ukraina-stala-prichinoy-otorvannosti-vlastey-odnoy-evropeyskoy-strany-ot-interesov-grazhdan/
+16:31:28 | INFO | Fetched 955 chars | duration: 0.18 sec
+16:31:28 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/rossiyskih-eskortnits-priravnyali-k-prostitutkam/
+16:31:28 | INFO | Fetched 455 chars | duration: 0.15 sec
+16:31:28 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/presnyakov-opisal-razvod-uehavshego-v-ssha-syna-frazoy-eto-nazrevalo/
+16:31:29 | INFO | Fetched 915 chars | duration: 0.22 sec
+16:31:29 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/rossiyskiy-sud-opredelilsya-s-seks-guru-aleksom-lesli/
+16:31:29 | INFO | Fetched 573 chars | duration: 0.17 sec
+16:31:29 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/doch-peskova-zapodozrili-v-beremennosti-iz-za-novyh-foto/
+16:31:29 | INFO | Fetched 825 chars | duration: 0.24 sec
+16:31:29 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/tramp-neskolko-raz-pozvonil-premieru-indii-i-ne-dozvonilsya/
+16:31:29 | INFO | Fetched 567 chars | duration: 0.22 sec
+16:31:29 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/stalo-izvestno-o-posledstviyah-razrushitelnogo-pozhara-v-germanii/
+16:31:29 | INFO | Fetched 1308 chars | duration: 0.19 sec
+16:31:29 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/stop-coal/
+16:31:29 | INFO | Fetched 2121 chars | duration: 0.03 sec
+16:31:29 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/amerikanskaya-zvezda-boevikov-90-h-zahotel-porabotat-s-yuroy-borisovym/
+16:31:30 | INFO | Fetched 574 chars | duration: 0.17 sec
+16:31:30 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/oblomki-ukrainskogo-bpla-nashli-v-estonii/
+16:31:30 | INFO | Fetched 884 chars | duration: 0.19 sec
+16:31:30 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/lishennyy-zvaniya-general-rossiyskoy-armii-ivan-popov-raskryl-usloviya-svoego-uchastiya-v-svo/
+16:31:30 | INFO | Fetched 936 chars | duration: 0.17 sec
+16:31:30 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/vizovyy-tsentr-populyarnoy-strany-evropy-vozobnovil-rabotu-v-rossiyskom-gorode/
+16:31:30 | INFO | Fetched 491 chars | duration: 0.14 sec
+16:31:30 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/privychku-sderzhivat-slezy-sochli-opasnoy-dlya-zdorovya/
+16:31:30 | INFO | Fetched 960 chars | duration: 0.15 sec
+16:31:30 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/v-peterburge-nachali-rabotat-raspoznayuschie-natsionalnost-videokamery/
+16:31:31 | INFO | Fetched 831 chars | duration: 0.21 sec
+16:31:31 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/moschnaya-peschanaya-burya-obrushilas-na-ssha-i-popala-na-video/
+16:31:31 | INFO | Fetched 613 chars | duration: 0.03 sec
+16:31:31 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/ne-vedites/
+16:31:31 | INFO | Fetched 1289 chars | duration: 0.17 sec
+16:31:31 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/pozdravivshuyu-vakarchuka-s-nagradoy-ot-zelenskogo-pugachevu-otsenili-frazoy-sela-v-luzhu/
+16:31:31 | INFO | Fetched 1290 chars | duration: 0.16 sec
+16:31:31 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/boets-svo-popal-v-okruzhenie-i-mesyats-pisal-proschalnye-pisma-semie/
+16:31:31 | INFO | Fetched 800 chars | duration: 0.20 sec
+16:31:31 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/desyatki-tysyach-pakistantsev-poterpeli-gumanitarnuyu-katastrofu-iz-za-indii/
+16:31:31 | INFO | Fetched 633 chars | duration: 0.05 sec
+16:31:31 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/china-weapon/
+16:31:31 | INFO | Fetched 1475 chars | duration: 0.20 sec
+16:31:31 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/na-ukraine-priznali-poteryu-dvuh-sel-na-granitse-dnepropetrovskoy-oblasti/
+16:31:32 | INFO | Fetched 669 chars | duration: 0.15 sec
+16:31:32 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/zhena-aleksandra-tsekalo-raskryla-prichinu-pohudeniya/
+16:31:32 | INFO | Fetched 807 chars | duration: 0.16 sec
+16:31:32 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/voevavshego-protiv-rossiyskoy-armii-naemnika-iz-ssha-osudyat-zaochno/
+16:31:32 | INFO | Fetched 1064 chars | duration: 0.18 sec
+16:31:32 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/nazvana-prichina-smerti-zvezdy-sklifosovskogo-aptovtseva/
+16:31:32 | INFO | Fetched 721 chars | duration: 0.17 sec
+16:31:32 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/merts-prigrozil-rossii/
+16:31:32 | INFO | Fetched 962 chars | duration: 0.20 sec
+16:31:32 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/makrona-zahoteli-otstranit-ot-vlasti/
+16:31:32 | INFO | Fetched 990 chars | duration: 0.19 sec
+16:31:32 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/trampa-zapodozrili-v-podgotovke-energeticheskoy-sdelki-s-rossiey/
+16:31:33 | INFO | Fetched 1250 chars | duration: 0.19 sec
+16:31:33 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/stop-oil/
+16:31:33 | INFO | Fetched 1803 chars | duration: 0.05 sec
+16:31:33 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/soobschenie-o-torgovle-kradenym-zernom-cherez-porty-mariupolya-i-berdyanska-okazalos-feykom/
+16:31:33 | INFO | Fetched 1959 chars | duration: 0.20 sec
+16:31:33 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/ukradennuyu-natsistami-kartinu-nashli-na-drugom-kontse-sveta-blagodarya-saytu-rieltora/
+16:31:33 | INFO | Fetched 1499 chars | duration: 0.23 sec
+16:31:33 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/raspravu-nad-militsionerom-v-rossiyskom-regione-raskryli-spustya-19-let/
+16:31:33 | INFO | Fetched 882 chars | duration: 0.19 sec
+16:31:33 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/bespilotnik-v-nebe-nad-rossiyskim-megapolisom-snyali-na-video/
+16:31:33 | INFO | Fetched 590 chars | duration: 0.14 sec
+16:31:33 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/es/
+16:31:34 | INFO | Fetched 2008 chars | duration: 0.18 sec
+16:31:34 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/lovelas-provernul-moshennicheskuyu-shemu-na-sotni-tysyach-rubley-s-odinokimi-rossiyankami/
+16:31:34 | INFO | Fetched 1246 chars | duration: 0.20 sec
+16:31:34 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/anapa-zagorelas/
+16:31:34 | INFO | Fetched 680 chars | duration: 0.16 sec
+16:31:34 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/nad-ukrainoy-zametili-neopoznannyy-samolet/
+16:31:34 | INFO | Fetched 447 chars | duration: 0.18 sec
+16:31:34 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/zvezda-sklifosovskogo-aleksey-aptovtsev-umer-za-nedelyu-do-yubileya/
+16:31:34 | INFO | Fetched 958 chars | duration: 0.19 sec
+16:31:34 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/vnezapno-okazavshihsya-v-rossii-passazhirov-reysa-iz-velikobritanii-razmestyat-v-terminale/
+16:31:35 | INFO | Fetched 989 chars | duration: 0.18 sec
+16:31:35 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/obvinenuyu-v-svyazyah-s-rossiey-politika-naznachili-premierom-litvy/
+16:31:35 | INFO | Fetched 758 chars | duration: 0.15 sec
+16:31:35 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/vnezapno-okazavshihsya-v-rossii-passazhirov-reysa-iz-velikobritanii-vypustili-i-nakormyat/
+16:31:35 | INFO | Fetched 741 chars | duration: 0.16 sec
+16:31:35 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/shalyapin-otvetil-na-obvineniya-v-tuneyadstve/
+16:31:35 | INFO | Fetched 965 chars | duration: 0.15 sec
+16:31:35 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/v-rossii-prizvali-sdelat-vse-byudzhetnye-mesta-meditsinskogo-obrazovaniya-tselevymi/
+16:31:35 | INFO | Fetched 877 chars | duration: 0.22 sec
+16:31:35 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/nayden-effektivnyy-sposob-predotvratit-razvitie-diabeta/
+16:31:36 | INFO | Fetched 1459 chars | duration: 0.20 sec
+16:31:36 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/s-sayta-zelenskogo-propal-russkiy-yazyk/
+16:31:36 | INFO | Fetched 995 chars | duration: 0.16 sec
+16:31:36 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/mat-troih-detey-vydavila-prysch-i-okazalas-v-bolnitse/
+16:31:36 | INFO | Fetched 1550 chars | duration: 0.18 sec
+16:31:36 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/v-sbornoy-brazilii-prokommentirovali-vyzov-poluchivshego-rossiyskiy-pasport-igroka-zenita/
+16:31:36 | INFO | Fetched 735 chars | duration: 0.21 sec
+16:31:36 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/vozlyublennaya-pavla-durova-pokazala-figuru-v-bikini/
+16:31:36 | INFO | Fetched 826 chars | duration: 0.17 sec
+16:31:36 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/na-ukraine-pozhalovalis-na-rossiyskoe-prevoshodstvo-v-gonke-bpla/
+16:31:36 | INFO | Fetched 726 chars | duration: 0.17 sec
+16:31:36 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/nazvan-vozmozhnyy-otvet-orbana-na-shantazh-so-storony-zelenskogo/
+16:31:37 | INFO | Fetched 1223 chars | duration: 0.19 sec
+16:31:37 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/sotni-passazhirov-iz-velikobritanii-nezaplanirovanno-okazalis-v-nizhnevartovske-ih-zaperli-v-salone-samoleta-chto-izvestno/
+16:31:37 | INFO | Fetched 1399 chars | duration: 0.20 sec
+16:31:37 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/migrant-reshil-pohitit-sdelavshego-zamechanie-ego-detyam-rossiyskogo-podrostka/
+16:31:37 | INFO | Fetched 972 chars | duration: 0.18 sec
+16:31:37 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/kandidat-v-prezidenty-bolivii-poobeschal-razorvat-krupnye-kontrakty-s-rossiey/
+16:31:37 | INFO | Fetched 926 chars | duration: 0.20 sec
+16:31:37 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/na-zapade-zayavili-o-zavershenii-proekta-ukraina/
+16:31:37 | INFO | Fetched 674 chars | duration: 0.22 sec
+16:31:37 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/predskazano-razrushenie-mira-nemetskih-pivovaren/
+16:31:37 | INFO | Fetched 1027 chars | duration: 0.03 sec
+16:31:38 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/v-rossii-uzhestochat-pravila-oformleniya-ohotnichiego-bileta/
+16:31:38 | INFO | Fetched 920 chars | duration: 0.17 sec
+16:31:38 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/vsu-vypustili-po-rossii-raketu-neptun/
+16:31:38 | INFO | Fetched 541 chars | duration: 0.20 sec
+16:31:38 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/20-metrovaya-yahta-za-80-millionov-rubley-popala-v-dtp-na-trasse-v-podmoskovie/
+16:31:38 | INFO | Fetched 762 chars | duration: 0.18 sec
+16:31:38 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/sud-otkazalsya-brat-pod-strazhu-rossiyanina-za-sozhzhenie-muzhchiny-v-pechi/
+16:31:38 | INFO | Fetched 925 chars | duration: 0.18 sec
+16:31:38 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/bastrykin-poruchil-spasti-zastryavshuyu-v-gorah-kirgizii-rossiyanku/
+16:31:38 | INFO | Fetched 896 chars | duration: 0.20 sec
+16:31:38 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/raskryta-stoimost-vystupleniya-leontieva-na-chastnoy-vecherinke/
+16:31:39 | INFO | Fetched 608 chars | duration: 0.17 sec
+16:31:39 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/zaharova-otreagirovala-na-obraschenie-syna-zastryavshey-v-gorah-kirgizii-alpinistki/
+16:31:39 | INFO | Fetched 1225 chars | duration: 0.17 sec
+16:31:39 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/kirkorov-vyskazalsya-o-vystuplenii-leontieva-v-rossii/
+16:31:39 | INFO | Fetched 961 chars | duration: 0.19 sec
+16:31:39 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/daniyu-osudili-za-razreshenie-ukraine-naladit-proizvodstvo-vooruzheniya-na-datskoy-territorii/
+16:31:39 | INFO | Fetched 1111 chars | duration: 0.16 sec
+16:31:39 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/sobyanin-napomnil-o-novyh-merah-po-kontrolyu-za-migrantami-v-moskve/
+16:31:39 | INFO | Fetched 898 chars | duration: 0.20 sec
+16:31:39 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/analitiki-uluchshili-prognozy-po-urozhayu-rossiyskoy-pshenitsy/
+16:31:40 | INFO | Fetched 1199 chars | duration: 0.20 sec
+16:31:40 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/sbezhavshego-v-les-ispolnitelya-terakta-v-krokuse-snimali-s-dereva-chto-esche-stalo-izvestno-o-pogone-za-terroristami/
+16:31:40 | INFO | Fetched 3637 chars | duration: 0.22 sec
+16:31:40 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/zhena-propavshego-v-bosfore-plovtsa-obratilas-za-pomoschyu-k-rossiyskim-turistam/
+16:31:40 | INFO | Fetched 1135 chars | duration: 0.25 sec
+16:31:40 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/stalo-izvestno-o-skorom-uhode-safonova-iz-pszh/
+16:31:40 | INFO | Fetched 686 chars | duration: 0.20 sec
+16:31:40 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/nord/
+16:31:40 | INFO | Fetched 1159 chars | duration: 0.03 sec
+16:31:40 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/v-rossii-vyskazalis-o-planah-po-ekonomicheskomu-sotrudnichestvu-s-ssha/
+16:31:41 | INFO | Fetched 1867 chars | duration: 0.20 sec
+16:31:41 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/zhena-futbolista-smolova-opublikovala-foto-bez-trusov/
+16:31:41 | INFO | Fetched 735 chars | duration: 0.20 sec
+16:31:41 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/rossiyanka-popala-v-bolnitsu-s-torchaschey-iz-glaza-vetkoy/
+16:31:41 | INFO | Fetched 769 chars | duration: 0.17 sec
+16:31:41 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/delfin-popytalsya-utopit-dvuh-zhenschin/
+16:31:41 | INFO | Fetched 1020 chars | duration: 0.05 sec
+16:31:41 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/mincifry/
+16:31:41 | INFO | Fetched 1786 chars | duration: 0.22 sec
+16:31:41 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/rossiyskaya-shkolnitsa/
+16:31:41 | INFO | Fetched 815 chars | duration: 0.21 sec
+16:31:41 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/v-peterburge-masshtabnyy-reyd-po-mestam-prozhivaniya-migrantov-snyali-na-video/
+16:31:42 | INFO | Fetched 668 chars | duration: 0.17 sec
+16:31:42 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/novyy-preparat-prevzoshel-suschestvuyuschie-sredstva-dlya-pohudeniya/
+16:31:42 | INFO | Fetched 1617 chars | duration: 0.24 sec
+16:31:42 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/benzin/
+16:31:42 | INFO | Fetched 2348 chars | duration: 0.62 sec
+16:31:42 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/tramp-zabral-ruchku-inostrannogo-lidera/
+16:31:43 | INFO | Fetched 1036 chars | duration: 0.17 sec
+16:31:43 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/zaluzhnyy-priznal-preimuschestvo-rossiyskoy-voennoy-nauki/
+16:31:43 | INFO | Fetched 878 chars | duration: 0.17 sec
+16:31:43 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/vernuvshiysya-iz-plena-zhitel-sudzhi-rasskazal-o-ranivshih-ego-iz-avtomata-boytsah-vsu/
+16:31:43 | INFO | Fetched 1344 chars | duration: 0.19 sec
+16:31:43 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/zaluzhnyy-rasskazal-ob-odnom-predlozhenii-iz-rossiii/
+16:31:43 | INFO | Fetched 913 chars | duration: 0.18 sec
+16:31:43 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/delo-o-zhestokoy-rasprave-nad-devochkoy-posle-popytki-ee-iznasilovat-peredali-v-sud/
+16:31:43 | INFO | Fetched 1225 chars | duration: 0.04 sec
+16:31:43 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/sobyanin-otreagiroval-na-ideyu-vvesti-turisticheskiy-nalog-v-moskve/
+16:31:43 | INFO | Fetched 585 chars | duration: 0.17 sec
+16:31:43 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/prolityy-chay-ne-dal-slepoy-dolgozhitelnitse-otprazdnovat-100-letie/
+16:31:44 | INFO | Fetched 1163 chars | duration: 0.21 sec
+16:31:44 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/rossiyskiy-voenkor-vyskazalsya-o-rasprave-nad-storonnikom-russkoy-obschiny-pod-moskvoy/
+16:31:44 | INFO | Fetched 875 chars | duration: 0.16 sec
+16:31:44 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/pugachevu-nazvali-babushkoy-v-marazme-posle-pozdravleniya-vakarchuka-s-nagradoy-ot-zelenskogo/
+16:31:44 | INFO | Fetched 1053 chars | duration: 0.17 sec
+16:31:44 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/v-gosdume-ukazali-na-odin-trevozhnyy-priznak-dlya-evropy-v-povedenii-zelenskogo/
+16:31:44 | INFO | Fetched 1237 chars | duration: 0.19 sec
+16:31:44 | INFO | Fetching full text: https://lenta.ru/news/2025/08/26/mery/
+16:31:44 | INFO | Fetched 1595 chars | duration: 0.20 sec
+16:31:44 | INFO | Fetching full text: https://www.sport-interfax.ru/1044115
+16:31:45 | INFO | Fetched 898 chars | duration: 0.16 sec
+16:31:45 | INFO | Fetching full text: https://www.interfax.ru/russia/1044114
+16:31:45 | INFO | Fetched 1475 chars | duration: 0.06 sec
+16:31:45 | INFO | Fetching full text: https://www.interfax.ru/business/1044113
+16:31:45 | INFO | Fetched 766 chars | duration: 0.06 sec
+16:31:45 | INFO | Fetching full text: https://www.interfax.ru/world/1044110
+16:31:45 | INFO | Fetched 1623 chars | duration: 0.04 sec
+16:31:45 | INFO | Fetching full text: https://www.interfax.ru/russia/1044107
+16:31:45 | INFO | Fetched 1022 chars | duration: 0.05 sec
+16:31:45 | INFO | Fetching full text: https://www.interfax.ru/world/1044112
+16:31:45 | INFO | Fetched 1841 chars | duration: 0.05 sec
+16:31:45 | INFO | Fetching full text: https://www.interfax.ru/world/1044109
+16:31:45 | INFO | Fetched 1000 chars | duration: 0.05 sec
+16:31:45 | INFO | Fetching full text: https://www.interfax.ru/business/1044108
+16:31:45 | INFO | Fetched 871 chars | duration: 0.06 sec
+16:31:45 | INFO | Fetching full text: https://www.interfax.ru/russia/1044106
+16:31:45 | INFO | Fetched 1219 chars | duration: 0.05 sec
+16:31:45 | INFO | Fetching full text: https://www.interfax.ru/business/1044105
+16:31:45 | INFO | Fetched 1629 chars | duration: 0.06 sec
+16:31:45 | INFO | Fetching full text: https://www.interfax.ru/world/1044104
+16:31:45 | INFO | Fetched 1262 chars | duration: 0.05 sec
+16:31:45 | INFO | Fetching full text: https://www.interfax.ru/world/1044103
+16:31:45 | INFO | Fetched 1895 chars | duration: 0.05 sec
+16:31:45 | INFO | Fetching full text: https://www.interfax.ru/business/1044102
+16:31:45 | INFO | Fetched 2297 chars | duration: 0.06 sec
+16:31:45 | INFO | Fetching full text: https://www.interfax.ru/world/1044101
+16:31:45 | INFO | Fetched 923 chars | duration: 0.05 sec
+16:31:45 | INFO | Fetching full text: https://www.interfax.ru/business/1044100
+16:31:45 | INFO | Fetched 1272 chars | duration: 0.05 sec
+16:31:45 | INFO | Fetching full text: https://www.interfax.ru/russia/1044099
+16:31:46 | INFO | Fetched 1385 chars | duration: 0.06 sec
+16:31:46 | INFO | Fetching full text: https://www.interfax.ru/russia/1044098
+16:31:46 | INFO | Fetched 1812 chars | duration: 0.05 sec
+16:31:46 | INFO | Fetching full text: https://www.interfax.ru/russia/1044095
+16:31:46 | INFO | Fetched 813 chars | duration: 0.04 sec
+16:31:46 | INFO | Fetching full text: https://www.interfax.ru/russia/1044097
+16:31:46 | INFO | Fetched 3354 chars | duration: 0.04 sec
+16:31:46 | INFO | Fetching full text: https://www.interfax.ru/russia/1044096
+16:31:46 | INFO | Fetched 1189 chars | duration: 0.04 sec
+16:31:46 | INFO | Fetching full text: https://www.interfax.ru/business/1044094
+16:31:46 | INFO | Fetched 864 chars | duration: 0.05 sec
+16:31:46 | INFO | Fetching full text: https://www.interfax.ru/world/1044092
+16:31:46 | INFO | Fetched 1525 chars | duration: 0.06 sec
+16:31:46 | INFO | Fetching full text: https://www.interfax.ru/business/1044093
+16:31:46 | INFO | Fetched 1331 chars | duration: 0.05 sec
+16:31:46 | INFO | Fetching full text: https://www.interfax.ru/world/1044090
+16:31:46 | INFO | Fetched 2642 chars | duration: 0.04 sec
+16:31:46 | INFO | Fetching full text: https://www.interfax.ru/russia/1044089
+16:31:46 | INFO | Fetched 4191 chars | duration: 0.06 sec
+16:31:46 | INFO | Fetching full text: https://ria.ru/20250826/sk-2037700738.html
+16:31:46 | INFO | Fetched 0 chars | duration: 0.07 sec
+16:31:46 | INFO | Fetching full text: https://ria.ru/20250826/vozgoranie-2037700493.html
+16:31:46 | INFO | Fetched 0 chars | duration: 0.06 sec
+16:31:46 | INFO | Fetching full text: https://ria.ru/20250826/dengi-2037700211.html
+16:31:47 | INFO | Fetched 0 chars | duration: 0.22 sec
+16:31:47 | INFO | Fetching full text: https://ria.ru/20250826/tramp-2037700047.html
+16:31:47 | INFO | Fetched 0 chars | duration: 0.08 sec
+16:31:47 | INFO | Fetching full text: https://ria.ru/20250826/armenija-2037698750.html
+16:31:47 | INFO | Fetched 0 chars | duration: 0.08 sec
+16:31:47 | INFO | Fetching full text: https://ria.ru/20250826/prezident-2037698152.html
+16:31:47 | INFO | Fetched 0 chars | duration: 0.07 sec
+16:31:47 | INFO | Fetching full text: https://ria.ru/20250826/raschet-2037697242.html
+16:31:47 | INFO | Fetched 0 chars | duration: 0.08 sec
+16:31:47 | INFO | Fetching full text: https://ria.ru/20250826/sud-2037694447.html
+16:31:47 | INFO | Fetched 0 chars | duration: 0.08 sec
+16:31:47 | INFO | Fetching full text: https://ria.ru/20250826/sud-2037694078.html
+16:31:48 | INFO | Fetched 0 chars | duration: 0.41 sec
+16:31:48 | INFO | Fetching full text: https://ria.ru/20250826/rossiya-2037693727.html
+16:31:48 | INFO | Fetched 0 chars | duration: 0.39 sec
+16:31:48 | INFO | Fetching full text: https://ria.ru/20250826/polsha-2037692940.html
+16:31:48 | INFO | Fetched 0 chars | duration: 0.40 sec
+16:31:48 | INFO | Fetching full text: https://ria.ru/20250826/krym-2037691157.html
+16:31:48 | INFO | Fetched 0 chars | duration: 0.06 sec
+16:31:48 | INFO | Fetching full text: https://ria.ru/20250826/armeniya-2037690049.html
+16:31:49 | INFO | Fetched 0 chars | duration: 0.33 sec
+16:31:49 | INFO | Fetching full text: https://ria.ru/20250826/gruziya-2037689186.html
+16:31:49 | INFO | Fetched 335 chars | duration: 0.37 sec
+16:31:49 | INFO | Fetching full text: https://ria.ru/20250826/merts-2037688614.html
+16:31:50 | INFO | Fetched 0 chars | duration: 0.45 sec
+16:31:50 | INFO | Fetching full text: https://ria.ru/20250826/cheljabinsk-2037687732.html
+16:31:50 | INFO | Fetched 0 chars | duration: 0.42 sec
+16:31:50 | INFO | Fetching full text: https://ria.ru/20250826/zhiteli-2037687307.html
+16:31:50 | INFO | Fetched 0 chars | duration: 0.45 sec
+16:31:50 | INFO | Fetching full text: https://ria.ru/20250826/es-2037686906.html
+16:31:51 | INFO | Fetched 0 chars | duration: 0.10 sec
+16:31:51 | INFO | Fetching full text: https://ria.ru/20250826/prigovor-2037686799.html
+16:31:51 | INFO | Fetched 0 chars | duration: 0.42 sec
+16:31:51 | INFO | Fetching full text: https://ria.ru/20250826/gruppirovka-2037686229.html
+16:31:51 | INFO | Fetched 0 chars | duration: 0.38 sec
+16:31:51 | INFO | Fetching full text: https://ria.ru/20250826/ataka-2037685609.html
+16:31:52 | INFO | Fetched 0 chars | duration: 0.37 sec
+16:31:52 | INFO | Fetching full text: https://ria.ru/20250826/rossii-2037685324.html
+16:31:52 | INFO | Fetched 0 chars | duration: 0.52 sec
+16:31:52 | INFO | Fetching full text: https://ria.ru/20250826/moshenniki-2037685171.html
+16:31:53 | INFO | Fetched 0 chars | duration: 0.40 sec
+16:31:53 | INFO | Fetching full text: https://ria.ru/20250826/opros-2037684750.html
+16:31:53 | INFO | Fetched 0 chars | duration: 0.39 sec
+16:31:53 | INFO | Fetching full text: https://ria.ru/20250826/rossiya-2037684505.html
+16:31:53 | INFO | Fetched 0 chars | duration: 0.38 sec
+16:31:53 | INFO | Fetching full text: https://ria.ru/20250826/berlin-2037684313.html
+16:31:54 | INFO | Fetched 0 chars | duration: 0.39 sec
+16:31:54 | INFO | Fetching full text: https://ria.ru/20250826/rybak-2037684152.html
+16:31:54 | INFO | Fetched 0 chars | duration: 0.39 sec
+16:31:54 | INFO | Fetching full text: https://ria.ru/20250826/kitay-2037683993.html
+16:31:55 | INFO | Fetched 0 chars | duration: 0.36 sec
+16:31:55 | INFO | Fetching full text: https://ria.ru/20250826/rossiya-2037683132.html
+16:31:55 | INFO | Fetched 0 chars | duration: 0.38 sec
+16:31:55 | INFO | Fetching full text: https://ria.ru/20250826/rektor-2037682932.html
+16:31:55 | INFO | Fetched 0 chars | duration: 0.42 sec
+16:31:55 | INFO | Fetching full text: https://ria.ru/20250826/zhurnalistka-2037682581.html
+16:31:56 | INFO | Fetched 0 chars | duration: 0.47 sec
+16:31:56 | INFO | Fetching full text: https://ria.ru/20250826/tsakhal-2037682225.html
+16:31:56 | INFO | Fetched 0 chars | duration: 0.43 sec
+16:31:56 | INFO | Fetching full text: https://ria.ru/20250826/ispanija-2037682081.html
+16:31:57 | INFO | Fetched 0 chars | duration: 0.38 sec
+16:31:57 | INFO | Fetching full text: https://ria.ru/20250826/dnr-2037681800.html
+16:31:57 | INFO | Fetched 0 chars | duration: 0.40 sec
+16:31:57 | INFO | Fetching full text: https://ria.ru/20250826/bort-2037681464.html
+16:31:57 | INFO | Fetched 0 chars | duration: 0.37 sec
+16:31:57 | INFO | Fetching full text: https://ria.ru/20250826/rossiya-2037681177.html
+16:31:58 | INFO | Fetched 0 chars | duration: 0.40 sec
+16:31:58 | INFO | Fetching full text: https://ria.ru/20250826/most-2037681019.html
+16:31:58 | INFO | Fetched 0 chars | duration: 0.37 sec
+16:31:58 | INFO | Fetching full text: https://ria.ru/20250826/uscherb-2037680442.html
+16:31:59 | INFO | Fetched 0 chars | duration: 0.57 sec
+16:31:59 | INFO | Fetching full text: https://ria.ru/20250826/shtraf-2037680145.html
+16:31:59 | INFO | Fetched 0 chars | duration: 0.41 sec
+16:31:59 | INFO | Fetching full text: https://ria.ru/20250826/delo-2037679968.html
+16:32:00 | INFO | Fetched 0 chars | duration: 0.39 sec
+16:32:00 | INFO | Fetching full text: https://ria.ru/20250826/primore-2037678933.html
+16:32:00 | INFO | Fetched 0 chars | duration: 0.40 sec
+16:32:00 | INFO | Fetching full text: https://ria.ru/20250826/klub-2037678707.html
+16:32:00 | INFO | Fetched 0 chars | duration: 0.07 sec
+16:32:00 | INFO | Fetching full text: https://ria.ru/20250826/sk-2037678399.html
+16:32:00 | INFO | Fetched 0 chars | duration: 0.40 sec
+16:32:01 | INFO | Fetching full text: https://ria.ru/20250826/premer-2037677968.html
+16:32:01 | INFO | Fetched 0 chars | duration: 0.42 sec
+16:32:01 | INFO | Fetching full text: https://ria.ru/20250826/saldo-2037677616.html
+16:32:01 | INFO | Fetched 0 chars | duration: 0.45 sec
+16:32:01 | INFO | Fetching full text: https://ria.ru/20250826/moskva-2037676619.html
+16:32:02 | INFO | Fetched 0 chars | duration: 0.41 sec
+16:32:02 | INFO | Fetching full text: https://ria.ru/20250826/serbiya-2037676406.html
+16:32:02 | INFO | Fetched 0 chars | duration: 0.36 sec
+16:32:02 | INFO | Fetching full text: https://ria.ru/20250826/nomer-2037676208.html
+16:32:03 | INFO | Fetched 0 chars | duration: 0.40 sec
+16:32:03 | INFO | Fetching full text: https://ria.ru/20250826/smi-2037675985.html
+16:32:03 | INFO | Fetched 0 chars | duration: 0.43 sec
+16:32:03 | INFO | Fetching full text: https://ria.ru/20250826/kherson-2037675577.html
+16:32:03 | INFO | Fetched 0 chars | duration: 0.41 sec
+16:32:03 | INFO | Fetching full text: https://ria.ru/20250826/ukraina-2037675395.html
+16:32:04 | INFO | Fetched 0 chars | duration: 0.35 sec
+16:32:04 | INFO | Fetching full text: https://ria.ru/20250826/ikona-2037675170.html
+16:32:04 | INFO | Fetched 0 chars | duration: 0.41 sec
+16:32:04 | INFO | Fetching full text: https://ria.ru/20250826/sudja-2037674730.html
+16:32:05 | INFO | Fetched 0 chars | duration: 0.40 sec
+16:32:05 | INFO | Fetching full text: https://ria.ru/20250826/rossijane-2037674273.html
+16:32:05 | INFO | Fetched 0 chars | duration: 0.42 sec
+16:32:05 | INFO | Fetching full text: https://ria.ru/20250826/plan-2037673724.html
+16:32:05 | INFO | Fetched 0 chars | duration: 0.08 sec
+16:32:05 | INFO | Fetching full text: https://ria.ru/20250826/premer-2037673295.html
+16:32:06 | INFO | Fetched 0 chars | duration: 0.41 sec
+16:32:06 | INFO | Fetching full text: https://ria.ru/20250826/pomosch-2037672358.html
+16:32:06 | INFO | Fetched 0 chars | duration: 0.50 sec
+16:32:06 | INFO | Fetching full text: https://ria.ru/20250826/rossiya-2037671882.html
+16:32:06 | INFO | Fetched 0 chars | duration: 0.40 sec
+16:32:06 | INFO | Fetching full text: https://ria.ru/20250826/putin-2037671303.html
+16:32:07 | INFO | Fetched 0 chars | duration: 0.37 sec
+16:32:07 | INFO | Fetching full text: https://ria.ru/20250826/zdanie-2037670864.html
+16:32:07 | INFO | Fetched 0 chars | duration: 0.41 sec
+16:32:07 | INFO | Fetching full text: https://ria.ru/20250826/es-2037670332.html
+16:32:08 | INFO | Fetched 0 chars | duration: 0.44 sec
+16:32:08 | INFO | Fetching full text: https://ria.ru/20250826/volodin-2037669954.html
+16:32:08 | INFO | Fetched 48 chars | duration: 0.42 sec
+16:32:08 | INFO | Fetching full text: https://ria.ru/20250826/kandidat-2037669098.html
+16:32:09 | INFO | Fetched 0 chars | duration: 0.45 sec
+16:32:09 | INFO | Fetching full text: https://ria.ru/20250826/politika-2037668724.html
+16:32:09 | INFO | Fetched 0 chars | duration: 0.40 sec
+16:32:09 | INFO | Fetching full text: https://ria.ru/20250826/rossiya-2037667609.html
+16:32:09 | INFO | Fetched 48 chars | duration: 0.40 sec
+16:32:09 | INFO | Fetching full text: https://ria.ru/20250826/saldo-2037667057.html
+16:32:09 | INFO | Fetched 0 chars | duration: 0.06 sec
+16:32:09 | INFO | Fetching full text: https://ria.ru/20250826/klingbajl-2037666605.html
+16:32:09 | INFO | Fetched 0 chars | duration: 0.08 sec
+16:32:09 | INFO | Fetching full text: https://ria.ru/20250826/pozhar-2037666464.html
+16:32:10 | INFO | Fetched 0 chars | duration: 0.41 sec
+16:32:10 | INFO | Fetching full text: https://ria.ru/20250826/klesch-2037666157.html
+16:32:10 | INFO | Fetched 0 chars | duration: 0.39 sec
+16:32:10 | INFO | Fetching full text: https://ria.ru/20250826/sanktsii-2037665767.html
+16:32:11 | INFO | Fetched 0 chars | duration: 0.46 sec
+16:32:11 | INFO | Fetching full text: https://ria.ru/20250826/znak-2037665499.html
+16:32:11 | INFO | Fetched 0 chars | duration: 0.37 sec
+16:32:11 | INFO | Fetching full text: https://ria.ru/20250826/rossiya-2037665040.html
+16:32:12 | INFO | Fetched 0 chars | duration: 0.43 sec
+16:32:12 | INFO | Fetching full text: https://ria.ru/20250826/jahta-2037664883.html
+16:32:12 | INFO | Fetched 0 chars | duration: 0.53 sec
+16:32:12 | INFO | Fetching full text: https://ria.ru/20250826/polsha-2037664724.html
+16:32:12 | INFO | Fetched 0 chars | duration: 0.41 sec
+16:32:12 | INFO | Fetching full text: https://ria.ru/20250826/delo-2037664401.html
+16:32:13 | INFO | Fetched 0 chars | duration: 0.41 sec
+16:32:13 | INFO | Fetching full text: https://ria.ru/20250826/model-2037664235.html
+16:32:13 | INFO | Fetched 0 chars | duration: 0.51 sec
+16:32:13 | INFO | Fetching full text: https://ria.ru/20250826/akter-2037660599.html
+16:32:14 | INFO | Fetched 0 chars | duration: 0.38 sec
+16:32:14 | INFO | Fetching full text: https://ria.ru/20250826/udar-2037663264.html
+16:32:14 | INFO | Fetched 0 chars | duration: 0.45 sec
+16:32:14 | INFO | Fetching full text: https://ria.ru/20250826/vtsiomy-2037662766.html
+16:32:15 | INFO | Fetched 0 chars | duration: 0.36 sec
+16:32:15 | INFO | Fetching full text: https://ria.ru/20250826/es-2037662432.html
+16:32:15 | INFO | Fetched 0 chars | duration: 0.37 sec
+16:32:15 | INFO | Fetching full text: https://ria.ru/20250826/delo-2037661516.html
+16:32:15 | INFO | Fetched 0 chars | duration: 0.44 sec
+16:32:15 | INFO | Fetching full text: https://ria.ru/20250826/kabmin-2037660862.html
+16:32:16 | INFO | Fetched 0 chars | duration: 0.40 sec
+16:32:16 | INFO | Fetching full text: https://ria.ru/20250826/kherson-2037660756.html
+16:32:16 | INFO | Fetched 0 chars | duration: 0.41 sec
+16:32:16 | INFO | Fetching full text: https://ria.ru/20250826/es-2037660229.html
+16:32:17 | INFO | Fetched 0 chars | duration: 0.49 sec
+16:32:17 | INFO | Fetching full text: https://ria.ru/20250826/banki-2037660083.html
+16:32:17 | INFO | Fetched 0 chars | duration: 0.42 sec
+16:32:17 | INFO | Fetching full text: https://ria.ru/20250826/vuchich-2037659813.html
+16:32:18 | INFO | Fetched 0 chars | duration: 0.38 sec
+16:32:18 | INFO | Fetching full text: https://ria.ru/20250826/putin-2037659139.html
+16:32:18 | INFO | Fetched 0 chars | duration: 0.37 sec
+16:32:18 | INFO | Fetching full text: https://ria.ru/20250826/rossiya-2037658907.html
+16:32:18 | INFO | Fetched 0 chars | duration: 0.36 sec
+16:32:18 | INFO | Fetching full text: https://ria.ru/20250826/krasnojarsk-2037658582.html
+16:32:19 | INFO | Fetched 0 chars | duration: 0.50 sec
+16:32:19 | INFO | Fetching full text: https://ria.ru/20250826/tailand-2037658361.html
+16:32:19 | INFO | Fetched 0 chars | duration: 0.42 sec
+16:32:19 | INFO | Fetching full text: https://ria.ru/20250826/konsulstvo-2037658157.html
+16:32:20 | INFO | Fetched 0 chars | duration: 0.42 sec
+16:32:20 | INFO | Fetching full text: https://ria.ru/20250826/posol-2037657960.html
+16:32:20 | INFO | Fetched 0 chars | duration: 0.38 sec
+16:32:20 | INFO | Fetching full text: https://ria.ru/20250826/pozhar-2037657626.html
+16:32:20 | INFO | Fetched 0 chars | duration: 0.36 sec
+16:32:20 | INFO | Fetching full text: https://ria.ru/20250826/banki-2037657308.html
+16:32:21 | INFO | Fetched 0 chars | duration: 0.39 sec
+16:32:21 | INFO | Fetching full text: https://ria.ru/20250826/putin-2037656950.html
+16:32:21 | INFO | Fetched 556 chars | duration: 0.08 sec
+16:32:21 | INFO | Fetching full text: https://ria.ru/20250826/parlament-2037656735.html
+16:32:21 | INFO | Fetched 0 chars | duration: 0.38 sec
+16:32:21 | INFO | Fetching full text: https://ria.ru/20250826/kurjanin-2037656104.html
+16:32:22 | INFO | Fetched 0 chars | duration: 0.41 sec
+16:32:22 | INFO | Fetching full text: https://ria.ru/20250826/lavrov-2037655593.html
+16:32:22 | INFO | Fetched 0 chars | duration: 0.41 sec
+16:32:22 | INFO | Fetching full text: https://ria.ru/20250826/spasateli-2037654885.html
+16:32:23 | INFO | Fetched 0 chars | duration: 0.39 sec
+16:32:23 | INFO | Fetching full text: https://www.vedomosti.ru/business/news/2025/08/26/1134282-podeshevela-ikra
+16:32:23 | INFO | Fetched 3054 chars | duration: 0.14 sec
+16:32:23 | INFO | Fetching full text: https://www.vedomosti.ru/politics/news/2025/08/26/1134281-o-strategicheskom-partnerstve
+16:32:23 | INFO | Fetched 3314 chars | duration: 0.38 sec
+16:32:23 | INFO | Fetching full text: https://www.vedomosti.ru/society/news/2025/08/26/1134285-moskovskii-programmist
+16:32:23 | INFO | Fetched 2322 chars | duration: 0.11 sec
+16:32:23 | INFO | Fetching full text: https://www.vedomosti.ru/politics/news/2025/08/26/1134274-belousovu-dolozhili
+16:32:23 | INFO | Fetched 2781 chars | duration: 0.08 sec
+16:32:23 | INFO | Fetching full text: https://www.vedomosti.ru/politics/news/2025/08/26/1134277-v-baku-i-erevane
+16:32:23 | INFO | Fetched 2421 chars | duration: 0.10 sec
+16:32:23 | INFO | Fetching full text: https://www.vedomosti.ru/society/news/2025/08/26/1134275-minprosvescheniya-ustanovilo-vremya
+16:32:24 | INFO | Fetched 2746 chars | duration: 0.21 sec
+16:32:24 | INFO | Fetching full text: https://www.vedomosti.ru/politics/news/2025/08/26/1134272-premer-belgii
+16:32:24 | INFO | Fetched 2638 chars | duration: 0.08 sec
+16:32:24 | INFO | Fetching full text: https://www.vedomosti.ru/business/news/2025/08/26/1134273-v-osk-podtverdili
+16:32:24 | INFO | Fetched 2578 chars | duration: 0.24 sec
+16:32:24 | INFO | Fetching full text: https://www.vedomosti.ru/business/news/2025/08/26/1134265-tmh-predstavil-dizain
+16:32:24 | INFO | Fetched 2597 chars | duration: 0.08 sec
+16:32:24 | INFO | Fetching full text: https://www.vedomosti.ru/business/news/2025/08/26/1134267-rzhd-uvelichila-chislo
+16:32:25 | INFO | Fetched 2501 chars | duration: 0.52 sec
+16:32:25 | INFO | Fetching full text: https://www.vedomosti.ru/politics/news/2025/08/26/1134261-ssha-evropa
+16:32:25 | INFO | Fetched 2594 chars | duration: 0.29 sec
+16:32:25 | INFO | Fetching full text: https://www.vedomosti.ru/society/news/2025/08/26/1134260-vlasti-opredelyat
+16:32:25 | INFO | Fetched 2790 chars | duration: 0.21 sec
+16:32:25 | INFO | Fetching full text: https://www.vedomosti.ru/politics/news/2025/08/26/1134252-saldo-rasskazal-putinu
+16:32:25 | INFO | Fetched 3090 chars | duration: 0.22 sec
+16:32:25 | INFO | Fetching full text: https://www.vedomosti.ru/politics/news/2025/08/26/1134253-smi-vsu-schitayut
+16:32:25 | INFO | Fetched 2888 chars | duration: 0.11 sec
+16:32:25 | INFO | Fetching full text: https://www.vedomosti.ru/society/news/2025/08/26/1134251-passazhirku-oshtrafovali
+16:32:26 | INFO | Fetched 2241 chars | duration: 0.09 sec
+16:32:26 | INFO | Fetching full text: https://www.vedomosti.ru/politics/news/2025/08/26/1134248-vuchich-provel
+16:32:26 | INFO | Fetched 2858 chars | duration: 0.07 sec
+16:32:26 | INFO | Fetching full text: https://www.vedomosti.ru/politics/news/2025/08/26/1134246-modi-otklonyal-zvonki
+16:32:26 | INFO | Fetched 2480 chars | duration: 0.09 sec
+16:32:26 | INFO | Fetching full text: https://www.vedomosti.ru/politics/news/2025/08/26/1134245-izrail-ne-otvetil
+16:32:26 | INFO | Fetched 2823 chars | duration: 0.22 sec
+16:32:26 | INFO | Fetching full text: https://www.vedomosti.ru/politics/news/2025/08/26/1134247-prodlil-srok-bastrikina
+16:32:26 | INFO | Fetched 2959 chars | duration: 0.11 sec
+16:32:26 | INFO | Fetching full text: https://www.vedomosti.ru/society/news/2025/08/26/1134243-umer-akter-aptovtsev
+16:32:26 | INFO | Fetched 2600 chars | duration: 0.38 sec
+16:32:26 | INFO | Fetching full text: https://www.vedomosti.ru/business/news/2025/08/26/1134244-kanada-spg
+16:32:27 | INFO | Fetched 3001 chars | duration: 0.21 sec
+16:32:27 | INFO | Fetching full text: https://www.vedomosti.ru/society/news/2025/08/26/1134236-sk-nachal-proverku
+16:32:27 | INFO | Fetched 3013 chars | duration: 0.34 sec
+16:32:27 | INFO | Fetching full text: https://www.vedomosti.ru/technology/news/2025/08/26/1134229-max-usilil
+16:32:27 | INFO | Fetched 2642 chars | duration: 0.10 sec
+16:32:27 | INFO | Fetching full text: https://www.vedomosti.ru/politics/news/2025/08/26/1134232-upal-ukrainskii-bpla
+16:32:28 | INFO | Fetched 2781 chars | duration: 0.54 sec
+16:32:28 | INFO | Fetching full text: https://www.vedomosti.ru/business/news/2025/08/26/1134235-raboti-s-boeing
+16:32:28 | INFO | Fetched 2453 chars | duration: 0.27 sec
+16:32:28 | INFO | Fetching full text: https://www.vedomosti.ru/society/news/2025/08/26/1134234-sud-zaochno-arestoval-lesli
+16:32:28 | INFO | Fetched 2631 chars | duration: 0.37 sec
+16:32:28 | INFO | Fetching full text: https://www.vedomosti.ru/society/news/2025/08/26/1134226-bivshego-chinovnika-prigovorili
+16:32:29 | INFO | Fetched 2700 chars | duration: 0.32 sec
+16:32:29 | INFO | Fetching full text: https://www.vedomosti.ru/economics/news/2025/08/26/1134227-promsektor-germanii-poteryal
+16:32:29 | INFO | Fetched 2526 chars | duration: 0.17 sec
+16:32:29 | INFO | Fetching full text: https://www.vedomosti.ru/politics/news/2025/08/26/1134225-siiyarto-dopustil
+16:32:29 | INFO | Fetched 3189 chars | duration: 0.09 sec
+16:32:29 | INFO | Fetching full text: https://www.vedomosti.ru/politics/news/2025/08/26/1134221-merts-prigrozil
+16:32:29 | INFO | Fetched 3094 chars | duration: 0.23 sec
+16:32:29 | INFO | Fetching full text: https://www.vedomosti.ru/politics/news/2025/08/26/1134218-zasedanie-gruppi-ramshtain
+16:32:29 | INFO | Fetched 2103 chars | duration: 0.08 sec
+16:32:29 | INFO | Fetching full text: https://www.vedomosti.ru/politics/news/2025/08/26/1134219-kitai-pokazhet
+16:32:29 | INFO | Fetched 3178 chars | duration: 0.09 sec
+16:32:29 | INFO | Fetching full text: https://www.vedomosti.ru/society/news/2025/08/26/1134212-zapretit-platnie-parkovki
+16:32:29 | INFO | Fetched 3351 chars | duration: 0.09 sec
+16:32:29 | INFO | Fetching full text: https://www.vedomosti.ru/society/news/2025/08/26/1134213-mongait-obyavili-v-rozisk
+16:32:30 | INFO | Fetched 2897 chars | duration: 0.21 sec
+16:32:30 | INFO | Fetching full text: https://www.vedomosti.ru/society/news/2025/08/26/1134215-vserossiiskie-ucheniya
+16:32:30 | INFO | Fetched 2546 chars | duration: 0.11 sec
+16:32:30 | INFO | Fetching full text: https://www.vedomosti.ru/technology/news/2025/08/26/1134211-operatorov-svyazi-banki-obyazhut
+16:32:30 | INFO | Fetched 3159 chars | duration: 0.14 sec
+16:32:30 | INFO | Fetching full text: https://www.vedomosti.ru/politics/news/2025/08/26/1134208-kandidat-v-prezidenti-bolivii
+16:32:30 | INFO | Fetched 2460 chars | duration: 0.09 sec
+16:32:30 | INFO | Fetching full text: https://www.vedomosti.ru/business/news/2025/08/26/1134203-17-ugolnih-predpriyatii
+16:32:30 | INFO | Fetched 2673 chars | duration: 0.06 sec
+16:32:30 | INFO | Fetching full text: https://www.vedomosti.ru/finance/news/2025/08/26/1134207-raskrivat-prichini
+16:32:31 | INFO | Fetched 3197 chars | duration: 1.37 sec
+16:32:31 | INFO | Fetching full text: https://www.vedomosti.ru/society/news/2025/08/26/1134202-plovets-mog-utonut
+16:32:32 | INFO | Fetched 2646 chars | duration: 0.08 sec
+16:32:32 | INFO | Fetching full text: https://www.vedomosti.ru/society/news/2025/08/26/1134204-vse-byudzhetnie-mesta
+16:32:32 | INFO | Fetched 2984 chars | duration: 0.10 sec
+16:32:32 | INFO | Fetching full text: https://www.vedomosti.ru/politics/news/2025/08/26/1134198-predstavlenie-yaponii
+16:32:32 | INFO | Fetched 2607 chars | duration: 0.25 sec
+16:32:32 | INFO | Fetching full text: https://www.vedomosti.ru/politics/news/2025/08/26/1134197-litvi-premera
+16:32:32 | INFO | Fetched 2696 chars | duration: 0.09 sec
+16:32:32 | INFO | Fetching full text: https://www.vedomosti.ru/business/news/2025/08/26/1134196-proizvodstvo-iphone-v-indii
+16:32:32 | INFO | Fetched 3039 chars | duration: 0.36 sec
+16:32:32 | INFO | Fetching full text: https://www.vedomosti.ru/society/news/2025/08/26/1134195-v-moskve-s-ukrainoi
+16:32:33 | INFO | Fetched 2820 chars | duration: 0.28 sec
+16:32:33 | INFO | Fetching full text: https://www.vedomosti.ru/politics/news/2025/08/26/1134190-risk-proigrisha
+16:32:33 | INFO | Fetched 2851 chars | duration: 0.08 sec
+16:32:33 | INFO | Fetching full text: https://www.vedomosti.ru/society/news/2025/08/26/1134189-terroristov-pryatalsya
+16:32:33 | INFO | Fetched 2858 chars | duration: 0.49 sec
+16:32:33 | INFO | Fetching full text: https://www.vedomosti.ru/society/news/2025/08/26/1134188-posolstvo-rf-mid
+16:32:33 | INFO | Fetched 3477 chars | duration: 0.10 sec
+16:32:33 | INFO | Fetching full text: https://www.vedomosti.ru/politics/news/2025/08/26/1134184-es-mozhet-zapretit
+16:32:33 | INFO | Fetched 2535 chars | duration: 0.08 sec
+16:32:33 | INFO | Fetching full text: https://www.vedomosti.ru/society/news/2025/08/26/1134180-bastrikin-poruchil
+16:32:34 | INFO | Fetched 2922 chars | duration: 0.37 sec
+16:32:34 | INFO | Fetching full text: https://www.vedomosti.ru/technology/news/2025/08/26/1134181-selectel-narastil-viruchku
+16:32:34 | INFO | Fetched 2871 chars | duration: 0.11 sec
+16:32:34 | INFO | Fetching full text: https://www.vedomosti.ru/business/news/2025/08/26/1134182-chistaya-pribil-vseinstrumenti
+16:32:36 | INFO | Fetched 3351 chars | duration: 1.82 sec
+16:32:36 | INFO | Fetching full text: https://www.vedomosti.ru/society/news/2025/08/26/1134177-mintrud-rasskazal
+16:32:37 | INFO | Fetched 2295 chars | duration: 0.83 sec
+16:32:37 | INFO | Fetching full text: https://www.vedomosti.ru/society/news/2025/08/26/1134174-moskva-prodlit
+16:32:37 | INFO | Fetched 2652 chars | duration: 0.34 sec
+16:32:37 | INFO | Fetching full text: https://www.vedomosti.ru/society/news/2025/08/26/1134175-zaderzhannogo-vrio-zamgubernatora
+16:32:37 | INFO | Fetched 2982 chars | duration: 0.12 sec
+16:32:37 | INFO | Fetching full text: https://www.vedomosti.ru/politics/news/2025/08/26/1134173-spasti-ot-goloda
+16:32:37 | INFO | Fetched 3248 chars | duration: 0.09 sec
+16:32:37 | INFO | Fetching full text: https://www.vedomosti.ru/society/news/2025/08/26/1134170-fas-oshtrafovala
+16:32:37 | INFO | Fetched 2570 chars | duration: 0.21 sec
+16:32:37 | INFO | Fetching full text: https://www.vedomosti.ru/finance/news/2025/08/26/1134171-rossiyanam-mogut-zapretit
+16:32:38 | INFO | Fetched 2954 chars | duration: 0.39 sec
+16:32:38 | INFO | Fetching full text: https://www.vedomosti.ru/politics/news/2025/08/26/1134169-ssha-rossiya-obsuzhdali
+16:32:38 | INFO | Fetched 2714 chars | duration: 0.08 sec
+16:32:38 | INFO | Fetching full text: https://www.vedomosti.ru/politics/news/2025/08/26/1134168-vtoroi-paket-mer
+16:32:38 | INFO | Fetched 4187 chars | duration: 0.20 sec
+16:32:38 | INFO | Fetching full text: https://www.vedomosti.ru/business/news/2025/08/26/1134155-gazprom-s-mongoliei
+16:32:38 | INFO | Fetched 2687 chars | duration: 0.18 sec
+16:32:38 | INFO | Fetching full text: https://www.vedomosti.ru/technology/news/2025/08/26/1134152-belie-hakeri-nashli
+16:32:38 | INFO | Fetched 2644 chars | duration: 0.10 sec
+16:32:38 | INFO | Fetching full text: https://www.vedomosti.ru/technology/news/2025/08/26/1134153-biznes-smozhet-zaklyuchat
+16:32:38 | INFO | Fetched 3939 chars | duration: 0.14 sec
+16:32:38 | INFO | Fetching full text: https://www.vedomosti.ru/society/news/2025/08/26/1134150-rezervnii-samolet-air-china
+16:32:39 | INFO | Fetched 3128 chars | duration: 0.10 sec
+16:32:39 | INFO | Fetching full text: https://www.vedomosti.ru/investments/news/2025/08/26/1134151-chistaya-pribil-mosbirzhi
+16:32:39 | INFO | Fetched 3060 chars | duration: 0.48 sec
+16:32:39 | INFO | Fetching full text: https://www.vedomosti.ru/investments/news/2025/08/26/1134148-whoosh-utverdil
+16:32:39 | INFO | Fetched 3115 chars | duration: 0.08 sec
+16:32:39 | INFO | Fetching full text: https://www.vedomosti.ru/business/news/2025/08/26/1134146-severnoi-verfi-smena-rukovodstva
+16:32:39 | INFO | Fetched 2445 chars | duration: 0.09 sec
+16:32:39 | INFO | Fetching full text: https://www.vedomosti.ru/politics/news/2025/08/26/1134141-siiyarto-nazval-ataki
+16:32:39 | INFO | Fetched 2811 chars | duration: 0.15 sec
+16:32:39 | INFO | Fetching full text: https://www.vedomosti.ru/business/news/2025/08/26/1134136-ssj-100-viyavili-nedostatki
+16:32:40 | INFO | Fetched 3528 chars | duration: 0.09 sec
+16:32:40 | INFO | Fetching full text: https://www.vedomosti.ru/society/news/2025/08/26/1134138-air-china-vneplanovo-sel
+16:32:40 | INFO | Fetched 2274 chars | duration: 0.07 sec
+16:32:40 | INFO | Fetching full text: https://www.vedomosti.ru/society/news/2025/08/26/1134134-zone-spetsoperatsii-nahodyatsya
+16:32:40 | INFO | Fetched 2735 chars | duration: 0.46 sec
+16:32:40 | INFO | Fetching full text: https://www.vedomosti.ru/politics/news/2025/08/26/1134133-avstraliya-soobschila
+16:32:40 | INFO | Fetched 2652 chars | duration: 0.11 sec
+16:32:40 | INFO | Fetching full text: https://www.vedomosti.ru/economics/news/2025/08/26/1134135-pravitelstvo-rasshirilo
+16:32:40 | INFO | Fetched 2643 chars | duration: 0.10 sec
+16:32:40 | INFO | Fetching full text: https://www.vedomosti.ru/finance/news/2025/08/26/1134131-chistaya-pribil-zaimer
+16:32:40 | INFO | Fetched 2646 chars | duration: 0.21 sec
+16:32:40 | INFO | Fetching full text: https://www.vedomosti.ru/society/news/2025/08/26/1134129-aeroflot-predupredil
+16:32:41 | INFO | Fetched 2633 chars | duration: 0.19 sec
+16:32:41 | INFO | Fetching full text: https://www.vedomosti.ru/politics/news/2025/08/26/1134128-chislo-popitok
+16:32:41 | INFO | Fetched 2450 chars | duration: 0.37 sec
+16:32:41 | INFO | Fetching full text: https://www.vedomosti.ru/society/news/2025/08/26/1134125-snyali-ogranicheniya
+16:32:41 | INFO | Fetched 2154 chars | duration: 0.23 sec
+16:32:41 | INFO | Fetching full text: https://www.vedomosti.ru/politics/news/2025/08/26/1134126-sredstva-pvo-unichtozhili
+16:32:41 | INFO | Fetched 2759 chars | duration: 0.16 sec
+16:32:41 | INFO | Fetching full text: https://www.vedomosti.ru/politics/news/2025/08/26/1134124-orban-prigrozil
+16:32:42 | INFO | Fetched 2775 chars | duration: 0.24 sec
+16:32:42 | INFO | Fetching full text: https://www.vedomosti.ru/society/news/2025/08/26/1134123-rosaviatsiya-snyala
+16:32:42 | INFO | Fetched 2193 chars | duration: 0.09 sec
+16:32:42 | INFO | Fetching full text: https://www.vedomosti.ru/politics/news/2025/08/26/1134122-volodin-vstretilsya
+16:32:42 | INFO | Fetched 2764 chars | duration: 0.08 sec
+16:32:42 | INFO | Fetching full text: https://www.vedomosti.ru/society/news/2025/08/26/1134120-rosaviatsiya-ogranichila
+16:32:42 | INFO | Fetched 2073 chars | duration: 0.08 sec
+16:32:42 | INFO | Fetching full text: https://www.vedomosti.ru/society/news/2025/08/25/1134116-moskvichi-vibrali-kontseptsiyu
+16:32:42 | INFO | Fetched 3019 chars | duration: 0.10 sec
+16:32:42 | INFO | Fetching full text: https://www.vedomosti.ru/business/news/2025/08/25/1134115-minoritarnie-aktsioneri
+16:32:42 | INFO | Fetched 2531 chars | duration: 0.09 sec
+16:32:42 | INFO | Fetching full text: https://www.vedomosti.ru/politics/news/2025/08/25/1134112-ssha-potratit
+16:32:42 | INFO | Fetched 2652 chars | duration: 0.09 sec
+16:32:42 | INFO | Fetching full text: https://www.vedomosti.ru/politics/news/2025/08/25/1134108-fas-vozbudila-dela
+16:32:43 | INFO | Fetched 2338 chars | duration: 0.23 sec
+16:32:43 | INFO | Fetching full text: https://www.vedomosti.ru/business/news/2025/08/25/1134106-pravitelstvo-prodlilo-zapret
+16:32:44 | INFO | Fetched 2623 chars | duration: 1.11 sec
+16:32:44 | INFO | Fetching full text: https://www.vedomosti.ru/society/news/2025/08/25/1134101-vudi-allena-vnesli
+16:32:44 | INFO | Fetched 2278 chars | duration: 0.22 sec
+16:32:44 | INFO | Fetching full text: https://www.vedomosti.ru/society/news/2025/08/25/1134097-hinshtein-posetil
+16:32:45 | INFO | Fetched 2765 chars | duration: 0.68 sec
+16:32:45 | INFO | Fetching full text: https://www.vedomosti.ru/politics/news/2025/08/25/1134081-arestovani-belgorodskie-chinovniki
+16:32:45 | INFO | Fetched 3294 chars | duration: 0.10 sec
+16:32:45 | INFO | Fetching full text: https://www.vedomosti.ru/technology/news/2025/08/25/1134079-kompanii-ilona-maska
+16:32:45 | INFO | Fetched 2854 chars | duration: 0.07 sec
+16:32:45 | INFO | Fetching full text: https://www.vedomosti.ru/politics/news/2025/08/25/1134080-tramp-schitaet
+16:32:46 | INFO | Fetched 2434 chars | duration: 1.64 sec
+16:32:46 | INFO | Fetching full text: https://www.vedomosti.ru/politics/news/2025/08/25/1134078-tramp-predupredil
+16:32:47 | INFO | Fetched 2595 chars | duration: 0.20 sec
+16:32:47 | INFO | Fetching full text: https://www.vedomosti.ru/society/news/2025/08/25/1134074-gp-prosit-priznat
+16:32:47 | INFO | Fetched 2339 chars | duration: 0.20 sec
+16:32:47 | INFO | Fetching full text: https://www.vedomosti.ru/society/news/2025/08/25/1134077-blogera-markaryana
+16:32:47 | INFO | Fetched 2229 chars | duration: 0.09 sec
+16:32:47 | INFO | Fetching full text: https://www.vedomosti.ru/politics/news/2025/08/25/1134076-pravitelstvo-predlozhilo
+16:32:47 | INFO | Fetched 2416 chars | duration: 0.42 sec
+16:32:47 | INFO | Fetching full text: https://www.vedomosti.ru/society/news/2025/08/25/1134072-chislo-belorusskii-uchastnikov
+16:32:48 | INFO | Fetched 3277 chars | duration: 0.34 sec
+16:32:48 | INFO | Fetching full text: https://www.vedomosti.ru/investments/news/2025/08/25/1134073-aktsii-vsmpo-avisma
+16:32:48 | INFO | Fetched 3805 chars | duration: 0.09 sec
+16:32:48 | INFO | Fetching full text: https://www.vedomosti.ru/society/news/2025/08/25/1134070-chislo-pogibshih
+16:32:48 | INFO | Fetched 2349 chars | duration: 0.10 sec
+16:32:48 | INFO | Fetching full text: https://www.vedomosti.ru/politics/news/2025/08/25/1134068-tramp-putin-otkazivaetsya
+16:32:48 | INFO | Fetched 2611 chars | duration: 0.45 sec
+16:32:48 | INFO | Fetching full text: https://www.vedomosti.ru/society/news/2025/08/25/1134062-evakuatsiyu-nagovitsinoi-mogut
+16:32:48 | INFO | Fetched 2893 chars | duration: 0.10 sec
+16:32:48 | INFO | Fetching full text: https://www.vedomosti.ru/politics/news/2025/08/25/1134064-tramp-zayavil-chto-ssha
+16:32:49 | INFO | Fetched 2723 chars | duration: 0.10 sec
+16:32:49 | INFO | Fetching full text: https://www.vedomosti.ru/society/news/2025/08/25/1134058-kitaiskie-mediki
+16:32:49 | INFO | Fetched 3036 chars | duration: 0.09 sec
+16:32:49 | INFO | Fetching full text: https://www.vedomosti.ru/society/news/2025/08/25/1134056-ekzameni-dlya-migrantov
+16:32:49 | INFO | Fetched 2649 chars | duration: 0.21 sec
+16:32:49 | INFO | Fetching full text: https://www.vedomosti.ru/politics/news/2025/08/25/1134059-tramp-zayavil
+16:32:49 | INFO | Fetched 2025 chars | duration: 0.59 sec
+16:32:49 | INFO | Fetching full text: https://www.vedomosti.ru/politics/news/2025/08/25/1134055-tramp-zayavil
+16:32:50 | INFO | Fetched 2630 chars | duration: 0.37 sec
+16:32:50 | INFO | Fetching full text: https://www.vedomosti.ru/politics/news/2025/08/25/1134049-zelenskii-otmetil
+16:32:50 | INFO | Fetched 2803 chars | duration: 0.33 sec
+16:32:50 | INFO | Fetching full text: https://www.vedomosti.ru/politics/news/2025/08/25/1134048-tramp-nazval
+16:32:50 | INFO | Fetched 2546 chars | duration: 0.10 sec
+16:32:50 | INFO | Fetching full text: https://www.vedomosti.ru/finance/news/2025/08/25/1134040-tsb-sohranil
+16:32:50 | INFO | Fetched 2485 chars | duration: 0.10 sec
+16:32:50 | INFO | Fetching full text: https://www.vedomosti.ru/politics/news/2025/08/25/1134038-politico-nazvala
+16:32:51 | INFO | Fetched 2991 chars | duration: 0.27 sec
+16:32:51 | INFO | Fetching full text: https://www.vedomosti.ru/politics/news/2025/08/25/1134043-krasnov-edinstvennii
+16:32:51 | INFO | Fetched 2608 chars | duration: 0.09 sec
+16:32:51 | INFO | Fetching full text: https://www.vedomosti.ru/society/news/2025/08/25/1134037-sud-oshtrafoval
+16:32:51 | INFO | Fetched 2319 chars | duration: 0.29 sec
+16:32:51 | INFO | Fetching full text: https://www.vedomosti.ru/politics/news/2025/08/25/1134031-pezeshkian-format
+16:32:51 | INFO | Fetched 2902 chars | duration: 0.22 sec
+16:32:51 | INFO | Fetching full text: https://www.vedomosti.ru/finance/news/2025/08/25/1134034-srednii-razmer
+16:32:51 | INFO | Fetched 2637 chars | duration: 0.10 sec
+16:32:51 | INFO | Fetching full text: https://www.vedomosti.ru/business/news/2025/08/25/1134035-putin-peredal
+16:32:52 | INFO | Fetched 2208 chars | duration: 0.20 sec
+16:32:52 | INFO | Fetching full text: https://www.vedomosti.ru/politics/news/2025/08/25/1134025-grem-tramp-gotov
+16:32:52 | INFO | Fetched 2966 chars | duration: 0.08 sec
+16:32:52 | INFO | Fetching full text: https://www.vedomosti.ru/business/news/2025/08/25/1134018-sud-podtverdil-vziskanie
+16:32:52 | INFO | Fetched 2338 chars | duration: 0.20 sec
+16:32:52 | INFO | Fetching full text: https://www.vedomosti.ru/society/news/2025/08/25/1134020-mash-oshtrafovan
+16:32:52 | INFO | Fetched 2338 chars | duration: 0.11 sec
+16:32:52 | INFO | Fetching full text: https://www.vedomosti.ru/finance/news/2025/08/25/1134021-vidachi-ipotechnih-kreditov
+16:32:52 | INFO | Fetched 2546 chars | duration: 0.08 sec
+16:32:52 | INFO | Fetching full text: https://www.vedomosti.ru/investments/news/2025/08/25/1134016-bank-rossii-hochet
+16:32:52 | INFO | Fetched 2582 chars | duration: 0.07 sec
+16:32:52 | INFO | Fetching full text: https://www.vedomosti.ru/media/news/2025/08/25/1134014-vudi-allen
+16:32:53 | INFO | Fetched 2228 chars | duration: 0.47 sec
+16:32:53 | INFO | Fetching full text: https://www.vedomosti.ru/society/news/2025/08/25/1134013-iz-za-problem-elektrikoi
+16:32:53 | INFO | Fetched 2691 chars | duration: 0.26 sec
+16:32:53 | INFO | Fetching full text: https://www.vedomosti.ru/society/news/2025/08/25/1134008-fns-dobilas
+16:32:53 | INFO | Fetched 2863 chars | duration: 0.06 sec
+16:32:53 | INFO | Fetching full text: https://www.vedomosti.ru/politics/news/2025/08/25/1134006-sanktsii-protiv-aviakompanii
+16:32:53 | INFO | Fetched 2587 chars | duration: 0.28 sec
+16:32:53 | INFO | Fetching full text: https://www.vedomosti.ru/finance/news/2025/08/25/1134004-tsb-zakroet-lazeiki
+16:32:53 | INFO | Fetched 2754 chars | duration: 0.08 sec
+16:32:53 | INFO | Fetching full text: https://www.vedomosti.ru/finance/news/2025/08/25/1134000-tsb-razrabotaet-mehanizm
+16:32:53 | INFO | Fetched 2929 chars | duration: 0.09 sec
+16:32:53 | INFO | Fetching full text: https://www.vedomosti.ru/society/news/2025/08/25/1133999-priznayut-propavshei
+16:32:54 | INFO | Fetched 3030 chars | duration: 0.09 sec
+16:32:54 | INFO | Fetching full text: https://www.vedomosti.ru/politics/news/2025/08/25/1133995-zaharova-nazvala
+16:32:54 | INFO | Fetched 3004 chars | duration: 0.27 sec
+16:32:54 | INFO | Fetching full text: https://www.vedomosti.ru/society/news/2025/08/25/1133996-arestovano-imuschestvo
+16:32:54 | INFO | Fetched 3044 chars | duration: 0.10 sec
+16:32:54 | INFO | Fetching full text: https://www.vedomosti.ru/politics/news/2025/08/25/1133991-politkonsultant-trampa
+16:32:54 | INFO | Fetched 3073 chars | duration: 0.29 sec
+16:32:54 | INFO | Fetching full text: https://www.vedomosti.ru/politics/news/2025/08/25/1133989-der-spiegel
+16:32:55 | INFO | Fetched 2577 chars | duration: 0.36 sec
+16:32:55 | INFO | Fetching full text: https://www.vedomosti.ru/politics/news/2025/08/25/1133974-posol-ssha
+16:32:55 | INFO | Fetched 2769 chars | duration: 0.09 sec
+16:32:55 | INFO | Fetching full text: https://www.vedomosti.ru/investments/news/2025/08/25/1133985-s-29-avgusta-mosbirzha
+16:32:55 | INFO | Fetched 2640 chars | duration: 0.23 sec
+16:32:55 | INFO | Fetching full text: https://www.vedomosti.ru/politics/news/2025/08/25/1133983-germaniya-videlit
+16:32:55 | INFO | Fetched 2275 chars | duration: 0.22 sec
+16:32:55 | INFO | Fetching full text: https://www.vedomosti.ru/society/news/2025/08/25/1133982-s-marta
+16:32:55 | INFO | Fetched 2973 chars | duration: 0.08 sec
+16:32:55 | INFO | Fetching full text: https://www.vedomosti.ru/politics/news/2025/08/25/1133978-italiya-gotova
+16:32:55 | INFO | Fetched 3096 chars | duration: 0.09 sec
+16:32:55 | INFO | Fetching full text: https://www.vedomosti.ru/politics/news/2025/08/25/1133976-iran-i-evrotroika
+16:32:55 | INFO | Fetched 2627 chars | duration: 0.10 sec
+16:32:55 | INFO | Fetching full text: https://www.vedomosti.ru/technology/news/2025/08/25/1133970-max-zavershil-integratsiyu
+16:32:56 | INFO | Fetched 2869 chars | duration: 0.10 sec
+16:32:56 | INFO | Fetching full text: https://www.vedomosti.ru/politics/news/2025/08/25/1133977-zelenskii-ukraina
+16:32:56 | INFO | Fetched 2514 chars | duration: 0.17 sec
+16:32:56 | INFO | Fetching full text: https://www.vedomosti.ru/society/news/2025/08/25/1133971-adama-kadirov
+16:32:56 | INFO | Fetched 2513 chars | duration: 0.15 sec
+16:32:56 | INFO | Fetching full text: https://www.vedomosti.ru/society/news/2025/08/25/1133960-rosobrnadzor-obyavil-predosterezheniya
+16:32:56 | INFO | Fetched 3222 chars | duration: 0.09 sec
+16:32:56 | INFO | Fetching full text: https://www.vedomosti.ru/politics/news/2025/08/25/1133955-mid-ukraini-osudil
+16:32:56 | INFO | Fetched 2384 chars | duration: 0.09 sec
+16:32:56 | INFO | Fetching full text: https://www.vedomosti.ru/politics/news/2025/08/25/1133950-grigorenko-rasskazal-putinu
+16:32:56 | INFO | Fetched 3367 chars | duration: 0.16 sec
+16:32:56 | INFO | Fetching full text: https://www.vedomosti.ru/politics/news/2025/08/25/1133953-putin-rasskazal
+16:32:56 | INFO | Fetched 2657 chars | duration: 0.07 sec
+16:32:56 | INFO | Fetching full text: https://www.vedomosti.ru/society/news/2025/08/25/1133948-the-guardian-v-myanme
+16:32:56 | INFO | Fetched 3334 chars | duration: 0.07 sec
+16:32:56 | INFO | Fetching full text: https://www.vedomosti.ru/society/news/2025/08/25/1133942-turetskie-spasateli
+16:32:56 | INFO | Fetched 2607 chars | duration: 0.10 sec
+16:32:56 | INFO | Fetching full text: https://www.vedomosti.ru/politics/news/2025/08/25/1133938-navrotskii-prizval-uzhestochit
+16:32:57 | INFO | Fetched 2655 chars | duration: 0.18 sec
+16:32:57 | INFO | Fetching full text: https://www.vedomosti.ru/society/news/2025/08/25/1133937-ator-zastryavshih-v-gorode-sanya
+16:32:57 | INFO | Fetched 2520 chars | duration: 0.18 sec
+16:32:57 | INFO | Fetching full text: https://www.vedomosti.ru/investments/news/2025/08/25/1133935-mosbirzha-dobavit
+16:32:57 | INFO | Fetched 2878 chars | duration: 0.09 sec
+16:32:57 | INFO | Fetching full text: https://www.vedomosti.ru/finance/news/2025/08/25/1133936-fas-priznala-nenadlezhaschei
+16:32:57 | INFO | Fetched 2470 chars | duration: 0.26 sec
+16:32:57 | INFO | Fetching full text: https://www.vedomosti.ru/society/news/2025/08/25/1133928-operatsiya-po-spaseniyu
+16:32:57 | INFO | Fetched 3353 chars | duration: 0.11 sec
+16:32:57 | INFO | Fetching full text: https://www.vedomosti.ru/society/news/2025/08/25/1133931-rosaviatsiya-vvela-vremennie
+16:32:57 | INFO | Fetched 2348 chars | duration: 0.09 sec
+16:32:57 | INFO | Fetching full text: https://www.vedomosti.ru/auto/news/2025/08/25/1133927-blokirovki-rulya-lada
+16:32:57 | INFO | Fetched 2797 chars | duration: 0.10 sec
+16:32:58 | INFO | Fetching full text: https://www.vedomosti.ru/politics/news/2025/08/25/1133920-prezident-polshi-nalozhil
+16:32:58 | INFO | Fetched 2777 chars | duration: 0.10 sec
+16:32:58 | INFO | Fetching full text: https://www.vedomosti.ru/society/news/2025/08/25/1133923-lvova-belova-v-rf
+16:32:58 | INFO | Fetched 2690 chars | duration: 0.08 sec
+16:32:58 | INFO | Fetching full text: https://www.vedomosti.ru/society/news/2025/08/25/1133918-na-tankere
+16:32:58 | INFO | Fetched 2464 chars | duration: 0.09 sec
+16:32:58 | INFO | Fetching full text: https://www.vedomosti.ru/politics/news/2025/08/25/1133917-veipi-dlya-bpla
+16:32:58 | INFO | Fetched 2452 chars | duration: 0.39 sec
+16:32:58 | INFO | Fetching full text: https://www.vedomosti.ru/politics/news/2025/08/25/1133916-the-guardian-posle-ssori
+16:32:58 | INFO | Fetched 2759 chars | duration: 0.08 sec
+16:32:58 | INFO | Fetching full text: https://www.vedomosti.ru/auto/news/2025/08/25/1133910-kamaz-otmenil-prikaz
+16:32:58 | INFO | Fetched 2813 chars | duration: 0.07 sec
+16:32:58 | INFO | Fetching full text: https://www.vedomosti.ru/realty/news/2025/08/25/1133906-moskva-siti-ploschadei
+16:32:58 | INFO | Fetched 2717 chars | duration: 0.06 sec
+16:32:58 | INFO | Fetching full text: https://www.vedomosti.ru/society/news/2025/08/25/1133912-dron-k-alpinistke
+16:32:59 | INFO | Fetched 3131 chars | duration: 0.19 sec
+16:32:59 | INFO | Fetching full text: https://www.vedomosti.ru/politics/news/2025/08/25/1133908-selo-zaporozhskoe
+16:32:59 | INFO | Fetched 2363 chars | duration: 0.35 sec
+16:32:59 | INFO | Fetching full text: https://www.vedomosti.ru/politics/news/2025/08/25/1133905-zapros-po-propazhi-plovtsa
+16:32:59 | INFO | Fetched 2425 chars | duration: 0.09 sec
+16:32:59 | INFO | Fetching full text: https://www.vedomosti.ru/business/news/2025/08/25/1133901-sbp-za-rubezhom
+16:33:00 | INFO | Fetched 2582 chars | duration: 0.71 sec
+16:33:00 | INFO | Fetching full text: https://www.vedomosti.ru/society/news/2025/08/25/1133899-schitaet-sudbu-tyazhelee
+16:33:00 | INFO | Fetched 2940 chars | duration: 0.48 sec
+16:33:00 | INFO | Fetching full text: https://www.vedomosti.ru/society/news/2025/08/25/1133896-chetvero-palestinskih-zhurnalistov
+16:33:00 | INFO | Fetched 2886 chars | duration: 0.07 sec
+16:33:00 | INFO | Fetching full text: https://www.vedomosti.ru/society/news/2025/08/25/1133898-chislo-pogibshih
+16:33:01 | INFO | Fetched 2350 chars | duration: 0.38 sec
+16:33:01 | INFO | Fetching full text: https://www.vedomosti.ru/society/news/2025/08/25/1133891-tsdm-v-moskve-vozobnovil
+16:33:01 | INFO | Fetched 2379 chars | duration: 0.07 sec
+16:33:01 | INFO | Fetching full text: https://www.vedomosti.ru/politics/news/2025/08/25/1133890-v-gd-vnesli
+16:33:01 | INFO | Fetched 2751 chars | duration: 0.08 sec
+16:33:01 | INFO | Fetching full text: https://www.vedomosti.ru/investments/news/2025/08/25/1133888-indeksi-snizilis
+16:33:01 | INFO | Fetched 2618 chars | duration: 0.31 sec
+16:33:01 | INFO | Fetching full text: https://www.vedomosti.ru/politics/news/2025/08/25/1133886-vitse-kantsler-germanii
+16:33:01 | INFO | Fetched 2672 chars | duration: 0.19 sec
+16:33:01 | INFO | Fetching full text: https://www.vedomosti.ru/politics/news/2025/08/25/1133883-dmitriev-nazval-oshibki
+16:33:02 | INFO | Fetched 2622 chars | duration: 0.22 sec
+16:33:02 | INFO | Fetching full text: https://www.vedomosti.ru/politics/news/2025/08/25/1133882-kitai-ne-budet
+16:33:02 | INFO | Fetched 2670 chars | duration: 0.28 sec
+16:33:02 | INFO | Fetching full text: https://www.vedomosti.ru/politics/news/2025/08/25/1133876-prazdnikom-dlya-rossii
+16:33:02 | INFO | Fetched 3091 chars | duration: 0.48 sec
+16:33:02 | INFO | Fetching full text: https://www.vedomosti.ru/society/news/2025/08/25/1133878-hischenii-mlrd
+16:33:03 | INFO | Fetched 2626 chars | duration: 0.18 sec
+16:33:03 | INFO | Fetching full text: https://www.vedomosti.ru/society/news/2025/08/25/1133874-fsb-zaderzhala
+16:33:03 | INFO | Fetched 2849 chars | duration: 0.07 sec
+16:33:03 | INFO | Fetching full text: https://www.vedomosti.ru/economics/news/2025/08/25/1133873-rf-vtroe-uvelichila
+16:33:03 | INFO | Fetched 2961 chars | duration: 0.08 sec
+16:33:03 | INFO | Fetching full text: https://www.vedomosti.ru/society/news/2025/08/25/1133870-hinshtein-zaderzhanie
+16:33:03 | INFO | Fetched 2258 chars | duration: 0.19 sec
+16:33:03 | INFO | Fetching full text: https://www.vedomosti.ru/society/news/2025/08/25/1133868-mvd-preseklo-rabotu
+16:33:03 | INFO | Fetched 3342 chars | duration: 0.27 sec
+16:33:03 | INFO | Fetching full text: https://www.vedomosti.ru/politics/news/2025/08/25/1133865-merts-germaniya-bolshe
+16:33:03 | INFO | Fetched 2604 chars | duration: 0.09 sec
+16:33:03 | INFO | Fetching full text: https://www.vedomosti.ru/society/news/2025/08/25/1133863-zaderzhan-vrio-zamestitelya
+16:33:04 | INFO | Fetched 2818 chars | duration: 0.32 sec
+16:33:04 | INFO | Fetching full text: https://www.vedomosti.ru/society/news/2025/08/25/1133862-genprokuratura-priznala-nezhelatelnoi
+16:33:04 | INFO | Fetched 3333 chars | duration: 0.07 sec
+16:33:04 | INFO | Fetching full text: https://www.vedomosti.ru/society/news/2025/08/25/1133856-ssha-viyavili-sluchai
+16:33:04 | INFO | Fetched 2448 chars | duration: 0.20 sec
+16:33:04 | INFO | Fetching full text: https://www.vedomosti.ru/society/news/2025/08/25/1133854-rossiyanam-rasskazali
+16:33:04 | INFO | Fetched 3263 chars | duration: 0.14 sec
+16:33:04 | INFO | Fetching full text: https://www.vedomosti.ru/politics/news/2025/08/25/1133853-sili-pvo
+16:33:04 | INFO | Fetched 2400 chars | duration: 0.28 sec
+16:33:04 | INFO | Fetching full text: https://www.vedomosti.ru/politics/news/2025/08/25/1133852-tramp-vistupil
+16:33:05 | INFO | Fetched 2435 chars | duration: 0.42 sec
+16:33:05 | INFO | Fetching full text: https://www.vedomosti.ru/politics/news/2025/08/25/1133851-china-daily-dlya
+16:33:05 | INFO | Fetched 2658 chars | duration: 0.21 sec
+16:33:05 | INFO | Fetching full text: https://www.vedomosti.ru/society/news/2025/08/25/1133850-rossiiskii-sportsmen-svechnikov
+16:33:05 | INFO | Fetched 2725 chars | duration: 0.20 sec
+16:33:05 | INFO | Fetching full text: https://www.vedomosti.ru/society/news/2025/08/25/1133849-vse-chleni-propavshei
+16:33:05 | INFO | Fetched 2354 chars | duration: 0.07 sec
+16:33:05 | INFO | Fetching full text: https://www.vedomosti.ru/politics/news/2025/08/25/1133848-sobyanin-sili-pvo-sbili
+16:33:06 | INFO | Fetched 2076 chars | duration: 0.42 sec
+16:33:06 | INFO | Fetching full text: https://www.vedomosti.ru/society/news/2025/08/25/1133813-o-roste-chisla-devushek
+16:33:06 | INFO | Fetched 2517 chars | duration: 0.22 sec
+16:33:06 | INFO | Fetching full text: https://www.vedomosti.ru/society/news/2025/08/25/1133837-10-vipusknikov-fizteha
+16:33:06 | INFO | Fetched 2682 chars | duration: 0.08 sec
+16:33:06 | INFO | Fetching full text: https://www.vedomosti.ru/politics/news/2025/08/24/1133846-ob-obmene-pismami
+16:33:06 | INFO | Fetched 2774 chars | duration: 0.19 sec
+16:33:06 | INFO | Fetching full text: https://www.vedomosti.ru/politics/news/2025/08/24/1133845-samolet-prizemlilsya
+16:33:06 | INFO | Fetched 2926 chars | duration: 0.09 sec
+16:33:06 | INFO | Fetching full text: https://www.vedomosti.ru/politics/news/2025/08/24/1133843-siiyarto-otvetil-zelenskomu
+16:33:07 | INFO | Fetched 2896 chars | duration: 0.20 sec
+16:33:07 | INFO | Fetching full text: https://www.vedomosti.ru/politics/news/2025/08/24/1133842-durov-zayavil
+16:33:07 | INFO | Fetched 2994 chars | duration: 0.34 sec
+16:33:07 | INFO | Fetching full text: https://www.vedomosti.ru/politics/news/2025/08/24/1133838-ukraina-prodolzhaet-uderzhivat
+16:33:07 | INFO | Fetched 2424 chars | duration: 0.10 sec
+16:33:07 | INFO | Fetching full text: https://www.vedomosti.ru/society/news/2025/08/24/1133819-alpinistku-popitayutsya-spasti
+16:33:07 | INFO | Fetched 3297 chars | duration: 0.09 sec
+16:33:07 | INFO | Fetching full text: https://www.vedomosti.ru/technology/news/2025/08/24/1133818-nasa-mks
+16:33:07 | INFO | Fetched 2942 chars | duration: 0.25 sec
+16:33:07 | INFO | Fetching full text: https://www.vedomosti.ru/politics/news/2025/08/24/1133817-slovakiya-predupredila-ukrainu
+16:33:07 | INFO | Fetched 3033 chars | duration: 0.11 sec
+16:33:08 | INFO | Fetching full text: https://hightech.fm/2025/08/26/arctic-consequences
+16:33:08 | INFO | Fetched 2165 chars | duration: 0.12 sec
+16:33:08 | INFO | Fetching full text: https://hightech.fm/2025/08/26/google-verification
+16:33:08 | INFO | Fetched 2165 chars | duration: 0.11 sec
+16:33:08 | INFO | Fetching full text: https://hightech.fm/2025/08/26/how-kill-tb
+16:33:08 | INFO | Fetched 2525 chars | duration: 0.11 sec
+16:33:08 | INFO | Fetching full text: https://hightech.fm/2025/08/26/stonehenge-cow-tooth
+16:33:08 | INFO | Fetched 2222 chars | duration: 0.12 sec
+16:33:08 | INFO | Fetching full text: https://hightech.fm/2025/08/26/youtube-secret-tests
+16:33:08 | INFO | Fetched 2180 chars | duration: 0.13 sec
+16:33:08 | INFO | Fetching full text: https://hightech.fm/2025/08/26/reading-inner-thoughts
+16:33:09 | INFO | Fetched 2770 chars | duration: 0.11 sec
+16:33:09 | INFO | Fetching full text: https://hightech.fm/2025/08/25/detailed-flare
+16:33:09 | INFO | Fetched 2139 chars | duration: 0.11 sec
+16:33:09 | INFO | Fetching full text: https://hightech.fm/2025/08/25/newborn-mri
+16:33:09 | INFO | Fetched 2011 chars | duration: 0.11 sec
+16:33:09 | INFO | Fetching full text: https://hightech.fm/2025/08/25/juno-birthday
+16:33:09 | INFO | Fetched 2315 chars | duration: 0.11 sec
+16:33:09 | INFO | Fetching full text: https://hightech.fm/2025/08/25/untie-rubber
+16:33:09 | INFO | Fetched 2119 chars | duration: 0.14 sec
+16:33:10 | INFO | Fetching full text: https://renen.ru/vvedeno-v-ekspluatatsiyu-krupnejshee-hranilishhe-ugleroda-pod-dnom-severnogo-morya/
+16:33:11 | INFO | Fetched 3251 chars | duration: 0.13 sec
+16:33:11 | INFO | Fetching full text: https://renen.ru/nemtsy-otkazalis-ot-ranee-zakazannyh-kitajskih-vetryanyh-turbin/
+16:33:11 | INFO | Fetched 2346 chars | duration: 0.14 sec
+16:33:11 | INFO | Fetching full text: https://renen.ru/rekordno-nizkaya-tsena-na-zelenyj-ammiak-ustanovlena-v-indii/
+16:33:13 | INFO | Fetched 3116 chars | duration: 2.66 sec
+16:33:13 | INFO | Fetching full text: https://renen.ru/v-malajzii-postroyat-1-5-gvt-solnechnoj-generatsii-s-nakopitelyami-dlya-pitaniya-data-tsentrov/
+16:33:16 | INFO | Fetched 2384 chars | duration: 2.94 sec
+16:33:16 | INFO | Fetching full text: https://renen.ru/v-knr-nachali-prinimat-kvoty-na-vybrosy-ugleroda-v-kachestve-obespecheniya-po-kreditam/
+16:33:19 | INFO | Fetched 2495 chars | duration: 2.81 sec
+16:33:19 | INFO | Fetching full text: https://renen.ru/dolya-elektromobilej-v-prodazhah-legkovyh-avto-v-turtsii-sostavila-18-za-pervye-7-mesyatsev-goda/
+16:33:19 | INFO | Fetched 1722 chars | duration: 0.08 sec
+16:33:19 | INFO | Fetching full text: https://renen.ru/ustanovlennaya-moshhnost-solnechnoj-energetiki-kitaya-prevysila-1100-gvt/
+16:33:22 | INFO | Fetched 1730 chars | duration: 2.93 sec
+16:33:22 | INFO | Fetching full text: https://renen.ru/solnechnaya-energetika-obespechit-bolee-poloviny-prirosta-moshhnostej-elektroenergetiki-ssha-v-2025/
+16:33:25 | INFO | Fetched 4430 chars | duration: 2.94 sec
+16:33:25 | INFO | Fetching full text: https://renen.ru/potreblenie-elektroenergii-v-kitae-za-odin-mesyats-vpervye-prevysilo-trillion-kilovatt-chasov/
+16:33:28 | INFO | Fetched 1473 chars | duration: 2.50 sec
+16:33:28 | INFO | Fetching full text: https://renen.ru/vybrosy-so2-v-kitae-upali-v-pervom-polugodii-nesmotrya-na-rost-potrebleniya-elektroenergii/
+16:33:31 | INFO | Fetched 2222 chars | duration: 2.91 sec
+16:33:33 | INFO | Fetching full text: https://cleantechnica.com/2025/08/26/the-birthplace-of-the-boda-boda-is-electrifying-thanks-to-pioneers-like-zembo/
+16:33:34 | INFO | Fetched 7469 chars | duration: 0.75 sec
+16:33:34 | INFO | Fetching full text: https://cleantechnica.com/2025/08/25/amidst-energy-prices-rise-trump-kills-jobs-cuts-off-renewable-energy/
+16:33:35 | INFO | Fetched 2275 chars | duration: 0.74 sec
+16:33:35 | INFO | Fetching full text: https://cleantechnica.com/2025/08/25/nio-day-2025-see-you-in-hangzhou/
+16:33:36 | INFO | Fetched 3567 chars | duration: 0.76 sec
+16:33:36 | INFO | Fetching full text: https://cleantechnica.com/2025/08/25/xpeng-launches-global-ota-5-8-0-update-delivering-refined-experiences-for-diverse-user-demands/
+16:33:36 | INFO | Fetched 5206 chars | duration: 0.44 sec
+16:33:36 | INFO | Fetching full text: https://cleantechnica.com/2025/08/25/applications-open-for-collegiate-competitions-aimed-at-inspiring-future-water-power-workforce/
+16:33:37 | INFO | Fetched 4747 chars | duration: 0.79 sec
+16:33:37 | INFO | Fetching full text: https://cleantechnica.com/2025/08/25/worlds-highest-tesla-light-show-at-the-top-of-pikes-peak/
+16:33:37 | INFO | Fetched 4025 chars | duration: 0.43 sec
+16:33:37 | INFO | Fetching full text: https://cleantechnica.com/2025/08/25/from-sawmill-to-module-how-canada-can-scale-a-low-carbon-timber-value-chain/
+16:33:38 | INFO | Fetched 7591 chars | duration: 0.74 sec
+16:33:38 | INFO | Fetching full text: https://cleantechnica.com/2025/08/25/i-went-to-bogotas-latest-ev-exposition-now-im-certain-were-over-the-tipping-point/
+16:33:39 | INFO | Fetched 3717 chars | duration: 0.74 sec
+16:33:39 | INFO | Fetching full text: https://cleantechnica.com/2025/08/25/dji-power-2000-portable-power-station-cleantechnica-tested/
+16:33:40 | INFO | Fetched 4938 chars | duration: 0.77 sec
+16:33:40 | INFO | Fetching full text: https://cleantechnica.com/2025/08/25/does-cycling-reduce-alzheimers-risk/
+16:33:40 | INFO | Fetched 3176 chars | duration: 0.75 sec
+16:33:40 | INFO | Fetching full text: https://cleantechnica.com/2025/08/25/foreign-affairs-plot-thickens-around-offshore-wind-stop-work-order/
+16:33:41 | INFO | Fetched 7513 chars | duration: 0.77 sec
+16:33:41 | INFO | Fetching full text: https://cleantechnica.com/2025/08/25/solar-plus-battery-storage-this-changes-everything/
+16:33:42 | INFO | Fetched 9436 chars | duration: 0.77 sec
+16:33:42 | INFO | Fetching full text: https://cleantechnica.com/2025/08/25/are-electric-bikes-actually-replacing-car-trips-now/
+16:33:43 | INFO | Fetched 3792 chars | duration: 0.73 sec
+16:33:43 | INFO | Fetching full text: https://cleantechnica.com/2025/08/25/zambias-removal-of-customs-duties-on-ev-imports-spurs-growth-in-ev-adoption/
+16:33:43 | INFO | Fetched 6457 chars | duration: 0.78 sec
+16:33:43 | INFO | Fetching full text: https://cleantechnica.com/2025/08/25/rivian-to-build-new-electric-vehicle-factory-despite-loss-of-federal-tax-credit/
+16:33:44 | INFO | Fetched 6709 chars | duration: 0.76 sec
+16:33:44 | INFO | Fetching full text: https://cleantechnica.com/2025/08/25/could-the-faltering-us-dollar-create-global-clean-tech-investment-opportunities/
+16:33:45 | INFO | Fetched 5935 chars | duration: 0.79 sec
+16:33:45 | INFO | Fetching full text: https://cleantechnica.com/2025/08/24/us-auto-sales-up-3-in-q2-tesla-sales-down-13-charts/
+16:33:45 | INFO | Fetched 3241 chars | duration: 0.43 sec
+16:33:45 | INFO | Fetching full text: https://cleantechnica.com/2025/08/24/our-childrens-trust-represents-young-people-in-wisconsin-in-climate-suit/
+16:33:46 | INFO | Fetched 8101 chars | duration: 0.72 sec
+16:33:46 | INFO | Fetching full text: https://cleantechnica.com/2025/08/24/how-carneys-housing-initiative-can-industrialize-canadas-mass-timber-sector/
+16:33:47 | INFO | Fetched 7984 chars | duration: 0.46 sec
+16:33:47 | INFO | Fetching full text: https://cleantechnica.com/2025/08/24/the-mobility-house-promotes-energy-independence/
+16:33:47 | INFO | Fetched 8430 chars | duration: 0.44 sec
+16:33:47 | INFO | Fetching full text: https://cleantechnica.com/2025/08/24/90-grams-of-fiber-a-day/
+16:33:48 | INFO | Fetched 3749 chars | duration: 0.77 sec
+16:33:48 | INFO | Fetching full text: https://cleantechnica.com/2025/08/24/when-an-offshore-wind-project-shuts-down-a-gas-pipeline-gets-its-wings/
+16:33:48 | INFO | Fetched 7616 chars | duration: 0.45 sec
+16:33:48 | INFO | Fetching full text: https://cleantechnica.com/2025/08/24/trump-works-to-sabotage-offshore-wind-alliances/
+16:33:49 | INFO | Fetched 6885 chars | duration: 0.46 sec
+16:33:49 | INFO | Fetching full text: https://cleantechnica.com/2025/08/23/byds-sales-transition-clearing-out-the-old-to-make-way-for-the-new-in-china/
+16:33:50 | INFO | Fetched 5980 chars | duration: 0.82 sec
+16:33:50 | INFO | Fetching full text: https://cleantechnica.com/2025/08/23/canadas-timber-moment-clt-as-the-fastest-lever-for-housing-jobs-climate/
+16:33:50 | INFO | Fetched 7917 chars | duration: 0.71 sec
+16:33:50 | INFO | Fetching full text: https://cleantechnica.com/2025/08/23/oil-gas-pollution-linked-to-90000-premature-deaths-a-year-in-the-us/
+16:33:51 | INFO | Fetched 9093 chars | duration: 0.77 sec
+16:33:51 | INFO | Fetching full text: https://cleantechnica.com/2025/08/23/two-thirds-of-river-trash-is-plastic-research/
+16:33:52 | INFO | Fetched 4645 chars | duration: 0.73 sec
+16:33:52 | INFO | Fetching full text: https://cleantechnica.com/2025/08/23/tesla-shareholder-group-challenges-musk-compensation-award/
+16:33:52 | INFO | Fetched 8592 chars | duration: 0.45 sec
+16:33:52 | INFO | Fetching full text: https://cleantechnica.com/2025/08/23/government-clown-cant-or-wont-tell-solar-panels-buildings-apart-from-each-other/
+16:33:53 | INFO | Fetched 8167 chars | duration: 0.76 sec
+16:33:53 | INFO | Fetching full text: https://cleantechnica.com/2025/08/22/home-batteries-energy-independence-day/
+16:33:53 | INFO | Fetched 6520 chars | duration: 0.44 sec
+16:33:53 | INFO | Fetching full text: https://cleantechnica.com/2025/08/22/turkiye-ev-sales-report-three-kings-rule-fast-growing-market/
+16:33:54 | INFO | Fetched 2797 chars | duration: 0.46 sec
+16:33:54 | INFO | Fetching full text: https://cleantechnica.com/2025/08/22/have-we-reached-peak-byd-and-peak-phev-july-2025-china-ev-sales-report/
+16:33:55 | INFO | Fetched 13614 chars | duration: 0.79 sec
+16:33:55 | INFO | Fetching full text: https://cleantechnica.com/2025/08/22/fracking-hydrogen-from-rocks-clever-tech-tough-economics/
+16:33:55 | INFO | Fetched 12380 chars | duration: 0.83 sec
+16:33:55 | INFO | Fetching full text: https://cleantechnica.com/2025/08/22/the-mini-countryman-se-all4-electric-first-drive/
+16:33:56 | INFO | Fetched 6903 chars | duration: 0.42 sec
+16:33:56 | INFO | Fetching full text: https://cleantechnica.com/2025/08/22/chery-launches-the-34-4-kwh-tiggo-9-in-south-africas-growing-phev-market/
+16:33:56 | INFO | Fetched 6124 chars | duration: 0.42 sec
+16:33:56 | INFO | Fetching full text: https://cleantechnica.com/2025/08/22/eco-dynamic-solar-awnings-make-it-easy-for-rvs-to-capture-more-sunshine/
+16:33:57 | INFO | Fetched 3280 chars | duration: 0.75 sec
+16:33:57 | INFO | Fetching full text: https://cleantechnica.com/2025/08/22/the-global-space-solar-race-is-heating-up-nasa-holds-the-keys/
+16:33:58 | INFO | Fetched 7120 chars | duration: 0.47 sec
+16:33:58 | INFO | Fetching full text: https://cleantechnica.com/2025/08/22/affordable-strategies-for-cleaning-your-air-if-you-have-a-gas-stove/
+16:33:58 | INFO | Fetched 3891 chars | duration: 0.77 sec
+16:33:58 | INFO | Fetching full text: https://cleantechnica.com/2025/08/22/anker-solix-f3000-portable-power-station-cleantechnica-tested/
+16:33:59 | INFO | Fetched 5267 chars | duration: 0.43 sec
+16:33:59 | INFO | Fetching full text: https://cleantechnica.com/2025/08/22/syncraft-builds-new-climate-positive-power-plant-in-wallern-austria/
+16:33:59 | INFO | Fetched 1688 chars | duration: 0.45 sec
+16:33:59 | INFO | Fetching full text: https://cleantechnica.com/2025/08/22/new-building-electrification-collaboration-claps-back-at-anti-solar-foes/
+16:34:00 | INFO | Fetched 7384 chars | duration: 0.78 sec
+16:34:00 | INFO | Fetching full text: https://cleantechnica.com/2025/08/22/global-ev-patent-counts-are-growing-with-byd-in-the-lead/
+16:34:00 | INFO | Fetched 6861 chars | duration: 0.45 sec
+16:34:00 | INFO | Fetching full text: https://cleantechnica.com/2025/08/22/we-need-to-consider-food-adaptations-for-our-future-healthy-planet/
+16:34:01 | INFO | Fetched 7181 chars | duration: 0.44 sec
+16:34:01 | INFO | Fetching full text: https://cleantechnica.com/2025/08/21/gavin-newsom-obama-finally-fight-fire-with-fire/
+16:34:01 | INFO | Fetched 5718 chars | duration: 0.43 sec
+16:34:01 | INFO | Fetching full text: https://cleantechnica.com/2025/08/21/new-nio-es8-pre-orders-start/
+16:34:02 | INFO | Fetched 13926 chars | duration: 0.47 sec
+16:34:07 | INFO | Fetching full text: https://www.hydrogenfuelnews.com/hydrogen-fuel-cells-take-the-helm-in-singapores-shipping-hub/8572633/
+16:34:07 | INFO | Fetched 37587 chars | duration: 0.16 sec
+16:34:07 | INFO | Fetching full text: https://www.hydrogenfuelnews.com/liquid-hydrogen-storage-breakthrough-at-kennedy-space-center-for-nasa-artemis-missions/8572631/
+16:34:07 | INFO | Fetched 43424 chars | duration: 0.18 sec
+16:34:07 | INFO | Fetching full text: https://www.hydrogenfuelnews.com/wsu-model-improves-liquid-hydrogen-storage-efficiency/8572629/
+16:34:07 | INFO | Fetched 22712 chars | duration: 0.16 sec
+16:34:07 | INFO | Fetching full text: https://www.hydrogenfuelnews.com/hydrogen-fuel-cells-sinohytec-and-pengfei-group-launch-strategic-collaboration-in-shanxi/8572627/
+16:34:07 | INFO | Fetched 14864 chars | duration: 0.15 sec
+16:34:07 | INFO | Fetching full text: https://www.hydrogenfuelnews.com/fuel-cell-technology-fuels-next-gen-electrochemical-gas-sensors/8572625/
+16:34:08 | INFO | Fetched 100932 chars | duration: 0.29 sec
+16:34:08 | INFO | Fetching full text: https://www.hydrogenfuelnews.com/green-hydrogen-surge-european-refiners-pivot-to-decarbonize-and-fuel-maritime-growth/8572623/
+16:34:08 | INFO | Fetched 10385 chars | duration: 0.18 sec
+16:34:08 | INFO | Fetching full text: https://www.hydrogenfuelnews.com/hydrogen-infrastructure-port-of-south-louisiana-tenders-first-e-methanol-fueling-barge/8572621/
+16:34:08 | INFO | Fetched 66312 chars | duration: 0.17 sec
+16:34:08 | INFO | Fetching full text: https://www.hydrogenfuelnews.com/gwm-deploys-first-hydrogen-fuel-cell-truck-in-brazil/8572619/
+16:34:08 | INFO | Fetched 35546 chars | duration: 0.32 sec
+16:34:08 | INFO | Fetching full text: https://www.hydrogenfuelnews.com/hydrogen-fuel-cells-revolutionize-off-grid-energy-at-ausbuttel-waste-site/8572617/
+16:34:08 | INFO | Fetched 71608 chars | duration: 0.17 sec
+16:34:08 | INFO | Fetching full text: https://www.hydrogenfuelnews.com/hydrogen-production-revolutionised-by-metallic-nanofiber-mesh-electrodes/8572615/
+16:34:09 | INFO | Fetched 42354 chars | duration: 0.18 sec
+16:34:09 | INFO | Fetching full text: https://www.pv-magazine.com/2025/08/26/photovoltaic-roofing-for-airport-access-roads/
+16:34:09 | INFO | Fetched 3208 chars | duration: 0.36 sec
+16:34:09 | INFO | Fetching full text: https://www.pv-magazine.com/2025/08/26/jakson-engineers-to-invest-913-million-in-6-gw-solar-plant/
+16:34:09 | INFO | Fetched 3597 chars | duration: 0.20 sec
+16:34:09 | INFO | Fetching full text: https://www.pv-magazine.com/2025/08/26/germany-records-453-hours-of-year-to-date-negative-electricity-prices/
+16:34:10 | INFO | Fetched 3573 chars | duration: 0.36 sec
+16:34:10 | INFO | Fetching full text: https://www.pv-magazine.com/2025/08/26/brazil-bets-big-on-batteries/
+16:34:11 | INFO | Fetched 2964 chars | duration: 0.96 sec
+16:34:11 | INFO | Fetching full text: https://www.pv-magazine.com/2025/08/26/confused-with-pv-connectors-words-matter/
+16:34:12 | INFO | Fetched 4477 chars | duration: 0.93 sec
+16:34:12 | INFO | Fetching full text: https://www.pv-magazine.com/2025/08/26/tigo-eg4-to-jointly-make-solar-gear-at-us-factory/
+16:34:12 | INFO | Fetched 4202 chars | duration: 0.71 sec
+16:34:12 | INFO | Fetching full text: https://www.pv-magazine.com/2025/08/26/trinabot-offers-installation-robots-for-large-pv-projects/
+16:34:13 | INFO | Fetched 3979 chars | duration: 0.17 sec
+16:34:13 | INFO | Fetching full text: https://www.pv-magazine.com/2025/08/26/argentinas-oversubscribed-bess-tender-draws-record-low-bids/
+16:34:13 | INFO | Fetched 2729 chars | duration: 0.80 sec
+16:34:13 | INFO | Fetching full text: https://www.pv-magazine.com/2025/08/26/bila-solar-introduces-550-w-solar-panel-with-us-made-steel-frame/
+16:34:14 | INFO | Fetched 4144 chars | duration: 0.95 sec
+16:34:14 | INFO | Fetching full text: https://www.pv-magazine.com/2025/08/26/longi-unveils-lightweight-module-for-low-load-rooftops/
+16:34:16 | INFO | Fetched 3551 chars | duration: 1.27 sec
+16:34:16 | INFO | Fetching full text: https://www.pv-magazine.com/2025/08/26/ntpc-rel-opens-bidding-for-300-mw-solar-project-in-india/
+16:34:16 | INFO | Fetched 2628 chars | duration: 0.21 sec
+16:34:16 | INFO | Fetching full text: https://www.pv-magazine.com/2025/08/25/fluence-expands-us-battery-production-with-new-texas-fab/
+16:34:16 | INFO | Fetched 2471 chars | duration: 0.17 sec
+16:34:16 | INFO | Fetching full text: https://www.pv-magazine.com/2025/08/25/acenergy-signs-3-gwh-battery-supply-deal-with-catl/
+16:34:17 | INFO | Fetched 3071 chars | duration: 1.00 sec
+16:34:17 | INFO | Fetching full text: https://www.pv-magazine.com/2025/08/25/new-digital-twin-technology-boosts-performance-management-for-bess/
+16:34:17 | INFO | Fetched 2918 chars | duration: 0.17 sec
+16:34:17 | INFO | Fetching full text: https://www.pv-magazine.com/2025/08/25/indias-solar-module-capacity-hits-100-gw-with-oversupply-risk-by-2027/
+16:34:18 | INFO | Fetched 4403 chars | duration: 0.89 sec
+16:34:18 | INFO | Fetching full text: https://www.pv-magazine.com/2025/08/25/malaysian-partners-to-develop-1-5-gw-of-solar/
+16:34:19 | INFO | Fetched 3392 chars | duration: 0.81 sec
+16:34:19 | INFO | Fetching full text: https://www.pv-magazine.com/2025/08/25/peer-to-peer-solar-trading-boosts-returns-stability-say-australian-researchers/
+16:34:20 | INFO | Fetched 3503 chars | duration: 0.82 sec
+16:34:20 | INFO | Fetching full text: https://www.pv-magazine.com/2025/08/25/envision-signs-40-gwh-plus-battery-cell-agreements-with-chinese-integrators/
+16:34:21 | INFO | Fetched 2391 chars | duration: 0.99 sec
+16:34:21 | INFO | Fetching full text: https://www.pv-magazine.com/2025/08/25/sunkind-energy-signs-deal-for-4-gw-of-solar-module-lines-in-india/
+16:34:21 | INFO | Fetched 3362 chars | duration: 0.70 sec
+16:34:21 | INFO | Fetching full text: https://www.pv-magazine.com/2025/08/25/solar-to-power-ukrainian-communitys-water-utility/
+16:34:22 | INFO | Fetched 3853 chars | duration: 0.19 sec
+16:34:22 | INFO | Fetching full text: https://www.pv-magazine.com/2025/08/25/jordan-to-install-solar-at-homes-of-disabled-people/
+16:34:22 | INFO | Fetched 3023 chars | duration: 0.23 sec
+16:34:22 | INFO | Fetching full text: https://www.pv-magazine.com/2025/08/25/sweden-adds-430-mw-of-solar-in-h1-2025/
+16:34:23 | INFO | Fetched 4296 chars | duration: 0.71 sec
+16:34:23 | INFO | Fetching full text: https://www.pv-magazine.com/2025/08/25/solar-self-consumption-viable-an-all-spanish-roofs-regardless-of-orientation/
+16:34:23 | INFO | Fetched 6134 chars | duration: 0.84 sec
+16:34:23 | INFO | Fetching full text: https://www.pv-magazine.com/2025/08/25/germany-offers-best-european-policy-for-agrivoltaics-study-finds/
+16:34:24 | INFO | Fetched 6225 chars | duration: 0.66 sec
+16:34:24 | INFO | Fetching full text: https://www.pv-magazine.com/2025/08/25/ctc-launches-high-capacity-air-to-water-heat-pump/
+16:34:25 | INFO | Fetched 3169 chars | duration: 1.10 sec
+16:34:26 | INFO | Fetching full text: https://www.energy-storage.news/new-jersey-governor-signs-laws-to-increase-energy-storage-and-community-solar-installations/
+16:34:26 | INFO | Fetched 2480 chars | duration: 0.26 sec
+16:34:26 | INFO | Fetching full text: https://www.energy-storage.news/megawatts-are-not-enough-anymore-for-leading-us-bess-markets/
+16:34:26 | INFO | Fetched 13286 chars | duration: 0.22 sec
+16:34:26 | INFO | Fetching full text: https://www.energy-storage.news/new-eu-end-of-life-battery-regulations-create-legal-and-commercial-complexities-for-suppliers/
+16:34:27 | INFO | Fetched 5159 chars | duration: 0.31 sec
+16:34:27 | INFO | Fetching full text: https://www.energy-storage.news/gigawatt-hour-scale-energy-parks-bess-developer-pacific-green-raises-au77-million-for-australia-projects/
+16:34:27 | INFO | Fetched 3305 chars | duration: 0.41 sec
+16:34:27 | INFO | Fetching full text: https://www.energy-storage.news/australia-capacity-investment-scheme-results-for-16gwh-tender-expected-in-the-coming-weeks/
+16:34:28 | INFO | Fetched 2778 chars | duration: 0.48 sec
+16:34:28 | INFO | Fetching full text: https://www.energy-storage.news/fullmark-energys-20mw-40mwh-california-bess-reaches-commercial-operation/
+16:34:28 | INFO | Fetched 2290 chars | duration: 0.31 sec
+16:34:28 | INFO | Fetching full text: https://www.energy-storage.news/nextera-energy-resources-receives-approval-for-200mw-utah-bess/
+16:34:28 | INFO | Fetched 2091 chars | duration: 0.27 sec
+16:34:28 | INFO | Fetching full text: https://www.energy-storage.news/new-mexico-utility-picks-batteries-over-fossil-fuels-ordering-bess-retrofits-for-solar-pv-plants/
+16:34:29 | INFO | Fetched 4462 chars | duration: 0.45 sec
+16:34:29 | INFO | Fetching full text: https://www.energy-storage.news/new-community-batteries-launch-in-queensland-and-victoria-australia/
+16:34:29 | INFO | Fetched 3580 chars | duration: 0.40 sec
+16:34:29 | INFO | Fetching full text: https://www.energy-storage.news/aemo-bess-secures-the-highest-reliability-amongst-clean-energy-technologies-in-australia/
+16:34:29 | INFO | Fetched 2763 chars | duration: 0.42 sec
+16:34:37 | INFO | Fetching full text: https://oilcapital.ru/news/2025-08-26/v-kongo-budut-proizvodit-3-mln-tonn-spg-v-god-na-proekte-eni-5463005
+16:34:37 | INFO | Fetched 1643 chars | duration: 0.04 sec
+16:34:37 | INFO | Fetching full text: https://oilcapital.ru/news/2025-08-26/mazut-iz-rossii-spasaet-neftyanoy-eksport-saudovskoy-aravii-5463000
+16:34:37 | INFO | Fetched 1930 chars | duration: 0.07 sec
+16:34:37 | INFO | Fetching full text: https://oilcapital.ru/news/2025-08-26/rossiya-uvelichivaet-eksport-nefti-na-fone-sokrascheniya-moschnostey-npz-reuters-5462988
+16:34:37 | INFO | Fetched 2064 chars | duration: 0.52 sec
+16:34:37 | INFO | Fetching full text: https://oilcapital.ru/news/2025-08-26/indiyskaya-ongc-konsolidiruet-torgovlyu-neftyu-i-nefteproduktami-5462983
+16:34:38 | INFO | Fetched 1684 chars | duration: 0.29 sec
+16:34:38 | INFO | Fetching full text: https://oilcapital.ru/news/2025-08-26/pribyl-petrochina-upala-na-5-6-no-vse-vidy-biznesa-ostalis-v-plyuse-5462972
+16:34:38 | INFO | Fetched 2843 chars | duration: 0.30 sec
+16:34:38 | INFO | Fetching full text: https://oilcapital.ru/news/2025-08-26/vengriya-mozhet-no-ne-stanet-prekraschat-eksport-elektroenergii-ukraine-5462940
+16:34:38 | INFO | Fetched 2311 chars | duration: 0.15 sec
+16:34:38 | INFO | Fetching full text: https://oilcapital.ru/news/2025-08-26/reuters-germaniya-poteryala-pochti-250-tysyach-rabochih-mest-za-6-let-5462928
+16:34:39 | INFO | Fetched 2541 chars | duration: 0.45 sec
+16:34:39 | INFO | Fetching full text: https://oilcapital.ru/news/2025-08-26/kanada-i-es-hotyat-prodolzhit-sanktsionnoe-davlenie-na-rf-vopreki-peregovoram-5462914
+16:34:39 | INFO | Fetched 1994 chars | duration: 0.39 sec
+16:34:39 | INFO | Fetching full text: https://oilcapital.ru/news/2025-08-26/iz-za-skandala-s-oruzhiem-oae-zablokirovali-neftyanoy-tanker-iz-sudana-5462905
+16:34:39 | INFO | Fetched 1643 chars | duration: 0.25 sec
+16:34:39 | INFO | Fetching full text: https://oilcapital.ru/news/2025-08-26/ssha-mogut-dat-serbskoy-nis-otsrochku-ot-sanktsiy-esche-na-mesyats-dva-serbiyagaz-5462869
+16:34:40 | INFO | Fetched 2280 chars | duration: 0.35 sec
+16:34:40 | INFO | Fetching full text: https://oilcapital.ru/news/2025-08-26/serbiyagaz-ne-verit-energeticheskoe-buduschee-evropy-bez-rossii-5462864
+16:34:40 | INFO | Fetched 1730 chars | duration: 0.34 sec
+16:34:40 | INFO | Fetching full text: https://oilcapital.ru/news/2025-08-26/novyy-impuls-dlya-giganta-eni-razrabatyvaet-3-novye-skvazhiny-na-zohr-5462853
+16:34:40 | INFO | Fetched 2163 chars | duration: 0.57 sec
+16:34:40 | INFO | Fetching full text: https://oilcapital.ru/news/2025-08-26/gosduma-prosit-fas-prosledit-za-tsenami-na-nezavisimyh-azs-dalnego-vostoka-5462835
+16:34:41 | INFO | Fetched 1647 chars | duration: 0.51 sec
+16:34:41 | INFO | Fetching full text: https://oilcapital.ru/news/2025-08-26/rossiya-zatyagivaet-s-finansirovaniem-tets-v-kazahstane-respublika-gotova-stroit-sama-5462830
+16:34:42 | INFO | Fetched 2211 chars | duration: 0.53 sec
+16:34:42 | INFO | Fetching full text: https://oilcapital.ru/news/2025-08-26/novoshahtinskiy-npz-gorel-5-dney-5462818
+16:34:42 | INFO | Fetched 1298 chars | duration: 0.34 sec
+16:34:42 | INFO | Fetching full text: https://oilcapital.ru/news/2025-08-26/gazprom-podpisal-memorandum-o-sotrudnichestve-s-mongoliey-5462799
+16:34:42 | INFO | Fetched 2312 chars | duration: 0.53 sec
+16:34:42 | INFO | Fetching full text: https://oilcapital.ru/news/2025-08-26/ssha-i-rf-obsuzhdali-energosotrudnichestvo-v-obmen-na-mirnyy-dogovor-reuters-5462790
+16:34:43 | INFO | Fetched 2137 chars | duration: 0.54 sec
+16:34:43 | INFO | Fetching full text: https://oilcapital.ru/news/2025-08-26/ugolnyy-eksport-rossii-rost-na-19-s-ubytkom-dlya-kompaniy-5462766
+16:34:43 | INFO | Fetched 2034 chars | duration: 0.38 sec
+16:34:43 | INFO | Fetching full text: https://oilcapital.ru/news/2025-08-26/indiya-v-iyule-kupila-na-8-7-menshe-rossiyskoy-nefti-chem-v-iyune-5462760
+16:34:44 | INFO | Fetched 1740 chars | duration: 0.47 sec
+16:34:44 | INFO | Fetching full text: https://oilcapital.ru/news/2025-08-26/neft-brent-desheveet-do-68-4-za-barrel-vo-vtornik-5462740
+16:34:44 | INFO | Fetched 2220 chars | duration: 0.44 sec
+16:34:44 | INFO | Найдено 75 новостей из RSS
+16:34:44 | INFO | Парсинг HTML-сайтов
+16:34:48 | INFO | Найдено 0 новостей с HTML-сайтов
+16:34:48 | INFO | Всего новостей: 75
+16:34:48 | INFO | Сохранено 75 новостей в data/energy_news_20250826_1634.json
+16:34:48 | INFO | 
+===== СТАТИСТИКА ОБРАБОТКИ =====
+Всего статей: 654
+Принято: 75
+Отклонено: 579
+
