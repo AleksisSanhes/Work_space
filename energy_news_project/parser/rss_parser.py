@@ -6,7 +6,7 @@ from bs4 import BeautifulSoup
 from .utils import clean_text
 from .nlp_filter import is_energy_related, translate_text
 from .stats import update_stats
-
+#
 RSS_FEEDS = [
     {"url": "https://lenta.ru/rss/news", "name": "Lenta.ru"},
     {"url": "https://www.interfax.ru/rss.asp", "name": "Interfax"},
