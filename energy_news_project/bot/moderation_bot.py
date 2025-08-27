@@ -74,20 +74,33 @@ def save_news_db():
         json.dump(NEWS_DB, f, ensure_ascii=False)
 
 
-# ---------- Отправка с задержкой ----------
-async def send_with_delay(bot, chat_id, text, reply_markup=None, pause: float = 1.5):
-    try:
-        message = await bot.send_message(
-            chat_id=chat_id,
-            text=text,
-            reply_markup=reply_markup,
-            disable_web_page_preview=True,
-        )
-        await asyncio.sleep(pause)  # антирейтлимит
-        return message
-    except Exception as e:
-        logger.error(f"Ошибка при отправке сообщения: {e}")
-        return None
+# ---------- Отправка с лимитами ----------
+MAX_MSG_LENGTH = 4000  # безопасный лимит
+
+async def send_long_message(bot: Bot, chat_id: str, text: str, reply_markup=None, pause: float = 1.5):
+    """
+    Отправляет длинный текст в канал, разбивая на куски до MAX_MSG_LENGTH.
+    Кнопки добавляются только к последнему сообщению.
+    """
+    chunks = []
+    while text:
+        if len(text) <= MAX_MSG_LENGTH:
+            chunks.append(text)
+            break
+        else:
+            split_pos = text.rfind(" ", 0, MAX_MSG_LENGTH)
+            if split_pos == -1:
+                split_pos = MAX_MSG_LENGTH
+            chunks.append(text[:split_pos])
+            text = text[split_pos:].lstrip()
+
+    for i, chunk in enumerate(chunks):
+        if i == len(chunks) - 1:
+            message = await bot.send_message(chat_id=chat_id, text=chunk, reply_markup=reply_markup, disable_web_page_preview=True)
+        else:
+            message = await bot.send_message(chat_id=chat_id, text=chunk, disable_web_page_preview=True)
+        await asyncio.sleep(pause)
+    return message
 
 
 # ---------- Telegram Handlers ----------
@@ -97,9 +110,7 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
 async def test_publish_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     try:
-        await context.bot.send_message(
-            chat_id=PUBLISH_CHANNEL, text="🔔 Тестовая публикация"
-        )
+        await context.bot.send_message(chat_id=PUBLISH_CHANNEL, text="🔔 Тестовая публикация")
         await update.message.reply_text("Отправлено (если бот имеет доступ к каналу).")
     except Exception as e:
         await update.message.reply_text(f"⚠️ Ошибка при публикации: {e}")
@@ -115,22 +126,12 @@ async def send_to_moderation(bot: Bot, news_item: dict, sent_ids: set):
     text = f"{title}\n\nИсточник: {source}\nДата: {date}\nСсылка: {url}\n\n{preview}"
     keyboard = [
         [
-            InlineKeyboardButton(
-                "✅ Опубликовать", callback_data=f"approve|{news_item['id']}"
-            ),
-            InlineKeyboardButton(
-                "❌ Отклонить", callback_data=f"reject|{news_item['id']}"
-            ),
+            InlineKeyboardButton("✅ Опубликовать", callback_data=f"approve|{news_item['id']}"),
+            InlineKeyboardButton("❌ Отклонить", callback_data=f"reject|{news_item['id']}"),
         ]
     ]
 
-    message = await send_with_delay(
-        bot,
-        MODERATION_CHANNEL,
-        text,
-        reply_markup=InlineKeyboardMarkup(keyboard),
-    )
-
+    message = await send_long_message(bot, MODERATION_CHANNEL, text, reply_markup=InlineKeyboardMarkup(keyboard))
     if message:
         NEWS_DB[news_item["id"]] = {
             "message_id": message.message_id,
@@ -149,10 +150,13 @@ def format_news_for_publication(news_item: dict) -> str:
     source = safe_clean_text(news_item.get("source", "Источник не указан"))
     url = news_item.get("url", "")
 
-    if len(text) > 3800:
-        text = text[:3800] + "... [обрезано]"
-
     return f"🔥 {title}\n\n{text}\n\nИсточник: {source}\nОригинал: {url}"
+
+
+async def send_to_publication(bot: Bot, news_item: dict):
+    text = format_news_for_publication(news_item)
+    keyboard = None  # кнопок для публикации нет
+    await send_long_message(bot, PUBLISH_CHANNEL, text, reply_markup=keyboard)
 
 
 async def button_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
@@ -170,67 +174,40 @@ async def button_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
         news_item = data_entry["news_data"]
 
         if action == "approve":
-            publication_text = format_news_for_publication(news_item)
-            await context.bot.send_message(
-                chat_id=PUBLISH_CHANNEL,
-                text=publication_text,
-                disable_web_page_preview=True,
-            )
-            await context.bot.edit_message_text(
-                chat_id=channel_id,
-                message_id=message_id,
-                text=f"✅ ОПУБЛИКОВАНО\n\n{query.message.text}",
-                reply_markup=None,
-            )
+            await send_to_publication(context.bot, news_item)
+            await context.bot.edit_message_text(chat_id=channel_id, message_id=message_id,
+                                                text=f"✅ ОПУБЛИКОВАНО\n\n{query.message.text}",
+                                                reply_markup=None)
             logger.info(f"Новость {news_id} опубликована.")
-
         elif action == "reject":
-            await context.bot.edit_message_text(
-                chat_id=channel_id,
-                message_id=message_id,
-                text=f"❌ ОТКЛОНЕНО\n\n{query.message.text}",
-                reply_markup=None,
-            )
+            await context.bot.edit_message_text(chat_id=channel_id, message_id=message_id,
+                                                text=f"❌ ОТКЛОНЕНО\n\n{query.message.text}",
+                                                reply_markup=None)
             logger.info(f"Новость {news_id} отклонена.")
 
         save_news_db()
-
     except Exception as e:
         logger.error(f"Ошибка обработки callback: {e}")
         await query.edit_message_text(f"⚠️ Ошибка: {e}")
 
 
-# ---------- Загрузка новостей из файлов ----------
+# ---------- Загрузка новостей ----------
 async def load_and_send_news_if_requested(bot: Bot):
-    answer = input(
-        "\nВыберите режим:\n"
-        "1) Загрузить новые новости\n"
-        "2) Только слушать кнопки\n"
-        "Введите 1 или 2: "
-    ).strip()
+    answer = input("\nВыберите режим:\n1) Загрузить новые новости\n2) Только слушать кнопки\nВведите 1 или 2: ").strip()
 
-    # --- Всегда загружаем базу и sent_ids ---
     load_news_db()
     sent_ids = load_sent_ids()
 
-    files = [
-        os.path.join(DATA_DIR, f)
-        for f in os.listdir(DATA_DIR)
-        if f.startswith("energy_news") and f.endswith(".json")
-    ]
-
+    files = [os.path.join(DATA_DIR, f) for f in os.listdir(DATA_DIR) if f.startswith("energy_news") and f.endswith(".json")]
     if not files:
         print("❗ Нет файлов energy_news*.json")
         return
 
     latest_file = max(files, key=os.path.getctime)
-
     with open(latest_file, "r", encoding="utf-8") as f:
         news_list = json.load(f)
 
     if answer == "2":
-        # --- Режим только слушать кнопки ---
-        print("Режим только слушать кнопки. NEWS_DB заполнена для работы кнопок.")
         for i, item in enumerate(news_list):
             item_id = make_news_id(item, i)
             if item_id not in NEWS_DB:
@@ -242,12 +219,9 @@ async def load_and_send_news_if_requested(bot: Bot):
         save_news_db()
         return
 
-    # --- Режим 1: отправка новых новостей ---
     count = 0
     for i, item in enumerate(news_list):
-        if not all(
-            k in item for k in ["title", "source", "date", "url", "preview", "full_text"]
-        ):
+        if not all(k in item for k in ["title", "source", "date", "url", "preview", "full_text"]):
             continue
         item_id = make_news_id(item, i)
         if item_id in sent_ids:
@@ -271,14 +245,8 @@ async def post_init(app: Application):
 
 # ---------- Функция запуска бота ----------
 def run_bot():
-    application = (
-        Application.builder().token(TOKEN).post_init(post_init).build()
-    )
-
+    application = Application.builder().token(TOKEN).post_init(post_init).build()
     application.add_handler(CommandHandler("start", start))
     application.add_handler(CommandHandler("testpublish", test_publish_command))
-    application.add_handler(
-        CallbackQueryHandler(button_handler, pattern=r"^(approve|reject)\|")
-    )
-
+    application.add_handler(CallbackQueryHandler(button_handler, pattern=r"^(approve|reject)\|"))
     application.run_polling()
