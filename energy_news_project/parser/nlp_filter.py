@@ -30,7 +30,6 @@ def load_classification_model():
         logger.error(f"Ошибка загрузки модели: {str(e)}")
         return None
 
-
 def is_energy_related(text, classifier=None, threshold=0.90):
     if not text.strip():
         return False, "Пустой текст"

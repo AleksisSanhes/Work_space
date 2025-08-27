@@ -1,28 +1,48 @@
-# parser/html_parser_custom.py
 import requests
 from bs4 import BeautifulSoup
 from datetime import datetime
 from parser.utils import clean_text
 from parser.nlp_filter import is_energy_related
+import logging
+from requests.adapters import HTTPAdapter
+from requests.packages.urllib3.util.retry import Retry
 
-def parse_eenergy_media():
-    url = "https://eenergy.media/rubric/news"
+logger = logging.getLogger(__name__)
+
+# Сессия с retry
+def create_session():
+    session = requests.Session()
+    retry = Retry(
+        total=5,
+        backoff_factor=0.5,
+        status_forcelist=[500,502,503,504],
+        allowed_methods=["GET"]
+    )
+    adapter = HTTPAdapter(max_retries=retry)
+    session.mount("http://", adapter)
+    session.mount("https://", adapter)
+    return session
+
+session = create_session()
+HEADERS = {"User-Agent": "Mozilla/5.0"}
+
+def parse_site(url, article_selector, title_selector, preview_selector=None, date_selector=None, source_name="Unknown"):
     news_list = []
-
     try:
-        headers = {"User-Agent": "Mozilla/5.0"}
-        r = requests.get(url, headers=headers, timeout=15)
+        r = session.get(url, headers=HEADERS, timeout=30)
+        r.raise_for_status()
         soup = BeautifulSoup(r.text, "html.parser")
-        articles = soup.select("div.t-news__item")  # CSS селектор для блоков новостей
+        articles = soup.select(article_selector)
 
         for a in articles:
-            title_tag = a.select_one("a.t-news__title")
+            title_tag = a.select_one(title_selector)
             if not title_tag:
                 continue
             title = clean_text(title_tag.get_text())
             link = title_tag.get("href")
-            preview = clean_text(a.select_one("div.t-news__preview").get_text()) if a.select_one("div.t-news__preview") else ""
-            date_str = a.select_one("time")["datetime"] if a.select_one("time") else ""
+            preview = clean_text(a.select_one(preview_selector).get_text()) if preview_selector and a.select_one(preview_selector) else ""
+            date_tag = a.select_one(date_selector) if date_selector else None
+            date_str = date_tag.get("datetime") if date_tag and date_tag.has_attr("datetime") else date_tag.get_text() if date_tag else ""
             date = date_str[:16] if date_str else datetime.now().strftime("%Y-%m-%d %H:%M")
 
             relevant, reason = is_energy_related(title + " " + preview)
@@ -31,124 +51,56 @@ def parse_eenergy_media():
                     "title": title,
                     "url": link,
                     "date": date,
-                    "source": "E-Energy",
+                    "source": source_name,
                     "preview": preview[:300] + "...",
                     "full_text": "",
                     "relevance_reason": reason,
                 })
+    except requests.RequestException as e:
+        logger.error(f"Ошибка запроса {source_name}: {e}")
     except Exception as e:
-        print(f"Ошибка парсинга E-Energy: {e}")
-
+        logger.error(f"Ошибка парсинга {source_name}: {e}")
     return news_list
 
+def parse_eenergy_media():
+    return parse_site(
+        "https://eenergy.media/rubric/news",
+        "div.t-news__item",
+        "a.t-news__title",
+        "div.t-news__preview",
+        "time",
+        "E-Energy"
+    )
 
 def parse_in_power():
-    url = "https://www.in-power.ru/news/alternativnayaenergetika"
-    news_list = []
-    try:
-        headers = {"User-Agent": "Mozilla/5.0"}
-        r = requests.get(url, headers=headers, timeout=15)
-        soup = BeautifulSoup(r.text, "html.parser")
-        articles = soup.select("div.news-list-item")
-
-        for a in articles:
-            title_tag = a.select_one("a.news-title")
-            if not title_tag:
-                continue
-            title = clean_text(title_tag.get_text())
-            link = title_tag.get("href")
-            preview = clean_text(a.select_one("div.news-text").get_text()) if a.select_one("div.news-text") else ""
-            date_tag = a.select_one("div.news-date")
-            date = clean_text(date_tag.get_text()) if date_tag else datetime.now().strftime("%Y-%m-%d %H:%M")
-
-            relevant, reason = is_energy_related(title + " " + preview)
-            if relevant:
-                news_list.append({
-                    "title": title,
-                    "url": link,
-                    "date": date,
-                    "source": "In-Power",
-                    "preview": preview[:300] + "...",
-                    "full_text": "",
-                    "relevance_reason": reason,
-                })
-    except Exception as e:
-        print(f"Ошибка парсинга In-Power: {e}")
-
-    return news_list
-
+    return parse_site(
+        "https://www.in-power.ru/news/alternativnayaenergetika",
+        "div.news-list-item",
+        "a.news-title",
+        "div.news-text",
+        "div.news-date",
+        "In-Power"
+    )
 
 def parse_neftegaz():
-    url = "https://neftegaz.ru/news/Alternative-energy/"
-    news_list = []
-    try:
-        headers = {"User-Agent": "Mozilla/5.0"}
-        r = requests.get(url, headers=headers, timeout=15)
-        soup = BeautifulSoup(r.text, "html.parser")
-        articles = soup.select("div.article-preview")
-
-        for a in articles:
-            title_tag = a.select_one("a.article-title")
-            if not title_tag:
-                continue
-            title = clean_text(title_tag.get_text())
-            link = title_tag.get("href")
-            preview = clean_text(a.select_one("div.article-text").get_text()) if a.select_one("div.article-text") else ""
-            date_tag = a.select_one("div.article-date")
-            date = clean_text(date_tag.get_text()) if date_tag else datetime.now().strftime("%Y-%m-%d %H:%M")
-
-            relevant, reason = is_energy_related(title + " " + preview)
-            if relevant:
-                news_list.append({
-                    "title": title,
-                    "url": link,
-                    "date": date,
-                    "source": "Neftegaz",
-                    "preview": preview[:300] + "...",
-                    "full_text": "",
-                    "relevance_reason": reason,
-                })
-    except Exception as e:
-        print(f"Ошибка парсинга Neftegaz: {e}")
-
-    return news_list
-
+    return parse_site(
+        "https://neftegaz.ru/news/Alternative-energy/",
+        "div.article-preview",
+        "a.article-title",
+        "div.article-text",
+        "div.article-date",
+        "Neftegaz"
+    )
 
 def parse_oilcapital():
-    url = "https://oilcapital.ru/tags/vie"
-    news_list = []
-    try:
-        headers = {"User-Agent": "Mozilla/5.0"}
-        r = requests.get(url, headers=headers, timeout=15)
-        soup = BeautifulSoup(r.text, "html.parser")
-        articles = soup.select("div.news-item")
-
-        for a in articles:
-            title_tag = a.select_one("a.title")
-            if not title_tag:
-                continue
-            title = clean_text(title_tag.get_text())
-            link = title_tag.get("href")
-            preview = clean_text(a.select_one("div.preview").get_text()) if a.select_one("div.preview") else ""
-            date_tag = a.select_one("span.date")
-            date = clean_text(date_tag.get_text()) if date_tag else datetime.now().strftime("%Y-%m-%d %H:%M")
-
-            relevant, reason = is_energy_related(title + " " + preview)
-            if relevant:
-                news_list.append({
-                    "title": title,
-                    "url": link,
-                    "date": date,
-                    "source": "Oilcapital",
-                    "preview": preview[:300] + "...",
-                    "full_text": "",
-                    "relevance_reason": reason,
-                })
-    except Exception as e:
-        print(f"Ошибка парсинга Oilcapital: {e}")
-
-    return news_list
-
+    return parse_site(
+        "https://oilcapital.ru/tags/vie",
+        "div.news-item",
+        "a.title",
+        "div.preview",
+        "span.date",
+        "Oilcapital"
+    )
 
 def parse_all_custom_sites():
     all_news = []
