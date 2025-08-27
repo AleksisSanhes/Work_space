@@ -6,28 +6,36 @@ from functools import wraps
 from tqdm import tqdm
 import parser.rss_parser as rss
 import parser.nlp_filter as nlp
+import os
 
 # --- Настройка логирования ---
-def setup_logger(name="parser_monitor", log_file="data/parser_monitor.log", level=logging.INFO):
-    logger = logging.getLogger(name)
-    logger.setLevel(level)
+LOG_DIR = os.path.join(os.path.dirname(__file__), "..", "data")
+LOG_FILE = os.path.join(LOG_DIR, "parser_monitor.log")
 
-    formatter = logging.Formatter(
-        fmt="%(asctime)s | %(levelname)s | %(message)s",
-        datefmt="%H:%M:%S"
-    )
 
-    # Вывод в консоль
-    ch = logging.StreamHandler(sys.stdout)
+def setup_logger():
+    os.makedirs(LOG_DIR, exist_ok=True)   # ✅ гарантируем, что data/ есть
+
+    logger = logging.getLogger("parser_monitor")
+    logger.setLevel(logging.DEBUG)
+
+    # Файл
+    fh = logging.FileHandler(LOG_FILE, encoding="utf-8")
+    fh.setLevel(logging.DEBUG)
+
+    # Консоль
+    ch = logging.StreamHandler()
+    ch.setLevel(logging.INFO)
+
+    formatter = logging.Formatter("%(asctime)s - %(levelname)s - %(message)s")
+    fh.setFormatter(formatter)
     ch.setFormatter(formatter)
+
+    logger.addHandler(fh)
     logger.addHandler(ch)
 
-    # Вывод в файл
-    fh = logging.FileHandler(log_file, encoding="utf-8")
-    fh.setFormatter(formatter)
-    logger.addHandler(fh)
-
     return logger
+
 
 logger = setup_logger()
 

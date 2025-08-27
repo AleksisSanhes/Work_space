@@ -42,11 +42,17 @@ def get_full_text(url):
     try:
         headers = {"User-Agent": "Mozilla/5.0"}
         response = requests.get(url, headers=headers, timeout=15)
+
+        # Попробовать использовать кодировку из meta/headers
+        response.encoding = response.apparent_encoding
+
         soup = BeautifulSoup(response.text, "html.parser")
         text = " ".join([p.get_text(strip=True) for p in soup.select("p") if len(p.get_text(strip=True)) > 30])
         return clean_text(text)
-    except Exception:
+    except Exception as e:
+        print(f"Ошибка get_full_text({url}): {e}")
         return ""
+
 
 def parse_feed(feed_url, source_name, classifier, stats):
     results = []
@@ -54,7 +60,9 @@ def parse_feed(feed_url, source_name, classifier, stats):
     three_weeks_ago = datetime.now() - timedelta(days=21)
 
     response = requests.get(feed_url, headers=headers, timeout=20)
-    feed = feedparser.parse(response.text)
+
+    # Передаём байты — feedparser сам правильно определит кодировку
+    feed = feedparser.parse(response.content)
 
     for entry in feed.entries:
         pub_date = datetime.now()
