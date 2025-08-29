@@ -61,6 +61,11 @@ async def button_handler(update: Update, context: ContextTypes.DEFAULT_TYPE, db:
 
 # --- Обработчик редактирования текста ---
 async def edit_text_handler(update: Update, context: ContextTypes.DEFAULT_TYPE, db: NewsDB):
+    # Проверяем, что user_data не None
+    if context.user_data is None:
+        logger.warning("User data is None, skipping edit handling")
+        return
+
     news_id = context.user_data.get("editing_news_id")
     if not news_id:
         return
@@ -77,6 +82,11 @@ async def edit_text_handler(update: Update, context: ContextTypes.DEFAULT_TYPE, 
 
 # --- Обработчик команды /skip ---
 async def skip_edit_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    # Проверяем, что user_data не None
+    if context.user_data is None:
+        logger.warning("User data is None, skipping skip command")
+        return
+
     news_id = context.user_data.get("editing_news_id")
     if news_id:
         context.user_data["editing_news_id"] = None
