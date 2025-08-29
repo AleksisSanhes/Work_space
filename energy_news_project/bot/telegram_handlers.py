@@ -63,31 +63,42 @@ async def button_handler(update: Update, context: ContextTypes.DEFAULT_TYPE, db:
             # Проверяем, была ли новость отредактирована
             edit_status = " (ОТРЕДАКТИРОВАНО)" if news_item.get("edited", False) else ""
 
+            # Публикуем в канал
             await context.bot.send_message(
                 chat_id=PUBLISH_CHANNEL,
                 text=publication_text,
                 disable_web_page_preview=True,
             )
 
-            # Очищаем текст для безопасного отображения в HTML
-            clean_title = safe_clean_text(news_item.get("title", ""))
-            clean_preview = safe_clean_text(news_item.get("preview", ""))
-            clean_source = safe_clean_text(news_item.get("source", ""))
-            clean_date = safe_clean_text(news_item.get("date", ""))
+            # Пытаемся обновить сообщение в модерации
+            try:
+                # Очищаем текст для безопасного отображения
+                clean_title = safe_clean_text(news_item.get("title", ""))
+                clean_preview = safe_clean_text(news_item.get("preview", ""))
+                clean_source = safe_clean_text(news_item.get("source", ""))
+                clean_date = safe_clean_text(news_item.get("date", ""))
 
-            original_message = (
-                f"📰 {clean_title}\n\n"
-                f"{clean_preview}\n\n"
-                f"Источник: {clean_source} ({clean_date})\n"
-                f"{news_item.get('url', '')}"
-            )
+                original_message = (
+                    f"📰 {clean_title}\n\n"
+                    f"{clean_preview}\n\n"
+                    f"Источник: {clean_source} ({clean_date})\n"
+                    f"{news_item.get('url', '')}"
+                )
 
-            await context.bot.edit_message_text(
-                chat_id=channel_id,
-                message_id=message_id,
-                text=f"✅ ОПУБЛИКОВАНО{edit_status}\n\n{original_message}",
-                reply_markup=None,
-            )
+                await context.bot.edit_message_text(
+                    chat_id=channel_id,
+                    message_id=message_id,
+                    text=f"✅ ОПУБЛИКОВАНО{edit_status}\n\n{original_message}",
+                    reply_markup=None,
+                )
+            except Exception as edit_error:
+                logger.warning(f"Не удалось обновить сообщение в модерации: {edit_error}")
+                # Если не можем отредактировать, отправляем новое сообщение
+                await context.bot.send_message(
+                    chat_id=channel_id,
+                    text=f"✅ Новость {news_id} опубликована{edit_status.lower()}"
+                )
+
             logger.info(f"Новость {news_id} опубликована{edit_status.lower()}.")
 
         elif action == "reject":
@@ -142,6 +153,9 @@ async def edit_text_handler(update: Update, context: ContextTypes.DEFAULT_TYPE, 
     # Помечаем, что новость была отредактирована
     db.news_db[news_id]["news_data"]["edited"] = True
     db.save_db()
+
+    # Отладочная информация
+    logger.info(f"Текст новости {news_id} обновлен на: {update.message.text[:100]}")
 
     await update.message.reply_text(
         "✅ Текст новости обновлён! Теперь нажмите кнопку 'Опубликовать' для публикации отредактированной версии.")
