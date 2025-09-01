@@ -1,5 +1,4 @@
-# bot/telegram_handlers.py
-
+import asyncio
 import logging
 from telegram import Update
 from telegram.ext import ContextTypes
@@ -15,7 +14,11 @@ async def split_and_send_text(bot, chat_id, text, max_length=4000):
     Разбивает длинный текст на части и отправляет несколько сообщений.
     """
     if len(text) <= max_length:
-        await bot.send_message(chat_id=chat_id, text=text)
+        try:
+            await bot.send_message(chat_id=chat_id, text=text)
+            await asyncio.sleep(0.5)  # Небольшая задержка
+        except Exception as e:
+            logger.error(f"Ошибка отправки сообщения: {e}")
         return
 
     # Разбиваем по предложениям для лучшей читаемости
@@ -27,18 +30,30 @@ async def split_and_send_text(bot, chat_id, text, max_length=4000):
             current_chunk += sentence + '. '
         else:
             if current_chunk:
-                await bot.send_message(chat_id=chat_id, text=current_chunk.strip())
+                try:
+                    await bot.send_message(chat_id=chat_id, text=current_chunk.strip())
+                    await asyncio.sleep(0.5)  # Задержка между сообщениями
+                except Exception as e:
+                    logger.error(f"Ошибка отправки части сообщения: {e}")
                 current_chunk = sentence + '. '
             else:
                 # Если предложение слишком длинное, разбиваем принудительно
                 while len(sentence) > max_length:
-                    await bot.send_message(chat_id=chat_id, text=sentence[:max_length])
+                    try:
+                        await bot.send_message(chat_id=chat_id, text=sentence[:max_length])
+                        await asyncio.sleep(0.5)
+                    except Exception as e:
+                        logger.error(f"Ошибка отправки длинного сообщения: {e}")
                     sentence = sentence[max_length:]
                 current_chunk = sentence + '. ' if sentence else ""
 
     # Отправляем остаток
     if current_chunk:
-        await bot.send_message(chat_id=chat_id, text=current_chunk.strip())
+        try:
+            await bot.send_message(chat_id=chat_id, text=current_chunk.strip())
+            await asyncio.sleep(0.5)
+        except Exception as e:
+            logger.error(f"Ошибка отправки остатка сообщения: {e}")
 
 
 # --- Обработчик нажатий кнопок ---
@@ -47,6 +62,8 @@ async def button_handler(update: Update, context: ContextTypes.DEFAULT_TYPE, db:
     await query.answer()
     try:
         action, news_id = query.data.split("|", 1)
+        logger.info(f"Обрабатываем действие: {action} для новости {news_id}")
+
         data_entry = db.get_news(news_id)
         if not data_entry:
             await query.edit_message_text("⚠️ Запись не найдена.")
@@ -64,11 +81,13 @@ async def button_handler(update: Update, context: ContextTypes.DEFAULT_TYPE, db:
             edit_status = " (ОТРЕДАКТИРОВАНО)" if news_item.get("edited", False) else ""
 
             # Публикуем в канал
+            logger.info(f"Начинаем публикацию в канал {PUBLISH_CHANNEL}")
             await context.bot.send_message(
                 chat_id=PUBLISH_CHANNEL,
                 text=publication_text,
                 disable_web_page_preview=True,
             )
+            logger.info(f"Успешно опубликовано в канал")
 
             # Пытаемся обновить сообщение в модерации
             try:
@@ -134,13 +153,19 @@ async def button_handler(update: Update, context: ContextTypes.DEFAULT_TYPE, db:
 
 # --- Обработчик редактирования текста ---
 async def edit_text_handler(update: Update, context: ContextTypes.DEFAULT_TYPE, db: NewsDB):
+    logger.info(f"edit_text_handler вызван с текстом: {update.message.text[:100]}")
+    logger.info(f"user_data: {context.user_data}")
+
     # Проверяем, что user_data не None
     if context.user_data is None:
         logger.warning("User data is None, skipping edit handling")
         return
 
     news_id = context.user_data.get("editing_news_id")
+    logger.info(f"editing_news_id: {news_id}")
+
     if not news_id:
+        logger.info("Нет активного редактирования, пропускаем")
         return
 
     if update.message.text == "/skip":
