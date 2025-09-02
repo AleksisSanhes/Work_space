@@ -13,6 +13,7 @@ logger = logging.getLogger(__name__)
 MODERATION_CHANNEL = "-1002996332660"
 PUBLISH_CHANNEL = "-1003006895565"
 
+
 # --- Утилиты ---
 def make_news_id(item, index=0):
     """
@@ -20,7 +21,7 @@ def make_news_id(item, index=0):
     """
     key = (item.get("url") or "").strip()
     if not key:
-        key = f"{item.get('title','')}-{item.get('date','')}".strip()
+        key = f"{item.get('title', '')}-{item.get('date', '')}".strip()
     if not key:
         key = item.get("preview", "")[:120]
     return hashlib.sha256(key.encode("utf-8")).hexdigest()[:16]
@@ -38,7 +39,8 @@ async def send_with_delay(bot: Bot, chat_id: str, text: str, reply_markup=None,
                 chat_id=chat_id,
                 text=text,
                 reply_markup=reply_markup,
-                disable_web_page_preview=True,
+                disable_web_page_preview=True
+                # Убираем parse_mode='HTML' чтобы избежать ошибок парсинга
             )
             await asyncio.sleep(pause)
             return message
@@ -62,12 +64,31 @@ async def send_to_moderation(bot: Bot, news_item: dict, db: NewsDB):
     Отправка новости в канал модерации с кнопками approve/reject/edit.
     """
     news_id = news_item["id"]
+
+    # Безопасная очистка текста от HTML и экранирование
+    def clean_and_safe_text(text):
+        if not text:
+            return ""
+        # Удаляем HTML теги
+        import re
+        text = re.sub(r'<[^>]+>', '', str(text))
+        # Убираем лишние пробелы
+        text = re.sub(r'\s+', ' ', text).strip()
+        return text
+
+    title = clean_and_safe_text(news_item.get('title', 'Без заголовка'))
+    preview = clean_and_safe_text(news_item.get('preview', ''))
+    source = clean_and_safe_text(news_item.get('source', 'Источник не указан'))
+    date = clean_and_safe_text(news_item.get('date', ''))
+    url = news_item.get('url', '')
+
     text = (
-        f"📰 <b>{news_item['title']}</b>\n\n"
-        f"{news_item['preview']}\n\n"
-        f"<i>Источник: {news_item['source']} ({news_item['date']})</i>\n"
-        f"{news_item['url']}"
+        f"📰 {title}\n\n"
+        f"{preview}\n\n"
+        f"Источник: {source} ({date})\n"
+        f"{url}"
     )
+
     keyboard = [
         [
             InlineKeyboardButton("✅ Опубликовать", callback_data=f"approve|{news_id}"),
@@ -84,8 +105,16 @@ async def send_to_moderation(bot: Bot, news_item: dict, db: NewsDB):
         reply_markup=InlineKeyboardMarkup(keyboard)
     )
 
-    if message:
+    if message and message.message_id:
+        # ИСПРАВЛЕНО: Проверяем, что message_id действительно получен
         db.add_news(news_id, news_item, message.message_id, MODERATION_CHANNEL)
         logger.info(f"Новость {news_id} отправлена в модерацию (message_id={message.message_id})")
+
+        # Дополнительная проверка, что данные сохранились корректно
+        saved_data = db.get_news(news_id)
+        if saved_data and saved_data.get("message_id"):
+            logger.info(f"Подтверждение: message_id {saved_data['message_id']} сохранен для новости {news_id}")
+        else:
+            logger.error(f"КРИТИЧЕСКАЯ ОШИБКА: message_id не сохранился для новости {news_id}")
     else:
-        logger.error(f"Не удалось отправить новость {news_id} в канал модерации.")
+        logger.error(f"Не удалось отправить новость {news_id} в канал модерации или получить message_id.")

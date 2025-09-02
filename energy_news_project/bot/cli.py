@@ -1,4 +1,3 @@
-# bot/cli.py
 import os
 import json
 import asyncio
@@ -30,6 +29,7 @@ async def load_and_send_news(db: NewsDB, bot):
         print("2) Загрузить новости из выбранного файла")
         print("3) Показать количество новостей в базе")
         print("4) Очистить NEWS_DB и sent_ids.json")
+        print("5) Очистить поврежденные записи (без message_id)")
         print("0) Выход")
 
         choice = await safe_input("Введите пункт меню: ")
@@ -90,6 +90,16 @@ async def load_and_send_news(db: NewsDB, bot):
                 print("🗑️ NEWS_DB и sent_ids.json очищены.")
             else:
                 print("❌ Очистка отменена.")
+            continue
+
+        # --- 5) Очистка поврежденных записей ---
+        elif choice == "5":
+            broken_count = 0
+            for news_id, data in list(db.news_db.items()):
+                if data.get("message_id") is None:
+                    db.delete_news(news_id)
+                    broken_count += 1
+            print(f"🔧 Удалено {broken_count} записей с поврежденными message_id.")
             continue
 
         # --- 0) Выход ---
