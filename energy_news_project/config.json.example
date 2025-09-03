@@ -1,0 +1,24 @@
+{
+  "telegram": {
+    "bot_token": "8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8",
+    "moderation_channel": "-1002996332660",
+    "publish_channel": "-1003006895565",
+    "max_message_length": 4000,
+    "retry_attempts": 5,
+    "flood_control_delay": 1.5
+  },
+  "parser": {
+    "max_workers": 10,
+    "request_timeout": 30,
+    "retry_attempts": 5,
+    "days_back": 21,
+    "batch_size": 50
+  },
+  "database": {
+    "db_file": "data/news_db.json",
+    "sent_ids_file": "data/sent_ids.json",
+    "backup_interval": 3600
+  },
+  "debug": false,
+  "log_level": "INFO"
+}

@@ -1,11 +1,10 @@
-# bot/telegram_bot.py
 import asyncio
 import hashlib
 import logging
 from telegram import Bot, InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.error import TelegramError, RetryAfter
 from bot.formatters import format_news_for_publication
-from bot.db import NewsDB
+from bot.database import SafeNewsDB
 
 logger = logging.getLogger(__name__)
 
@@ -59,7 +58,7 @@ async def send_with_delay(bot: Bot, chat_id: str, text: str, reply_markup=None,
     return None
 
 
-async def send_to_moderation(bot: Bot, news_item: dict, db: NewsDB):
+async def send_to_moderation(bot: Bot, news_item: dict, db: SafeNewsDB):
     """
     Отправка новости в канал модерации с кнопками approve/reject/edit.
     """

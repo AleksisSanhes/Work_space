@@ -1,0 +1,482 @@
+2025-09-03 10:48:23,109 - bot.bot_runner_simple - INFO - Using new SafeNewsDB
+2025-09-03 10:54:51,163 - bot.bot_runner_simple - INFO - Using new SafeNewsDB
+2025-09-03 10:56:20,486 - bot.bot_runner_simple - INFO - Using new SafeNewsDB
+2025-09-03 10:56:20,532 - bot.database - INFO - Database initialized: 41 news items, 58 sent IDs
+2025-09-03 10:56:40,739 - bot.bot_runner_simple - INFO - Using new SafeNewsDB
+2025-09-03 10:56:40,754 - bot.database - INFO - Database initialized: 41 news items, 58 sent IDs
+2025-09-03 10:57:00,534 - bot.bot_runner_simple - INFO - Using new SafeNewsDB
+2025-09-03 10:57:00,549 - bot.database - INFO - Database initialized: 41 news items, 58 sent IDs
+2025-09-03 10:57:00,555 - bot.bot_runner_simple - INFO - Starting Telegram News Bot
+2025-09-03 10:57:01,566 - bot.bot_runner_simple - INFO - Bot starting...
+2025-09-03 10:57:01,918 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getMe "HTTP/1.1 200 OK"
+2025-09-03 10:57:01,970 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/deleteWebhook "HTTP/1.1 200 OK"
+2025-09-03 10:57:02,023 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/deleteWebhook "HTTP/1.1 200 OK"
+2025-09-03 10:57:02,024 - telegram.ext.Application - INFO - Application started
+2025-09-03 10:57:09,311 - bot.telegram_bot - INFO - Отправка новости aaebb764584d66cc в канал модерации...
+2025-09-03 10:57:09,664 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/sendMessage "HTTP/1.1 200 OK"
+2025-09-03 10:57:11,178 - bot.telegram_bot - INFO - Новость aaebb764584d66cc отправлена в модерацию (message_id=762)
+2025-09-03 10:57:11,179 - bot.telegram_bot - INFO - Подтверждение: message_id 762 сохранен для новости aaebb764584d66cc
+2025-09-03 10:57:12,184 - bot.telegram_bot - INFO - Отправка новости d3f9bea0e6f6b68d в канал модерации...
+2025-09-03 10:57:12,246 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-03 10:57:12,354 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/sendMessage "HTTP/1.1 200 OK"
+2025-09-03 10:57:13,867 - bot.telegram_bot - INFO - Новость d3f9bea0e6f6b68d отправлена в модерацию (message_id=763)
+2025-09-03 10:57:13,868 - bot.telegram_bot - INFO - Подтверждение: message_id 763 сохранен для новости d3f9bea0e6f6b68d
+2025-09-03 10:57:14,883 - bot.telegram_bot - INFO - Отправка новости adfda07765825ec8 в канал модерации...
+2025-09-03 10:57:14,994 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/sendMessage "HTTP/1.1 200 OK"
+2025-09-03 10:57:16,505 - bot.telegram_bot - INFO - Новость adfda07765825ec8 отправлена в модерацию (message_id=764)
+2025-09-03 10:57:16,505 - bot.telegram_bot - INFO - Подтверждение: message_id 764 сохранен для новости adfda07765825ec8
+2025-09-03 10:57:16,616 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-03 10:57:16,617 - telegram.ext.Application - INFO - Application is stopping. This might take a moment.
+2025-09-03 10:57:16,617 - telegram.ext.Application - INFO - Application.stop() complete
+2025-09-03 10:57:16,638 - asyncio - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-5' coro=<load_and_send_news() running at C:\Users\SK-GROUP\PycharmProjects\PythonProject\energy_news_project\bot\cli.py:167> wait_for=<Future pending cb=[Task.task_wakeup()]>>
+Task was destroyed but it is pending!
+task: <Task pending name='Task-5' coro=<load_and_send_news() running at C:\Users\SK-GROUP\PycharmProjects\PythonProject\energy_news_project\bot\cli.py:167> wait_for=<Future pending cb=[Task.task_wakeup()]>>
+2025-09-03 10:57:26,635 - bot.bot_runner_simple - INFO - Using new SafeNewsDB
+2025-09-03 10:57:26,648 - bot.database - INFO - Database initialized: 44 news items, 61 sent IDs
+2025-09-03 10:57:26,649 - bot.bot_runner_simple - INFO - Starting Telegram News Bot
+2025-09-03 10:57:27,527 - bot.bot_runner_simple - INFO - Bot starting...
+2025-09-03 10:57:27,844 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getMe "HTTP/1.1 200 OK"
+2025-09-03 10:57:27,919 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/deleteWebhook "HTTP/1.1 200 OK"
+2025-09-03 10:57:27,971 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/deleteWebhook "HTTP/1.1 200 OK"
+2025-09-03 10:57:27,972 - telegram.ext.Application - INFO - Application started
+2025-09-03 10:57:35,944 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-03 10:57:36,123 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/answerCallbackQuery "HTTP/1.1 200 OK"
+2025-09-03 10:57:36,124 - bot.telegram_handlers - INFO - Обрабатываем действие: edit для новости adfda07765825ec8
+2025-09-03 10:57:36,253 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/sendMessage "HTTP/1.1 200 OK"
+2025-09-03 10:57:36,394 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/sendMessage "HTTP/1.1 200 OK"
+2025-09-03 10:57:36,896 - bot.telegram_handlers - ERROR - Ошибка обработки callback: 'SafeNewsDB' object has no attribute 'save_db'
+Ошибка обработки callback: 'SafeNewsDB' object has no attribute 'save_db'
+2025-09-03 10:57:37,009 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/editMessageText "HTTP/1.1 200 OK"
+2025-09-03 10:57:45,999 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-03 10:57:46,978 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-03 10:57:46,979 - bot.telegram_handlers - INFO - edit_text_handler вызван с текстом: проверка
+2025-09-03 10:57:46,980 - bot.telegram_handlers - INFO - user_data: {}
+2025-09-03 10:57:46,980 - bot.telegram_handlers - INFO - editing_news_id: None
+2025-09-03 10:57:46,980 - bot.telegram_handlers - INFO - Нет активного редактирования, пропускаем
+2025-09-03 10:57:57,035 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-03 10:58:07,102 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-03 10:58:12,777 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-03 10:58:12,777 - telegram.ext.Application - INFO - Application is stopping. This might take a moment.
+2025-09-03 10:58:12,778 - telegram.ext.Application - INFO - Application.stop() complete
+2025-09-03 11:03:01,256 - bot.bot_runner_simple - INFO - Using new SafeNewsDB
+2025-09-03 11:03:01,270 - bot.database - INFO - Database initialized: 44 news items, 61 sent IDs
+2025-09-03 11:03:01,274 - bot.database - INFO - Database initialized: 44 news items, 61 sent IDs
+2025-09-03 11:03:01,280 - bot.bot_runner_simple - INFO - Starting Telegram News Bot
+2025-09-03 11:03:02,170 - bot.bot_runner_simple - INFO - Bot starting...
+2025-09-03 11:03:02,497 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getMe "HTTP/1.1 200 OK"
+2025-09-03 11:03:02,633 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/deleteWebhook "HTTP/1.1 200 OK"
+2025-09-03 11:03:02,691 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/deleteWebhook "HTTP/1.1 200 OK"
+2025-09-03 11:03:02,692 - telegram.ext.Application - INFO - Application started
+2025-09-03 11:03:07,435 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-03 11:03:07,517 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/answerCallbackQuery "HTTP/1.1 200 OK"
+2025-09-03 11:03:07,517 - bot.telegram_handlers_patched - INFO - Обрабатываем действие: edit для новости aaebb764584d66cc
+2025-09-03 11:03:07,660 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/sendMessage "HTTP/1.1 200 OK"
+2025-09-03 11:03:07,779 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/sendMessage "HTTP/1.1 200 OK"
+2025-09-03 11:03:08,446 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/sendMessage "HTTP/1.1 200 OK"
+2025-09-03 11:03:08,972 - bot.telegram_handlers_patched - INFO - Сохранены ID сообщений с превью для новости aaebb764584d66cc: [767, 768, 769] в чате -1002996332660
+2025-09-03 11:03:09,145 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/sendMessage "HTTP/1.1 200 OK"
+2025-09-03 11:03:17,505 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-03 11:03:18,728 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-03 11:03:18,728 - bot.telegram_handlers_patched - INFO - edit_text_handler вызван с текстом: проверка2
+2025-09-03 11:03:18,728 - bot.telegram_handlers_patched - INFO - user_id: 6105807855, editing_news_id: aaebb764584d66cc
+2025-09-03 11:03:18,750 - bot.database - INFO - Database force saved
+2025-09-03 11:03:18,751 - bot.telegram_handlers_patched - INFO - Текст новости aaebb764584d66cc обновлен на: проверка2
+2025-09-03 11:03:18,981 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/editMessageText "HTTP/1.1 200 OK"
+2025-09-03 11:03:19,084 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/sendMessage "HTTP/1.1 200 OK"
+2025-09-03 11:03:24,663 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-03 11:03:25,029 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/answerCallbackQuery "HTTP/1.1 200 OK"
+2025-09-03 11:03:25,030 - bot.telegram_handlers_patched - INFO - Обрабатываем действие: approve для новости aaebb764584d66cc
+2025-09-03 11:03:25,030 - bot.telegram_handlers_patched - INFO - Начинаем публикацию в канал -1003006895565
+2025-09-03 11:03:25,274 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/sendMessage "HTTP/1.1 200 OK"
+2025-09-03 11:03:25,275 - bot.telegram_handlers_patched - INFO - Успешно опубликовано в канал
+2025-09-03 11:03:25,466 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/sendMessage "HTTP/1.1 200 OK"
+2025-09-03 11:03:25,600 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/deleteMessage "HTTP/1.1 200 OK"
+2025-09-03 11:03:25,600 - bot.telegram_handlers_patched - INFO - Сообщение 762 для новости aaebb764584d66cc удалено
+2025-09-03 11:03:25,715 - bot.telegram_handlers_patched - INFO - Удалено 1 из 1 сообщений для новости aaebb764584d66cc
+2025-09-03 11:03:25,726 - bot.telegram_handlers_patched - INFO - Новость aaebb764584d66cc опубликована и удалена из модерации.
+2025-09-03 11:03:34,728 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-03 11:03:44,816 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-03 11:03:54,868 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-03 11:04:04,937 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-03 11:04:14,995 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-03 11:04:25,062 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-03 11:04:35,114 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-03 11:04:45,166 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-03 11:04:55,256 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-03 11:05:05,312 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-03 11:05:15,383 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-03 11:05:16,801 - bot.bot_runner_simple - ERROR - Exception while handling an update:
+Traceback (most recent call last):
+  File "C:\Users\SK-GROUP\PycharmProjects\PythonProject\.venv\Lib\site-packages\httpx\_transports\default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "C:\Users\SK-GROUP\PycharmProjects\PythonProject\.venv\Lib\site-packages\httpx\_transports\default.py", line 394, in handle_async_request
+    resp = await self._pool.handle_async_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SK-GROUP\PycharmProjects\PythonProject\.venv\Lib\site-packages\httpcore\_async\connection_pool.py", line 256, in handle_async_request
+    raise exc from None
+  File "C:\Users\SK-GROUP\PycharmProjects\PythonProject\.venv\Lib\site-packages\httpcore\_async\connection_pool.py", line 236, in handle_async_request
+    response = await connection.handle_async_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        pool_request.request
+        ^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\SK-GROUP\PycharmProjects\PythonProject\.venv\Lib\site-packages\httpcore\_async\connection.py", line 103, in handle_async_request
+    return await self._connection.handle_async_request(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SK-GROUP\PycharmProjects\PythonProject\.venv\Lib\site-packages\httpcore\_async\http11.py", line 136, in handle_async_request
+    raise exc
+  File "C:\Users\SK-GROUP\PycharmProjects\PythonProject\.venv\Lib\site-packages\httpcore\_async\http11.py", line 106, in handle_async_request
+    ) = await self._receive_response_headers(**kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SK-GROUP\PycharmProjects\PythonProject\.venv\Lib\site-packages\httpcore\_async\http11.py", line 177, in _receive_response_headers
+    event = await self._receive_event(timeout=timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SK-GROUP\PycharmProjects\PythonProject\.venv\Lib\site-packages\httpcore\_async\http11.py", line 217, in _receive_event
+    data = await self._network_stream.read(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        self.READ_NUM_BYTES, timeout=timeout
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\SK-GROUP\PycharmProjects\PythonProject\.venv\Lib\site-packages\httpcore\_backends\anyio.py", line 32, in read
+    with map_exceptions(exc_map):
+         ~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Program Files\Python313\Lib\contextlib.py", line 162, in __exit__
+    self.gen.throw(value)
+    ~~~~~~~~~~~~~~^^^^^^^
+  File "C:\Users\SK-GROUP\PycharmProjects\PythonProject\.venv\Lib\site-packages\httpcore\_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ReadError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\SK-GROUP\PycharmProjects\PythonProject\.venv\Lib\site-packages\telegram\request\_httpxrequest.py", line 273, in do_request
+    res = await self._client.request(
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+    )
+    ^
+  File "C:\Users\SK-GROUP\PycharmProjects\PythonProject\.venv\Lib\site-packages\httpx\_client.py", line 1540, in request
+    return await self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SK-GROUP\PycharmProjects\PythonProject\.venv\Lib\site-packages\httpx\_client.py", line 1629, in send
+    response = await self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+    )
+    ^
+  File "C:\Users\SK-GROUP\PycharmProjects\PythonProject\.venv\Lib\site-packages\httpx\_client.py", line 1657, in _send_handling_auth
+    response = await self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+    )
+    ^
+  File "C:\Users\SK-GROUP\PycharmProjects\PythonProject\.venv\Lib\site-packages\httpx\_client.py", line 1694, in _send_handling_redirects
+    response = await self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SK-GROUP\PycharmProjects\PythonProject\.venv\Lib\site-packages\httpx\_client.py", line 1730, in _send_single_request
+    response = await transport.handle_async_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SK-GROUP\PycharmProjects\PythonProject\.venv\Lib\site-packages\httpx\_transports\default.py", line 393, in handle_async_request
+    with map_httpcore_exceptions():
+         ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Program Files\Python313\Lib\contextlib.py", line 162, in __exit__
+    self.gen.throw(value)
+    ~~~~~~~~~~~~~~^^^^^^^
+  File "C:\Users\SK-GROUP\PycharmProjects\PythonProject\.venv\Lib\site-packages\httpx\_transports\default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ReadError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\SK-GROUP\PycharmProjects\PythonProject\.venv\Lib\site-packages\telegram\ext\_utils\networkloop.py", line 115, in network_retry_loop
+    if not await do_action():
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\SK-GROUP\PycharmProjects\PythonProject\.venv\Lib\site-packages\telegram\ext\_utils\networkloop.py", line 108, in do_action
+    return action_cb_task.result()
+           ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\SK-GROUP\PycharmProjects\PythonProject\.venv\Lib\site-packages\telegram\ext\_updater.py", line 340, in polling_action_cb
+    updates = await self.bot.get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+    )
+    ^
+  File "C:\Users\SK-GROUP\PycharmProjects\PythonProject\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 670, in get_updates
+    updates = await super().get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<9 lines>...
+    )
+    ^
+  File "C:\Users\SK-GROUP\PycharmProjects\PythonProject\.venv\Lib\site-packages\telegram\_bot.py", line 4611, in get_updates
+    await self._post(
+    ^^^^^^^^^^^^^^^^^
+    ...<7 lines>...
+    ),
+    ^
+  File "C:\Users\SK-GROUP\PycharmProjects\PythonProject\.venv\Lib\site-packages\telegram\_bot.py", line 698, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+    )
+    ^
+  File "C:\Users\SK-GROUP\PycharmProjects\PythonProject\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 370, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+    )
+    ^
+  File "C:\Users\SK-GROUP\PycharmProjects\PythonProject\.venv\Lib\site-packages\telegram\_bot.py", line 727, in _do_post
+    result = await request.post(
+             ^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+    )
+    ^
+  File "C:\Users\SK-GROUP\PycharmProjects\PythonProject\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 197, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<7 lines>...
+    )
+    ^
+  File "C:\Users\SK-GROUP\PycharmProjects\PythonProject\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 304, in _request_wrapper
+    code, payload = await self.do_request(
+                    ^^^^^^^^^^^^^^^^^^^^^^
+    ...<7 lines>...
+    )
+    ^
+  File "C:\Users\SK-GROUP\PycharmProjects\PythonProject\.venv\Lib\site-packages\telegram\request\_httpxrequest.py", line 297, in do_request
+    raise NetworkError(f"httpx.{err.__class__.__name__}: {err}") from err
+telegram.error.NetworkError: httpx.ReadError: 
+Exception while handling an update:
+Traceback (most recent call last):
+  File "C:\Users\SK-GROUP\PycharmProjects\PythonProject\.venv\Lib\site-packages\httpx\_transports\default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "C:\Users\SK-GROUP\PycharmProjects\PythonProject\.venv\Lib\site-packages\httpx\_transports\default.py", line 394, in handle_async_request
+    resp = await self._pool.handle_async_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SK-GROUP\PycharmProjects\PythonProject\.venv\Lib\site-packages\httpcore\_async\connection_pool.py", line 256, in handle_async_request
+    raise exc from None
+  File "C:\Users\SK-GROUP\PycharmProjects\PythonProject\.venv\Lib\site-packages\httpcore\_async\connection_pool.py", line 236, in handle_async_request
+    response = await connection.handle_async_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        pool_request.request
+        ^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\SK-GROUP\PycharmProjects\PythonProject\.venv\Lib\site-packages\httpcore\_async\connection.py", line 103, in handle_async_request
+    return await self._connection.handle_async_request(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SK-GROUP\PycharmProjects\PythonProject\.venv\Lib\site-packages\httpcore\_async\http11.py", line 136, in handle_async_request
+    raise exc
+  File "C:\Users\SK-GROUP\PycharmProjects\PythonProject\.venv\Lib\site-packages\httpcore\_async\http11.py", line 106, in handle_async_request
+    ) = await self._receive_response_headers(**kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SK-GROUP\PycharmProjects\PythonProject\.venv\Lib\site-packages\httpcore\_async\http11.py", line 177, in _receive_response_headers
+    event = await self._receive_event(timeout=timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SK-GROUP\PycharmProjects\PythonProject\.venv\Lib\site-packages\httpcore\_async\http11.py", line 217, in _receive_event
+    data = await self._network_stream.read(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        self.READ_NUM_BYTES, timeout=timeout
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\SK-GROUP\PycharmProjects\PythonProject\.venv\Lib\site-packages\httpcore\_backends\anyio.py", line 32, in read
+    with map_exceptions(exc_map):
+         ~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Program Files\Python313\Lib\contextlib.py", line 162, in __exit__
+    self.gen.throw(value)
+    ~~~~~~~~~~~~~~^^^^^^^
+  File "C:\Users\SK-GROUP\PycharmProjects\PythonProject\.venv\Lib\site-packages\httpcore\_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ReadError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\SK-GROUP\PycharmProjects\PythonProject\.venv\Lib\site-packages\telegram\request\_httpxrequest.py", line 273, in do_request
+    res = await self._client.request(
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+    )
+    ^
+  File "C:\Users\SK-GROUP\PycharmProjects\PythonProject\.venv\Lib\site-packages\httpx\_client.py", line 1540, in request
+    return await self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SK-GROUP\PycharmProjects\PythonProject\.venv\Lib\site-packages\httpx\_client.py", line 1629, in send
+    response = await self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+    )
+    ^
+  File "C:\Users\SK-GROUP\PycharmProjects\PythonProject\.venv\Lib\site-packages\httpx\_client.py", line 1657, in _send_handling_auth
+    response = await self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+    )
+    ^
+  File "C:\Users\SK-GROUP\PycharmProjects\PythonProject\.venv\Lib\site-packages\httpx\_client.py", line 1694, in _send_handling_redirects
+    response = await self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SK-GROUP\PycharmProjects\PythonProject\.venv\Lib\site-packages\httpx\_client.py", line 1730, in _send_single_request
+    response = await transport.handle_async_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SK-GROUP\PycharmProjects\PythonProject\.venv\Lib\site-packages\httpx\_transports\default.py", line 393, in handle_async_request
+    with map_httpcore_exceptions():
+         ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Program Files\Python313\Lib\contextlib.py", line 162, in __exit__
+    self.gen.throw(value)
+    ~~~~~~~~~~~~~~^^^^^^^
+  File "C:\Users\SK-GROUP\PycharmProjects\PythonProject\.venv\Lib\site-packages\httpx\_transports\default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ReadError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\SK-GROUP\PycharmProjects\PythonProject\.venv\Lib\site-packages\telegram\ext\_utils\networkloop.py", line 115, in network_retry_loop
+    if not await do_action():
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\SK-GROUP\PycharmProjects\PythonProject\.venv\Lib\site-packages\telegram\ext\_utils\networkloop.py", line 108, in do_action
+    return action_cb_task.result()
+           ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\SK-GROUP\PycharmProjects\PythonProject\.venv\Lib\site-packages\telegram\ext\_updater.py", line 340, in polling_action_cb
+    updates = await self.bot.get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+    )
+    ^
+  File "C:\Users\SK-GROUP\PycharmProjects\PythonProject\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 670, in get_updates
+    updates = await super().get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<9 lines>...
+    )
+    ^
+  File "C:\Users\SK-GROUP\PycharmProjects\PythonProject\.venv\Lib\site-packages\telegram\_bot.py", line 4611, in get_updates
+    await self._post(
+    ^^^^^^^^^^^^^^^^^
+    ...<7 lines>...
+    ),
+    ^
+  File "C:\Users\SK-GROUP\PycharmProjects\PythonProject\.venv\Lib\site-packages\telegram\_bot.py", line 698, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+    )
+    ^
+  File "C:\Users\SK-GROUP\PycharmProjects\PythonProject\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 370, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+    )
+    ^
+  File "C:\Users\SK-GROUP\PycharmProjects\PythonProject\.venv\Lib\site-packages\telegram\_bot.py", line 727, in _do_post
+    result = await request.post(
+             ^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+    )
+    ^
+  File "C:\Users\SK-GROUP\PycharmProjects\PythonProject\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 197, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<7 lines>...
+    )
+    ^
+  File "C:\Users\SK-GROUP\PycharmProjects\PythonProject\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 304, in _request_wrapper
+    code, payload = await self.do_request(
+                    ^^^^^^^^^^^^^^^^^^^^^^
+    ...<7 lines>...
+    )
+    ^
+  File "C:\Users\SK-GROUP\PycharmProjects\PythonProject\.venv\Lib\site-packages\telegram\request\_httpxrequest.py", line 297, in do_request
+    raise NetworkError(f"httpx.{err.__class__.__name__}: {err}") from err
+telegram.error.NetworkError: httpx.ReadError: 
+2025-09-03 15:03:53,476 - bot.bot_runner_simple - INFO - Using new SafeNewsDB
+2025-09-03 15:03:53,493 - bot.database - INFO - Database initialized: 43 news items, 60 sent IDs
+2025-09-03 15:03:53,497 - bot.database - INFO - Database initialized: 43 news items, 60 sent IDs
+2025-09-03 15:03:53,499 - bot.bot_runner_simple - INFO - Starting Telegram News Bot
+2025-09-03 15:03:54,562 - bot.bot_runner_simple - INFO - Bot starting...
+2025-09-03 15:03:55,065 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getMe "HTTP/1.1 200 OK"
+2025-09-03 15:03:55,130 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/deleteWebhook "HTTP/1.1 200 OK"
+2025-09-03 15:03:55,209 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/deleteWebhook "HTTP/1.1 200 OK"
+2025-09-03 15:03:55,210 - telegram.ext.Application - INFO - Application started
+2025-09-03 15:04:05,427 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-03 15:04:13,185 - bot.telegram_bot - INFO - Отправка новости aaebb764584d66cc в канал модерации...
+2025-09-03 15:04:13,599 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/sendMessage "HTTP/1.1 200 OK"
+2025-09-03 15:04:15,124 - bot.telegram_bot - INFO - Новость aaebb764584d66cc отправлена в модерацию (message_id=796)
+2025-09-03 15:04:15,124 - bot.telegram_bot - INFO - Подтверждение: message_id 796 сохранен для новости aaebb764584d66cc
+2025-09-03 15:04:15,500 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-03 15:04:16,138 - bot.telegram_bot - INFO - Отправка новости b73923e990a6738e в канал модерации...
+2025-09-03 15:04:16,318 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/sendMessage "HTTP/1.1 200 OK"
+2025-09-03 15:04:17,842 - bot.telegram_bot - INFO - Новость b73923e990a6738e отправлена в модерацию (message_id=797)
+2025-09-03 15:04:17,843 - bot.telegram_bot - INFO - Подтверждение: message_id 797 сохранен для новости b73923e990a6738e
+2025-09-03 15:04:18,856 - bot.telegram_bot - INFO - Отправка новости 55f398b42dcbfbaf в канал модерации...
+2025-09-03 15:04:19,078 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/sendMessage "HTTP/1.1 200 OK"
+2025-09-03 15:04:20,600 - bot.telegram_bot - INFO - Новость 55f398b42dcbfbaf отправлена в модерацию (message_id=798)
+2025-09-03 15:04:20,600 - bot.telegram_bot - INFO - Подтверждение: message_id 798 сохранен для новости 55f398b42dcbfbaf
+2025-09-03 15:04:21,601 - bot.telegram_bot - INFO - Отправка новости 87f32f429078c2aa в канал модерации...
+2025-09-03 15:04:21,939 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/sendMessage "HTTP/1.1 200 OK"
+2025-09-03 15:04:23,463 - bot.telegram_bot - INFO - Новость 87f32f429078c2aa отправлена в модерацию (message_id=799)
+2025-09-03 15:04:23,463 - bot.telegram_bot - INFO - Подтверждение: message_id 799 сохранен для новости 87f32f429078c2aa
+2025-09-03 15:04:23,927 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-03 15:04:23,928 - telegram.ext.Application - INFO - Application is stopping. This might take a moment.
+2025-09-03 15:04:23,928 - telegram.ext.Application - INFO - Application.stop() complete
+2025-09-03 15:04:23,929 - bot.bot_runner_simple - INFO - Shutting down...
+2025-09-03 15:04:23,939 - bot.database - INFO - Database force saved
+2025-09-03 15:04:23,939 - bot.bot_runner_simple - INFO - Database saved before shutdown
+2025-09-03 15:04:27,748 - bot.bot_runner_simple - INFO - Using new SafeNewsDB
+2025-09-03 15:04:27,762 - bot.database - INFO - Database initialized: 47 news items, 64 sent IDs
+2025-09-03 15:04:27,767 - bot.database - INFO - Database initialized: 47 news items, 64 sent IDs
+2025-09-03 15:04:27,768 - bot.bot_runner_simple - INFO - Starting Telegram News Bot
+2025-09-03 15:04:28,690 - bot.bot_runner_simple - INFO - Bot starting...
+2025-09-03 15:04:28,999 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getMe "HTTP/1.1 200 OK"
+2025-09-03 15:04:29,054 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/deleteWebhook "HTTP/1.1 200 OK"
+2025-09-03 15:04:29,109 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/deleteWebhook "HTTP/1.1 200 OK"
+2025-09-03 15:04:29,110 - telegram.ext.Application - INFO - Application started
+2025-09-03 15:04:37,948 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-03 15:04:38,262 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/answerCallbackQuery "HTTP/1.1 200 OK"
+2025-09-03 15:04:38,262 - bot.telegram_handlers - INFO - Обрабатываем действие: edit для новости 87f32f429078c2aa
+2025-09-03 15:04:38,476 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/sendMessage "HTTP/1.1 200 OK"
+2025-09-03 15:04:38,616 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/sendMessage "HTTP/1.1 200 OK"
+2025-09-03 15:04:39,274 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/sendMessage "HTTP/1.1 200 OK"
+2025-09-03 15:04:39,789 - bot.database - INFO - Database force saved
+2025-09-03 15:04:39,789 - bot.telegram_handlers - INFO - Сохранены ID сообщений с превью для новости 87f32f429078c2aa: [800, 801, 802] в чате -1002996332660
+2025-09-03 15:04:39,931 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/sendMessage "HTTP/1.1 200 OK"
+2025-09-03 15:04:47,010 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-03 15:04:47,011 - bot.telegram_handlers - INFO - edit_text_handler вызван с текстом: проверка5
+2025-09-03 15:04:47,011 - bot.telegram_handlers - INFO - user_data: {'editing_news_id': '87f32f429078c2aa'}
+2025-09-03 15:04:47,011 - bot.telegram_handlers - INFO - editing_news_id: 87f32f429078c2aa
+2025-09-03 15:04:47,291 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/deleteMessage "HTTP/1.1 200 OK"
+2025-09-03 15:04:47,292 - bot.telegram_handlers - INFO - Сообщение 800 для новости 87f32f429078c2aa удалено
+2025-09-03 15:04:47,488 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/deleteMessage "HTTP/1.1 200 OK"
+2025-09-03 15:04:47,488 - bot.telegram_handlers - INFO - Сообщение 801 для новости 87f32f429078c2aa удалено
+2025-09-03 15:04:47,701 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/deleteMessage "HTTP/1.1 200 OK"
+2025-09-03 15:04:47,701 - bot.telegram_handlers - INFO - Сообщение 802 для новости 87f32f429078c2aa удалено
+2025-09-03 15:04:47,812 - bot.telegram_handlers - INFO - Удалено 3 из 3 сообщений для новости 87f32f429078c2aa
+2025-09-03 15:04:47,823 - bot.database - INFO - Database force saved
+2025-09-03 15:04:47,823 - bot.telegram_handlers - INFO - Текст новости 87f32f429078c2aa обновлен на: проверка5
+2025-09-03 15:04:47,974 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/editMessageText "HTTP/1.1 200 OK"
+2025-09-03 15:04:48,103 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/sendMessage "HTTP/1.1 200 OK"
+2025-09-03 15:04:53,717 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-03 15:04:54,034 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/answerCallbackQuery "HTTP/1.1 200 OK"
+2025-09-03 15:04:54,034 - bot.telegram_handlers - INFO - Обрабатываем действие: approve для новости 87f32f429078c2aa
+2025-09-03 15:04:54,035 - bot.telegram_handlers - INFO - Начинаем публикацию в канал -1003006895565
+2025-09-03 15:04:54,257 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/sendMessage "HTTP/1.1 200 OK"
+2025-09-03 15:04:54,258 - bot.telegram_handlers - INFO - Успешно опубликовано в канал
+2025-09-03 15:04:54,509 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/sendMessage "HTTP/1.1 200 OK"
+2025-09-03 15:04:54,679 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/deleteMessage "HTTP/1.1 200 OK"
+2025-09-03 15:04:54,680 - bot.telegram_handlers - INFO - Сообщение 799 для новости 87f32f429078c2aa удалено
+2025-09-03 15:04:54,784 - bot.telegram_handlers - INFO - Удалено 1 из 1 сообщений для новости 87f32f429078c2aa
+2025-09-03 15:04:54,794 - bot.telegram_handlers - INFO - Новость 87f32f429078c2aa опубликована (отредактировано) и удалена из модерации.
+2025-09-03 15:05:03,798 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-03 15:05:13,855 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-03 15:05:23,906 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-03 15:05:30,712 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-03 15:05:30,712 - telegram.ext.Application - INFO - Application is stopping. This might take a moment.
+2025-09-03 15:05:30,713 - telegram.ext.Application - INFO - Application.stop() complete
+2025-09-03 15:05:30,713 - bot.bot_runner_simple - INFO - Shutting down...
+2025-09-03 15:05:30,723 - bot.database - INFO - Database force saved
+2025-09-03 15:05:30,723 - bot.bot_runner_simple - INFO - Database saved before shutdown

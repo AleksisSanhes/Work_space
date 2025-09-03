@@ -1,7 +1,15 @@
+# bot/cli.py
 import os
 import json
 import asyncio
-from bot.db import NewsDB
+from typing import Union
+
+# Try to import the new database first, fallback to old one
+try:
+    from bot.database import SafeNewsDB as NewsDB
+except ImportError:
+    from bot.database import SafeNewsDB
+
 from bot.telegram_bot import send_to_moderation, make_news_id
 
 DATA_DIR = "data"
@@ -19,7 +27,7 @@ async def safe_input(prompt):
         return ""
 
 
-async def load_and_send_news(db: NewsDB, bot):
+async def load_and_send_news(db: Union[NewsDB, "SafeNewsDB"], bot):
     """
     Консольное меню для загрузки новостей и отправки их в модерацию.
     """
@@ -76,17 +84,26 @@ async def load_and_send_news(db: NewsDB, bot):
 
         # --- 3) Количество новостей ---
         elif choice == "3":
-            print(f"📊 В базе {len(db.news_db)} новостей.")
+            # Handle both old and new database formats
+            if hasattr(db, 'news_db'):
+                print(f"📊 В базе {len(db.news_db)} новостей.")
+            elif hasattr(db, '__len__'):
+                print(f"📊 В базе {len(db)} новостей.")
+            else:
+                print("📊 Не удалось получить количество новостей.")
             continue
 
         # --- 4) Очистка базы ---
         elif choice == "4":
             confirm = await safe_input("Вы уверены, что хотите очистить базу? (yes/no): ")
             if confirm.lower() in ['yes', 'y', 'да', 'д']:
-                db.news_db.clear()
-                db.sent_ids.clear()
-                db.save_db()
-                db.save_sent_ids()
+                if hasattr(db, 'clear_all'):
+                    db.clear_all()
+                elif hasattr(db, 'news_db'):
+                    db.news_db.clear()
+                    db.sent_ids.clear()
+                    db.save_db()
+                    db.save_sent_ids()
                 print("🗑️ NEWS_DB и sent_ids.json очищены.")
             else:
                 print("❌ Очистка отменена.")
@@ -95,10 +112,16 @@ async def load_and_send_news(db: NewsDB, bot):
         # --- 5) Очистка поврежденных записей ---
         elif choice == "5":
             broken_count = 0
-            for news_id, data in list(db.news_db.items()):
-                if data.get("message_id") is None:
-                    db.delete_news(news_id)
-                    broken_count += 1
+            if hasattr(db, 'news_db'):
+                for news_id, data in list(db.news_db.items()):
+                    if data.get("message_id") is None:
+                        if hasattr(db, 'delete_news'):
+                            db.delete_news(news_id)
+                        else:
+                            del db.news_db[news_id]
+                        broken_count += 1
+                if hasattr(db, 'save_db'):
+                    db.save_db()
             print(f"🔧 Удалено {broken_count} записей с поврежденными message_id.")
             continue
 
@@ -123,7 +146,15 @@ async def load_and_send_news(db: NewsDB, bot):
 
                 try:
                     item_id = make_news_id(item, i)
-                    if item_id in db.sent_ids:
+
+                    # Check if already sent (handle both database types)
+                    already_sent = False
+                    if hasattr(db, 'is_sent'):
+                        already_sent = db.is_sent(item_id)
+                    elif hasattr(db, 'sent_ids') and item_id in db.sent_ids:
+                        already_sent = True
+
+                    if already_sent:
                         print(f"⏩ Новость {item_id} уже была отправлена ранее, пропускаем")
                         continue
 

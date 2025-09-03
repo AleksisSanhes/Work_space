@@ -1,3 +1,4 @@
+# bot/telegram_handlers_patched.py
 import asyncio
 import logging
 from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
@@ -5,9 +6,11 @@ from telegram.ext import ContextTypes
 from telegram.error import TelegramError
 from bot.telegram_bot import PUBLISH_CHANNEL
 from bot.formatters import format_news_for_publication, safe_clean_text
-from bot.database import SafeNewsDB
 
 logger = logging.getLogger(__name__)
+
+# Store editing sessions globally (temporary fix for context issues)
+EDITING_SESSIONS = {}
 
 
 async def split_and_send_text(bot, chat_id, text, max_length=4000):
@@ -97,7 +100,7 @@ async def safe_delete_messages(bot, chat_id, message_ids, news_id):
 
 
 # --- Обработчик нажатий кнопок ---
-async def button_handler(update: Update, context: ContextTypes.DEFAULT_TYPE, db: SafeNewsDB):
+async def button_handler(update: Update, context: ContextTypes.DEFAULT_TYPE, db):
     query = update.callback_query
     await query.answer()
 
@@ -112,22 +115,31 @@ async def button_handler(update: Update, context: ContextTypes.DEFAULT_TYPE, db:
 
         channel_id = data_entry["channel_id"]
         message_id = data_entry["message_id"]
-        news_item = data_entry["news_data"]
+        fresh_data_entry = db.get_news(news_id)
+        fresh_data_entry = db.get_news(news_id)
+        news_item = fresh_data_entry["news_data"]
+
+        # Fix for bot/telegram_handlers_patched.py - Replace the approve section with this:
 
         if action == "approve":
-            # Получаем свежие данные новости из базы
-            data_entry = db.get_news(news_id)
-            if not data_entry:
+            # CRITICAL: Always get fresh data from database before publication
+            fresh_data_entry = db.get_news(news_id)
+            if not fresh_data_entry:
                 await query.edit_message_text("⚠️ Запись не найдена.")
                 return
 
-            news_item = data_entry["news_data"]
+            # Use fresh data for publication
+            news_item = fresh_data_entry["news_data"]
+
+            # Double-check: Log the text being published for debugging
+            logger.info(f"Publishing news {news_id} with full_text: {news_item.get('full_text', '')[:100]}...")
+
             publication_text = format_news_for_publication(news_item)
 
-            # Проверяем, была ли новость отредактирована
+            # Check if news was edited
             edit_status = " (ОТРЕДАКТИРОВАНО)" if news_item.get("edited", False) else ""
 
-            # Публикуем в канал
+            # Publish to channel
             logger.info(f"Начинаем публикацию в канал {PUBLISH_CHANNEL}")
             try:
                 await context.bot.send_message(
@@ -137,33 +149,36 @@ async def button_handler(update: Update, context: ContextTypes.DEFAULT_TYPE, db:
                 )
                 logger.info(f"Успешно опубликовано в канал")
 
-                # Отправляем уведомление о публикации в личку модератору (если возможно)
+                # Send confirmation
                 try:
                     await query.message.reply_text(f"✅ Новость {news_id} успешно опубликована{edit_status.lower()}!")
                 except Exception as notify_error:
                     logger.warning(f"Не удалось отправить уведомление модератору: {notify_error}")
 
-                # Удаляем основное сообщение из канала модерации
-                message_ids_to_delete = [message_id]
+                # Get the updated data again for cleanup (in case anything changed)
+                cleanup_data_entry = db.get_news(news_id)
+                if cleanup_data_entry:
+                    channel_id = cleanup_data_entry["channel_id"]
+                    message_id = cleanup_data_entry["message_id"]
+                    news_item = cleanup_data_entry["news_data"]
 
-                # Добавляем ID сообщений с полным текстом, если они есть
-                if news_item.get("preview_message_ids") and news_item.get("preview_chat_id"):
-                    # Сначала удаляем сообщения превью из личного чата
-                    await safe_delete_messages(
-                        context.bot,
-                        news_item["preview_chat_id"],
-                        news_item["preview_message_ids"],
-                        news_id
-                    )
-                    logger.info(
-                        f"Удалены сообщения превью из личного чата {news_item['preview_chat_id']}: {news_item['preview_message_ids']}")
+                    # Clean up preview messages if they exist
+                    if news_item.get("preview_message_ids") and news_item.get("preview_chat_id"):
+                        await safe_delete_messages(
+                            context.bot,
+                            news_item["preview_chat_id"],
+                            news_item["preview_message_ids"],
+                            news_id
+                        )
+                        logger.info(
+                            f"Удалены сообщения превью из личного чата {news_item['preview_chat_id']}: {news_item['preview_message_ids']}")
 
-                # Удаляем основное сообщение из канала модерации
-                await safe_delete_messages(context.bot, channel_id, [message_id], news_id)
+                    # Delete moderation message
+                    await safe_delete_messages(context.bot, channel_id, [message_id], news_id)
 
-                # Удаляем запись из базы данных
-                db.delete_news(news_id)
-                logger.info(f"Новость {news_id} опубликована{edit_status.lower()} и удалена из модерации.")
+                    # Remove from database
+                    db.delete_news(news_id)
+                    logger.info(f"Новость {news_id} опубликована{edit_status.lower()} и удалена из модерации.")
 
             except Exception as publish_error:
                 logger.error(f"Ошибка публикации новости {news_id}: {publish_error}")
@@ -179,7 +194,8 @@ async def button_handler(update: Update, context: ContextTypes.DEFAULT_TYPE, db:
                 await query.edit_message_text("⚠️ Запись не найдена.")
                 return
 
-            news_item = data_entry["news_data"]
+            fresh_data_entry = db.get_news(news_id)
+            news_item = fresh_data_entry["news_data"]
 
             # Отправляем уведомление о отклонении (если возможно)
             try:
@@ -220,25 +236,50 @@ async def button_handler(update: Update, context: ContextTypes.DEFAULT_TYPE, db:
 
                 # Сохраняем ID всех сообщений с превью И chat_id в базе данных
                 all_preview_ids = [header_message.message_id] + text_message_ids
-                db.news_db[news_id]["news_data"]["preview_message_ids"] = all_preview_ids
-                db.news_db[news_id]["news_data"]["preview_chat_id"] = query.message.chat_id
-                db.save_db()
+
+                # Update database - handle both old and new database types
+                if hasattr(db, 'update_news'):
+                    # New database
+                    updates = {
+                        "news_data.preview_message_ids": all_preview_ids,
+                        "news_data.preview_chat_id": query.message.chat_id
+                    }
+                    db.update_news(news_id, updates)
+                else:
+                    # Old database
+                    db.news_db[news_id]["news_data"]["preview_message_ids"] = all_preview_ids
+                    db.news_db[news_id]["news_data"]["preview_chat_id"] = query.message.chat_id
+                    db.save_db()
 
                 logger.info(
                     f"Сохранены ID сообщений с превью для новости {news_id}: {all_preview_ids} в чате {query.message.chat_id}")
             else:
                 preview_message = await query.message.reply_text("⚠️ Полный текст новости отсутствует.")
                 # Сохраняем ID этого сообщения тоже
-                db.news_db[news_id]["news_data"]["preview_message_ids"] = [preview_message.message_id]
-                db.news_db[news_id]["news_data"]["preview_chat_id"] = query.message.chat_id
-                db.save_db()
+                if hasattr(db, 'update_news'):
+                    updates = {
+                        "news_data.preview_message_ids": [preview_message.message_id],
+                        "news_data.preview_chat_id": query.message.chat_id
+                    }
+                    db.update_news(news_id, updates)
+                else:
+                    db.news_db[news_id]["news_data"]["preview_message_ids"] = [preview_message.message_id]
+                    db.news_db[news_id]["news_data"]["preview_chat_id"] = query.message.chat_id
+                    db.save_db()
 
             await query.message.reply_text(
                 "✏️ Отправьте исправленный текст новости.\n"
                 "Чтобы оставить как есть — отправьте /skip\n"
                 "⚠️ После редактирования сообщение в канале модерации будет обновлено."
             )
-            context.user_data["editing_news_id"] = news_id
+
+            # Store editing session globally (fix for context issues)
+            user_id = update.effective_user.id if update.effective_user else "unknown"
+            EDITING_SESSIONS[user_id] = news_id
+
+            # Also try to set in context if available
+            if context.user_data is not None:
+                context.user_data["editing_news_id"] = news_id
 
     except Exception as e:
         logger.error(f"Ошибка обработки callback: {e}")
@@ -250,17 +291,19 @@ async def button_handler(update: Update, context: ContextTypes.DEFAULT_TYPE, db:
 
 
 # --- Обработчик редактирования текста ---
-async def edit_text_handler(update: Update, context: ContextTypes.DEFAULT_TYPE, db: SafeNewsDB):
+async def edit_text_handler(update: Update, context: ContextTypes.DEFAULT_TYPE, db):
     logger.info(f"edit_text_handler вызван с текстом: {update.message.text[:100]}")
-    logger.info(f"user_data: {context.user_data}")
 
-    # Проверяем, что user_data не None
-    if context.user_data is None:
-        logger.warning("User data is None, skipping edit handling")
-        return
+    user_id = update.effective_user.id if update.effective_user else "unknown"
 
-    news_id = context.user_data.get("editing_news_id")
-    logger.info(f"editing_news_id: {news_id}")
+    # Check global editing sessions first
+    news_id = EDITING_SESSIONS.get(user_id)
+
+    # Also check context if available
+    if not news_id and context.user_data:
+        news_id = context.user_data.get("editing_news_id")
+
+    logger.info(f"user_id: {user_id}, editing_news_id: {news_id}")
 
     if not news_id:
         logger.info("Нет активного редактирования, пропускаем")
@@ -268,23 +311,35 @@ async def edit_text_handler(update: Update, context: ContextTypes.DEFAULT_TYPE, 
 
     if update.message.text == "/skip":
         await update.message.reply_text("✅ Редактирование пропущено.")
-        context.user_data["editing_news_id"] = None
+        # Clear editing session
+        EDITING_SESSIONS.pop(user_id, None)
+        if context.user_data:
+            context.user_data["editing_news_id"] = None
         return
 
     # Получаем данные новости
     data_entry = db.get_news(news_id)
     if not data_entry:
         await update.message.reply_text("⚠️ Новость не найдена в базе.")
-        context.user_data["editing_news_id"] = None
+        EDITING_SESSIONS.pop(user_id, None)
+        if context.user_data:
+            context.user_data["editing_news_id"] = None
         return
 
     # Обновляем текст новости
-    db.news_db[news_id]["news_data"]["full_text"] = update.message.text
-    # Помечаем, что новость была отредактирована
-    db.news_db[news_id]["news_data"]["edited"] = True
+    if hasattr(db, 'update_news'):
+        # New database
+        updates = {
+            "news_data.full_text": update.message.text,
+            "news_data.edited": True
+        }
+        db.update_news(news_id, updates)
+    else:
+        # Old database
+        db.news_db[news_id]["news_data"]["full_text"] = update.message.text
+        db.news_db[news_id]["news_data"]["edited"] = True
 
     # Удаляем старые сообщения с превью, если они есть
-    # ВАЖНО: превью отправляются в личный чат, получаем правильный chat_id
     if data_entry["news_data"].get("preview_message_ids") and data_entry["news_data"].get("preview_chat_id"):
         await safe_delete_messages(
             context.bot,
@@ -293,8 +348,15 @@ async def edit_text_handler(update: Update, context: ContextTypes.DEFAULT_TYPE, 
             news_id
         )
         # Очищаем список ID сообщений с превью и chat_id
-        db.news_db[news_id]["news_data"]["preview_message_ids"] = []
-        db.news_db[news_id]["news_data"]["preview_chat_id"] = None
+        if hasattr(db, 'update_news'):
+            updates = {
+                "news_data.preview_message_ids": [],
+                "news_data.preview_chat_id": None
+            }
+            db.update_news(news_id, updates)
+        else:
+            db.news_db[news_id]["news_data"]["preview_message_ids"] = []
+            db.news_db[news_id]["news_data"]["preview_chat_id"] = None
 
     db.save_db()
 
@@ -305,7 +367,8 @@ async def edit_text_handler(update: Update, context: ContextTypes.DEFAULT_TYPE, 
     try:
         channel_id = data_entry["channel_id"]
         message_id = data_entry["message_id"]
-        news_item = data_entry["news_data"]
+        fresh_data_entry = db.get_news(news_id)
+        news_item = fresh_data_entry["news_data"]
 
         # Проверяем, что message_id существует
         if message_id is None:
@@ -315,7 +378,9 @@ async def edit_text_handler(update: Update, context: ContextTypes.DEFAULT_TYPE, 
                 "⚠️ Сообщение в канале модерации не найдено, но изменения сохранены.\n"
                 "Нажмите кнопку 'Опубликовать' для публикации отредактированной версии."
             )
-            context.user_data["editing_news_id"] = None
+            EDITING_SESSIONS.pop(user_id, None)
+            if context.user_data:
+                context.user_data["editing_news_id"] = None
             return
 
         # Функция для безопасного экранирования HTML
@@ -374,19 +439,27 @@ async def edit_text_handler(update: Update, context: ContextTypes.DEFAULT_TYPE, 
             "Нажмите кнопку 'Опубликовать' для публикации отредактированной версии."
         )
 
-    context.user_data["editing_news_id"] = None
+    # Clear editing session
+    EDITING_SESSIONS.pop(user_id, None)
+    if context.user_data:
+        context.user_data["editing_news_id"] = None
 
 
 # --- Обработчик команды /skip ---
 async def skip_edit_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    # Проверяем, что user_data не None
-    if context.user_data is None:
-        logger.warning("User data is None, skipping skip command")
-        return
+    user_id = update.effective_user.id if update.effective_user else "unknown"
 
-    news_id = context.user_data.get("editing_news_id")
+    # Check global sessions first
+    news_id = EDITING_SESSIONS.get(user_id)
+
+    # Also check context
+    if not news_id and context.user_data:
+        news_id = context.user_data.get("editing_news_id")
+
     if news_id:
-        context.user_data["editing_news_id"] = None
+        EDITING_SESSIONS.pop(user_id, None)
+        if context.user_data:
+            context.user_data["editing_news_id"] = None
         await update.message.reply_text("✅ Редактирование пропущено.")
     else:
         await update.message.reply_text("ℹ️ Нет активного процесса редактирования.")
