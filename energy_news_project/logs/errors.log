@@ -765,3 +765,539 @@ telegram.error.NetworkError: httpx.ReadError:
 2025-09-03 16:15:22,841 - bot.bot_runner_simple - INFO - Shutting down...
 2025-09-03 16:15:22,851 - bot.database - INFO - Database force saved
 2025-09-03 16:15:22,851 - bot.bot_runner_simple - INFO - Database saved before shutdown
+2025-09-03 16:36:41,684 - bot.bot_runner_simple - INFO - Using new SafeNewsDB
+2025-09-03 16:36:41,698 - bot.database - INFO - Database initialized: 56 news items, 73 sent IDs
+2025-09-03 16:36:41,703 - bot.database - INFO - Database initialized: 56 news items, 73 sent IDs
+2025-09-03 16:36:41,704 - bot.bot_runner_simple - INFO - Starting Telegram News Bot
+2025-09-03 16:36:42,626 - bot.bot_runner_simple - INFO - Bot starting...
+2025-09-03 16:36:43,411 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getMe "HTTP/1.1 200 OK"
+2025-09-03 16:36:43,484 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/deleteWebhook "HTTP/1.1 200 OK"
+2025-09-03 16:36:43,902 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/deleteWebhook "HTTP/1.1 200 OK"
+2025-09-03 16:36:43,903 - telegram.ext.Application - INFO - Application started
+2025-09-03 16:36:54,265 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-03 16:37:04,322 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-03 16:37:14,389 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-03 16:37:18,391 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-03 16:37:18,803 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/sendMessage "HTTP/1.1 200 OK"
+2025-09-03 16:37:28,501 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-03 16:37:38,588 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-03 16:37:48,657 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-03 16:37:50,910 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-03 16:37:51,627 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/sendMessage "HTTP/1.1 200 OK"
+2025-09-03 16:37:59,501 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-03 16:37:59,879 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/sendMessage "HTTP/1.1 200 OK"
+2025-09-03 16:38:00,035 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/sendMessage "HTTP/1.1 200 OK"
+2025-09-03 16:38:09,603 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-03 16:38:19,181 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-03 16:38:19,812 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/sendMessage "HTTP/1.1 200 OK"
+2025-09-03 16:38:29,279 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-03 16:38:39,354 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-03 16:38:49,412 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-03 16:38:59,477 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-03 16:39:09,546 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-03 16:39:19,614 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-03 16:39:29,742 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-03 16:39:39,800 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-03 16:39:49,915 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-03 16:39:59,979 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-03 16:40:10,052 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-03 16:40:20,137 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-03 16:40:30,209 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-03 16:40:40,266 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-03 16:40:50,355 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-03 16:41:00,414 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-03 16:41:10,476 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-03 16:41:20,567 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-03 16:41:30,646 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-03 16:41:40,726 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-03 16:41:50,797 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-03 16:42:00,935 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-03 16:42:11,044 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-03 16:42:21,161 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-03 16:42:31,263 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-03 16:42:41,337 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-03 16:42:51,427 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-03 16:43:01,505 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-03 16:43:11,590 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-03 16:43:21,658 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-03 16:43:31,763 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-03 16:43:41,889 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-03 16:43:52,028 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-03 16:44:02,113 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-03 16:44:12,172 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-03 16:44:22,251 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-03 16:44:32,341 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-03 16:44:41,044 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-03 16:44:41,044 - telegram.ext.Application - INFO - Application is stopping. This might take a moment.
+2025-09-03 16:44:41,045 - telegram.ext.Application - INFO - Application.stop() complete
+2025-09-03 16:44:41,045 - bot.bot_runner_simple - INFO - Shutting down...
+2025-09-03 16:44:41,057 - bot.database - INFO - Database force saved
+2025-09-03 16:44:41,057 - bot.bot_runner_simple - INFO - Database saved before shutdown
+2025-09-04 10:42:58,843 - bot.bot_runner_simple - INFO - Using new SafeNewsDB
+2025-09-04 10:42:58,872 - bot.database - INFO - Database initialized: 56 news items, 73 sent IDs
+2025-09-04 10:42:58,877 - bot.database - INFO - Database initialized: 56 news items, 73 sent IDs
+2025-09-04 10:42:58,883 - bot.bot_runner_simple - INFO - Starting Telegram News Bot
+2025-09-04 10:42:59,930 - bot.bot_runner_simple - INFO - Bot starting...
+2025-09-04 10:43:00,337 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getMe "HTTP/1.1 200 OK"
+2025-09-04 10:43:00,443 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/deleteWebhook "HTTP/1.1 200 OK"
+2025-09-04 10:43:00,582 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/deleteWebhook "HTTP/1.1 200 OK"
+2025-09-04 10:43:00,583 - telegram.ext.Application - INFO - Application started
+2025-09-04 10:43:06,511 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-04 10:43:06,691 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/answerCallbackQuery "HTTP/1.1 200 OK"
+2025-09-04 10:43:06,692 - bot.telegram_handlers - INFO - Обрабатываем действие: edit для новости ba2d7edab472d4e1
+2025-09-04 10:43:06,816 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/sendMessage "HTTP/1.1 200 OK"
+2025-09-04 10:43:07,008 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/sendMessage "HTTP/1.1 200 OK"
+2025-09-04 10:43:07,723 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/sendMessage "HTTP/1.1 200 OK"
+2025-09-04 10:43:07,740 - bot.telegram_handlers - INFO - Сохранены ID сообщений с превью для новости ba2d7edab472d4e1: [844, 845, 846]
+2025-09-04 10:43:07,915 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/sendMessage "HTTP/1.1 200 OK"
+2025-09-04 10:43:07,916 - bot.telegram_handlers - ERROR - Ошибка обработки callback: name 'update' is not defined
+Ошибка обработки callback: name 'update' is not defined
+2025-09-04 10:43:07,996 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/editMessageText "HTTP/1.1 200 OK"
+2025-09-04 10:43:16,569 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-04 10:43:17,807 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-04 10:43:17,808 - bot.telegram_handlers - INFO - edit_text_handler вызван с текстом: With over 25 year
+2025-09-04 10:43:17,808 - bot.telegram_handlers - INFO - Нет активного редактирования, пропускаем
+2025-09-04 10:43:27,873 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-04 10:43:37,949 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-04 10:43:48,006 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-04 10:43:58,059 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-04 10:44:08,111 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-04 10:44:18,183 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-04 10:44:28,237 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-04 10:44:38,294 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-04 10:44:48,399 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-04 10:44:58,453 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-04 10:45:08,510 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-04 10:45:18,608 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-04 10:45:28,674 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-04 10:45:38,727 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-04 10:45:48,778 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-04 10:45:58,934 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-04 10:45:58,934 - telegram.ext.Application - INFO - Application is stopping. This might take a moment.
+2025-09-04 10:45:58,935 - telegram.ext.Application - INFO - Application.stop() complete
+2025-09-04 10:45:58,935 - bot.bot_runner_simple - INFO - Shutting down...
+2025-09-04 10:45:58,946 - bot.database - INFO - Database force saved
+2025-09-04 10:45:58,947 - bot.bot_runner_simple - INFO - Database saved before shutdown
+2025-09-04 10:46:18,153 - bot.bot_runner_simple - INFO - Using new SafeNewsDB
+2025-09-04 10:46:18,167 - bot.database - INFO - Database initialized: 56 news items, 73 sent IDs
+2025-09-04 10:46:18,172 - bot.database - INFO - Database initialized: 56 news items, 73 sent IDs
+2025-09-04 10:46:18,179 - bot.bot_runner_simple - INFO - Starting Telegram News Bot
+2025-09-04 10:46:19,038 - bot.bot_runner_simple - INFO - Bot starting...
+2025-09-04 10:46:19,313 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getMe "HTTP/1.1 200 OK"
+2025-09-04 10:46:19,364 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/deleteWebhook "HTTP/1.1 200 OK"
+2025-09-04 10:46:19,415 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/deleteWebhook "HTTP/1.1 200 OK"
+2025-09-04 10:46:19,416 - telegram.ext.Application - INFO - Application started
+2025-09-04 10:46:26,137 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-04 10:46:26,316 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/answerCallbackQuery "HTTP/1.1 200 OK"
+2025-09-04 10:46:26,317 - bot.telegram_handlers - INFO - Обрабатываем действие: edit для новости 873fb41973ca7eee
+2025-09-04 10:46:26,429 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/sendMessage "HTTP/1.1 200 OK"
+2025-09-04 10:46:26,551 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/sendMessage "HTTP/1.1 200 OK"
+2025-09-04 10:46:27,171 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/sendMessage "HTTP/1.1 200 OK"
+2025-09-04 10:46:27,184 - bot.telegram_handlers - INFO - Сохранены ID сообщений с превью для новости 873fb41973ca7eee: [848, 849, 850]
+2025-09-04 10:46:27,293 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/sendMessage "HTTP/1.1 200 OK"
+2025-09-04 10:46:27,294 - bot.telegram_handlers - ERROR - Ошибка обработки callback: name 'update' is not defined
+Ошибка обработки callback: name 'update' is not defined
+2025-09-04 10:46:27,377 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/editMessageText "HTTP/1.1 200 OK"
+2025-09-04 10:46:36,201 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-04 10:46:37,315 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-04 10:46:37,316 - bot.telegram_handlers - INFO - edit_text_handler вызван с текстом: newnew
+2025-09-04 10:46:37,316 - bot.telegram_handlers - INFO - Нет активного редактирования, пропускаем
+2025-09-04 10:46:47,369 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-04 10:46:57,427 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-04 10:47:07,479 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-04 10:47:17,578 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-04 10:47:27,633 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-04 10:47:37,695 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-04 10:47:47,750 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-04 10:47:57,811 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-04 10:48:07,877 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-04 10:48:17,955 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-04 10:48:28,019 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-04 10:48:38,071 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-04 10:48:48,124 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-04 10:48:58,198 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-04 10:49:08,259 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-04 10:49:18,316 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-04 10:49:28,379 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-04 10:49:38,442 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-04 10:49:48,499 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-04 10:49:58,552 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-04 10:50:08,661 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-04 10:50:18,713 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-04 10:50:28,797 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-04 10:50:33,336 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-04 10:50:33,336 - telegram.ext.Application - INFO - Application is stopping. This might take a moment.
+2025-09-04 10:50:33,337 - telegram.ext.Application - INFO - Application.stop() complete
+2025-09-04 10:50:33,337 - bot.bot_runner_simple - INFO - Shutting down...
+2025-09-04 10:50:33,350 - bot.database - INFO - Database force saved
+2025-09-04 10:50:33,350 - bot.bot_runner_simple - INFO - Database saved before shutdown
+2025-09-04 10:50:41,599 - bot.bot_runner_simple - INFO - Using new SafeNewsDB
+2025-09-04 10:50:41,613 - bot.database - INFO - Database initialized: 56 news items, 73 sent IDs
+2025-09-04 10:50:41,617 - bot.database - INFO - Database initialized: 56 news items, 73 sent IDs
+2025-09-04 10:50:41,618 - bot.bot_runner_simple - INFO - Starting Telegram News Bot
+2025-09-04 10:50:42,510 - bot.bot_runner_simple - INFO - Bot starting...
+2025-09-04 10:50:42,845 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getMe "HTTP/1.1 200 OK"
+2025-09-04 10:50:42,901 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/deleteWebhook "HTTP/1.1 200 OK"
+2025-09-04 10:50:42,962 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/deleteWebhook "HTTP/1.1 200 OK"
+2025-09-04 10:50:42,963 - telegram.ext.Application - INFO - Application started
+2025-09-04 10:50:52,182 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-04 10:50:52,376 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/answerCallbackQuery "HTTP/1.1 200 OK"
+2025-09-04 10:50:52,377 - bot.telegram_handlers - INFO - Обрабатываем действие: edit для новости c8d0f6a9d95d6d2a
+2025-09-04 10:50:52,503 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/sendMessage "HTTP/1.1 200 OK"
+2025-09-04 10:50:52,635 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/sendMessage "HTTP/1.1 200 OK"
+2025-09-04 10:50:53,153 - bot.telegram_handlers - INFO - Сохранены ID сообщений с превью для новости c8d0f6a9d95d6d2a: [852, 853]
+2025-09-04 10:50:53,264 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/sendMessage "HTTP/1.1 200 OK"
+2025-09-04 10:50:53,265 - bot.telegram_handlers - ERROR - Ошибка обработки callback: name 'update' is not defined
+Ошибка обработки callback: name 'update' is not defined
+2025-09-04 10:50:53,387 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/editMessageText "HTTP/1.1 200 OK"
+2025-09-04 10:51:02,238 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-04 10:51:03,409 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-04 10:51:03,410 - bot.telegram_handlers - INFO - edit_text_handler вызван с текстом: проверка
+2025-09-04 10:51:03,410 - bot.telegram_handlers - INFO - Нет активного редактирования, пропускаем
+2025-09-04 10:51:13,462 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-04 10:51:23,522 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-04 10:51:33,595 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-04 10:51:43,654 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-04 10:51:53,737 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-04 10:52:03,788 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-04 10:52:13,842 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-04 10:52:23,895 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-04 10:52:33,948 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-04 10:52:44,006 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-04 10:52:49,478 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-04 10:52:49,479 - telegram.ext.Application - INFO - Application is stopping. This might take a moment.
+2025-09-04 10:52:49,479 - telegram.ext.Application - INFO - Application.stop() complete
+2025-09-04 10:52:49,480 - bot.bot_runner_simple - INFO - Shutting down...
+2025-09-04 10:52:49,490 - bot.database - INFO - Database force saved
+2025-09-04 10:52:49,490 - bot.bot_runner_simple - INFO - Database saved before shutdown
+2025-09-04 10:52:58,195 - bot.bot_runner_simple - INFO - Using new SafeNewsDB
+2025-09-04 10:52:58,210 - bot.database - INFO - Database initialized: 56 news items, 73 sent IDs
+2025-09-04 10:52:58,214 - bot.database - INFO - Database initialized: 56 news items, 73 sent IDs
+2025-09-04 10:52:58,220 - bot.bot_runner_simple - INFO - Starting Telegram News Bot
+2025-09-04 10:52:59,130 - bot.bot_runner_simple - INFO - Bot starting...
+2025-09-04 10:52:59,433 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getMe "HTTP/1.1 200 OK"
+2025-09-04 10:52:59,486 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/deleteWebhook "HTTP/1.1 200 OK"
+2025-09-04 10:52:59,537 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/deleteWebhook "HTTP/1.1 200 OK"
+2025-09-04 10:52:59,538 - telegram.ext.Application - INFO - Application started
+2025-09-04 10:53:07,363 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-04 10:53:07,562 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/answerCallbackQuery "HTTP/1.1 200 OK"
+2025-09-04 10:53:07,562 - bot.telegram_handlers - INFO - Обрабатываем действие: edit для новости d4f0a383a24c23d7
+2025-09-04 10:53:07,648 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/editMessageText "HTTP/1.1 200 OK"
+2025-09-04 10:53:12,341 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-04 10:53:12,404 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/answerCallbackQuery "HTTP/1.1 200 OK"
+2025-09-04 10:53:12,404 - bot.telegram_handlers - INFO - Обрабатываем действие: edit для новости 025056770e3cb2e3
+2025-09-04 10:53:12,548 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/sendMessage "HTTP/1.1 200 OK"
+2025-09-04 10:53:12,810 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/sendMessage "HTTP/1.1 200 OK"
+2025-09-04 10:53:13,334 - bot.telegram_handlers - INFO - Сохранены ID сообщений с превью для новости 025056770e3cb2e3: [855, 856]
+2025-09-04 10:53:13,474 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/sendMessage "HTTP/1.1 200 OK"
+2025-09-04 10:53:20,970 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-04 10:53:20,971 - bot.telegram_handlers - INFO - edit_text_handler вызван с текстом: проверка2
+2025-09-04 10:53:20,971 - bot.telegram_handlers - INFO - user_id: 6105807855, editing_news_id: 025056770e3cb2e3
+2025-09-04 10:53:20,982 - bot.telegram_handlers - INFO - Текст новости 025056770e3cb2e3 обновлен
+2025-09-04 10:53:21,259 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/editMessageText "HTTP/1.1 200 OK"
+2025-09-04 10:53:21,470 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/sendMessage "HTTP/1.1 200 OK"
+2025-09-04 10:53:29,742 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-04 10:53:29,914 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/answerCallbackQuery "HTTP/1.1 200 OK"
+2025-09-04 10:53:29,915 - bot.telegram_handlers - INFO - Обрабатываем действие: approve для новости 025056770e3cb2e3
+2025-09-04 10:53:30,186 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/sendMessage "HTTP/1.1 200 OK"
+2025-09-04 10:53:30,187 - bot.telegram_handlers - INFO - Новость 025056770e3cb2e3 успешно опубликована в канал
+2025-09-04 10:53:30,307 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/sendMessage "HTTP/1.1 200 OK"
+2025-09-04 10:53:30,375 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/deleteMessage "HTTP/1.1 200 OK"
+2025-09-04 10:53:30,376 - bot.telegram_handlers - INFO - Сообщение 815 для новости 025056770e3cb2e3 удалено
+2025-09-04 10:53:30,481 - bot.telegram_handlers - INFO - Удалено 1 из 1 сообщений для новости 025056770e3cb2e3
+2025-09-04 10:53:30,492 - bot.telegram_handlers - INFO - Новость 025056770e3cb2e3 опубликована и удалена из модерации
+2025-09-04 10:53:39,797 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-04 10:53:49,849 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-04 10:53:59,911 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-04 10:54:09,969 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-04 10:54:20,040 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-04 10:54:30,092 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-04 10:54:40,146 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-04 10:54:50,200 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-04 10:55:00,274 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-04 10:55:10,376 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-04 10:55:20,454 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-04 10:55:30,510 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-04 10:55:40,562 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-04 10:55:50,615 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-04 10:56:00,691 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-04 10:56:05,048 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-04 10:56:05,049 - telegram.ext.Application - INFO - Application is stopping. This might take a moment.
+2025-09-04 10:56:05,049 - telegram.ext.Application - INFO - Application.stop() complete
+2025-09-04 10:56:05,049 - bot.bot_runner_simple - INFO - Shutting down...
+2025-09-04 10:56:05,060 - bot.database - INFO - Database force saved
+2025-09-04 10:56:05,060 - bot.bot_runner_simple - INFO - Database saved before shutdown
+2025-09-04 10:56:34,364 - bot.bot_runner_simple - INFO - Using new SafeNewsDB
+2025-09-04 10:56:34,377 - bot.database - INFO - Database initialized: 55 news items, 72 sent IDs
+2025-09-04 10:56:34,382 - bot.database - INFO - Database initialized: 55 news items, 72 sent IDs
+2025-09-04 10:56:34,387 - bot.bot_runner_simple - INFO - Starting Telegram News Bot
+2025-09-04 10:56:38,376 - bot.bot_runner_simple - INFO - Using new SafeNewsDB
+2025-09-04 10:56:38,389 - bot.database - INFO - Database initialized: 55 news items, 72 sent IDs
+2025-09-04 10:56:38,394 - bot.database - INFO - Database initialized: 55 news items, 72 sent IDs
+2025-09-04 10:56:38,395 - bot.bot_runner_simple - INFO - Starting Telegram News Bot
+2025-09-04 10:56:39,268 - bot.bot_runner_simple - INFO - Bot starting...
+2025-09-04 10:56:39,637 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getMe "HTTP/1.1 200 OK"
+2025-09-04 10:56:39,747 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/deleteWebhook "HTTP/1.1 200 OK"
+2025-09-04 10:56:39,799 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/deleteWebhook "HTTP/1.1 200 OK"
+2025-09-04 10:56:39,800 - telegram.ext.Application - INFO - Application started
+2025-09-04 10:56:43,320 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-04 10:56:43,385 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/answerCallbackQuery "HTTP/1.1 200 OK"
+2025-09-04 10:56:43,385 - bot.telegram_handlers - INFO - Обрабатываем действие: edit для новости 0b128b48b98c2917
+2025-09-04 10:56:43,496 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/sendMessage "HTTP/1.1 200 OK"
+2025-09-04 10:56:43,643 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/sendMessage "HTTP/1.1 200 OK"
+2025-09-04 10:56:44,160 - bot.telegram_handlers - INFO - Сохранены ID сообщений с превью для новости 0b128b48b98c2917: [859, 860]
+2025-09-04 10:56:44,269 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/sendMessage "HTTP/1.1 200 OK"
+2025-09-04 10:56:53,375 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-04 10:56:53,949 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-04 10:56:53,950 - bot.telegram_handlers - INFO - edit_text_handler вызван с текстом: что-то
+2025-09-04 10:56:53,950 - bot.telegram_handlers - INFO - user_id: 6105807855, editing_news_id: 0b128b48b98c2917
+2025-09-04 10:56:53,960 - bot.telegram_handlers - INFO - Текст новости 0b128b48b98c2917 обновлен
+2025-09-04 10:56:54,181 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/editMessageText "HTTP/1.1 200 OK"
+2025-09-04 10:56:54,273 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/sendMessage "HTTP/1.1 200 OK"
+2025-09-04 10:57:01,023 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-04 10:57:01,228 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/answerCallbackQuery "HTTP/1.1 200 OK"
+2025-09-04 10:57:01,229 - bot.telegram_handlers - INFO - Обрабатываем действие: approve для новости 0b128b48b98c2917
+2025-09-04 10:57:01,229 - bot.telegram_handlers - INFO - Публикуем новость 0b128b48b98c2917, full_text: Last Updated on:3rd September 2025, 01:15 am XPENG vehicle sales continue at a vastly higher level t...
+2025-09-04 10:57:01,229 - bot.telegram_handlers - INFO - Edited flag: False
+2025-09-04 10:57:01,230 - bot.telegram_handlers - INFO - Финальный текст для публикации: 🔥 XPENG Sales Rise 169%!
+
+Last Updated on:3rd September 2025, 01:15 am XPENG vehicle sales continue at a vastly higher level than a year ago. In August 2025, XPENG scored 37,709 deliveries, 169% more ...
+2025-09-04 10:57:01,366 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/sendMessage "HTTP/1.1 200 OK"
+2025-09-04 10:57:01,366 - bot.telegram_handlers - INFO - Новость 0b128b48b98c2917 успешно опубликована в канал
+2025-09-04 10:57:01,483 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/sendMessage "HTTP/1.1 200 OK"
+2025-09-04 10:57:01,548 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/deleteMessage "HTTP/1.1 200 OK"
+2025-09-04 10:57:01,549 - bot.telegram_handlers - INFO - Сообщение 819 для новости 0b128b48b98c2917 удалено
+2025-09-04 10:57:01,662 - bot.telegram_handlers - INFO - Удалено 1 из 1 сообщений для новости 0b128b48b98c2917
+2025-09-04 10:57:01,674 - bot.telegram_handlers - INFO - Новость 0b128b48b98c2917 опубликована и удалена из модерации
+2025-09-04 10:57:11,111 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-04 10:57:21,184 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-04 10:57:31,239 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-04 10:57:41,291 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-04 10:57:51,363 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-04 10:58:00,831 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-04 10:58:00,832 - telegram.ext.Application - INFO - Application is stopping. This might take a moment.
+2025-09-04 10:58:00,832 - telegram.ext.Application - INFO - Application.stop() complete
+2025-09-04 10:58:00,833 - bot.bot_runner_simple - INFO - Shutting down...
+2025-09-04 10:58:00,844 - bot.database - INFO - Database force saved
+2025-09-04 10:58:00,844 - bot.bot_runner_simple - INFO - Database saved before shutdown
+2025-09-04 10:59:20,265 - bot.bot_runner_simple - INFO - Using new SafeNewsDB
+2025-09-04 10:59:20,278 - bot.database - INFO - Database initialized: 54 news items, 71 sent IDs
+2025-09-04 10:59:20,283 - bot.database - INFO - Database initialized: 54 news items, 71 sent IDs
+2025-09-04 10:59:20,289 - bot.bot_runner_simple - INFO - Starting Telegram News Bot
+2025-09-04 10:59:21,158 - bot.bot_runner_simple - INFO - Bot starting...
+2025-09-04 10:59:21,460 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getMe "HTTP/1.1 200 OK"
+2025-09-04 10:59:21,512 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/deleteWebhook "HTTP/1.1 200 OK"
+2025-09-04 10:59:21,565 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/deleteWebhook "HTTP/1.1 200 OK"
+2025-09-04 10:59:21,566 - telegram.ext.Application - INFO - Application started
+2025-09-04 10:59:28,026 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-04 10:59:28,198 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/answerCallbackQuery "HTTP/1.1 200 OK"
+2025-09-04 10:59:28,198 - bot.telegram_handlers - INFO - Обрабатываем действие: edit для новости 0aec14141e031a13
+2025-09-04 10:59:28,340 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/sendMessage "HTTP/1.1 200 OK"
+2025-09-04 10:59:28,479 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/sendMessage "HTTP/1.1 200 OK"
+2025-09-04 10:59:29,123 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/sendMessage "HTTP/1.1 200 OK"
+2025-09-04 10:59:29,878 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/sendMessage "HTTP/1.1 200 OK"
+2025-09-04 10:59:29,891 - bot.telegram_handlers - INFO - Сохранены ID сообщений с превью для новости 0aec14141e031a13: [863, 864, 865, 866]
+2025-09-04 10:59:30,488 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/sendMessage "HTTP/1.1 200 OK"
+2025-09-04 10:59:38,113 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-04 10:59:42,215 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-04 10:59:42,216 - bot.telegram_handlers - INFO - edit_text_handler вызван с текстом: чтоооо
+2025-09-04 10:59:42,216 - bot.telegram_handlers - INFO - user_id: 6105807855, editing_news_id: 0aec14141e031a13
+2025-09-04 10:59:42,229 - bot.telegram_handlers - INFO - Текст новости 0aec14141e031a13 обновлен
+2025-09-04 10:59:42,483 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/editMessageText "HTTP/1.1 200 OK"
+2025-09-04 10:59:42,575 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/sendMessage "HTTP/1.1 200 OK"
+2025-09-04 10:59:49,297 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-04 10:59:49,554 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/answerCallbackQuery "HTTP/1.1 200 OK"
+2025-09-04 10:59:49,554 - bot.telegram_handlers - INFO - Обрабатываем действие: approve для новости 0aec14141e031a13
+2025-09-04 10:59:49,554 - bot.telegram_handlers - INFO - Публикуем новость 0aec14141e031a13, full_text: Last Updated on:3rd September 2025, 12:14 am InPart One of this story, we detailed how the efforts o...
+2025-09-04 10:59:49,554 - bot.telegram_handlers - INFO - Edited flag: False
+2025-09-04 10:59:49,555 - bot.telegram_handlers - INFO - Финальный текст для публикации: 🔥 Americans For Prosperity Comes For Vermont Voters — Part II
+
+Last Updated on:3rd September 2025, 12:14 am InPart One of this story, we detailed how the efforts of Americans for Prosperity seek to sh...
+2025-09-04 10:59:49,725 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/sendMessage "HTTP/1.1 200 OK"
+2025-09-04 10:59:49,726 - bot.telegram_handlers - INFO - Новость 0aec14141e031a13 успешно опубликована в канал
+2025-09-04 10:59:49,888 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/sendMessage "HTTP/1.1 200 OK"
+2025-09-04 10:59:49,993 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/deleteMessage "HTTP/1.1 200 OK"
+2025-09-04 10:59:49,993 - bot.telegram_handlers - INFO - Сообщение 820 для новости 0aec14141e031a13 удалено
+2025-09-04 10:59:50,102 - bot.telegram_handlers - INFO - Удалено 1 из 1 сообщений для новости 0aec14141e031a13
+2025-09-04 10:59:50,113 - bot.telegram_handlers - INFO - Новость 0aec14141e031a13 опубликована и удалена из модерации
+2025-09-04 10:59:59,386 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-04 11:00:09,439 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-04 11:00:19,491 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-04 11:00:25,001 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-04 11:00:25,002 - telegram.ext.Application - INFO - Application is stopping. This might take a moment.
+2025-09-04 11:00:25,002 - telegram.ext.Application - INFO - Application.stop() complete
+2025-09-04 11:00:25,003 - bot.bot_runner_simple - INFO - Shutting down...
+2025-09-04 11:00:25,013 - bot.database - INFO - Database force saved
+2025-09-04 11:00:25,014 - bot.bot_runner_simple - INFO - Database saved before shutdown
+2025-09-04 14:53:21,977 - bot.bot_runner_simple - INFO - Using new SafeNewsDB
+2025-09-04 14:53:22,003 - bot.database - INFO - Database initialized: 53 news items, 70 sent IDs
+2025-09-04 14:53:22,008 - bot.database - INFO - Database initialized: 53 news items, 70 sent IDs
+2025-09-04 14:53:22,010 - bot.bot_runner_simple - INFO - Starting Telegram News Bot
+2025-09-04 14:53:23,070 - bot.bot_runner_simple - INFO - Bot starting...
+2025-09-04 14:53:23,305 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getMe "HTTP/1.1 200 OK"
+2025-09-04 14:53:23,355 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/deleteWebhook "HTTP/1.1 200 OK"
+2025-09-04 14:53:23,407 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/deleteWebhook "HTTP/1.1 200 OK"
+2025-09-04 14:53:23,408 - telegram.ext.Application - INFO - Application started
+2025-09-04 14:53:33,540 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-04 14:53:34,257 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-04 14:53:34,419 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/answerCallbackQuery "HTTP/1.1 200 OK"
+2025-09-04 14:53:34,419 - bot.telegram_handlers - INFO - Обрабатываем действие: edit для новости 90cc92cf9c2ed675
+2025-09-04 14:53:34,551 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/sendMessage "HTTP/1.1 200 OK"
+2025-09-04 14:53:34,698 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/sendMessage "HTTP/1.1 200 OK"
+2025-09-04 14:53:35,219 - bot.telegram_handlers - INFO - Сохранены ID сообщений с превью для новости 90cc92cf9c2ed675: [869, 870]
+2025-09-04 14:53:35,329 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/sendMessage "HTTP/1.1 200 OK"
+2025-09-04 14:53:43,720 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-04 14:53:43,720 - bot.telegram_handlers - INFO - edit_text_handler вызван с текстом: проверка
+2025-09-04 14:53:43,721 - bot.telegram_handlers - INFO - user_id: 6105807855, editing_news_id: 90cc92cf9c2ed675
+2025-09-04 14:53:43,736 - bot.telegram_handlers - INFO - Текст новости 90cc92cf9c2ed675 обновлен
+2025-09-04 14:53:43,942 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/editMessageText "HTTP/1.1 200 OK"
+2025-09-04 14:53:44,038 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/sendMessage "HTTP/1.1 200 OK"
+2025-09-04 14:53:53,717 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-04 14:53:53,932 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/answerCallbackQuery "HTTP/1.1 200 OK"
+2025-09-04 14:53:53,932 - bot.telegram_handlers - INFO - Обрабатываем действие: approve для новости 90cc92cf9c2ed675
+2025-09-04 14:53:53,933 - bot.telegram_handlers - INFO - Публикуем новость 90cc92cf9c2ed675, full_text: Last Updated on:3rd September 2025, 01:37 am After not having great sales growth — or any — in recen...
+2025-09-04 14:53:53,933 - bot.telegram_handlers - INFO - Edited flag: False
+2025-09-04 14:53:53,933 - bot.telegram_handlers - INFO - Финальный текст для публикации: 🔥 NIO Sales Spike 55%
+
+Last Updated on:3rd September 2025, 01:37 am After not having great sales growth — or any — in recent months, NIO finally bucked that trend and got its sales to spike in August....
+2025-09-04 14:53:54,112 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/sendMessage "HTTP/1.1 200 OK"
+2025-09-04 14:53:54,112 - bot.telegram_handlers - INFO - Новость 90cc92cf9c2ed675 успешно опубликована в канал
+2025-09-04 14:53:54,253 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/sendMessage "HTTP/1.1 200 OK"
+2025-09-04 14:53:54,362 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/deleteMessage "HTTP/1.1 200 OK"
+2025-09-04 14:53:54,362 - bot.telegram_handlers - INFO - Сообщение 818 для новости 90cc92cf9c2ed675 удалено
+2025-09-04 14:53:54,464 - bot.telegram_handlers - INFO - Удалено 1 из 1 сообщений для новости 90cc92cf9c2ed675
+2025-09-04 14:53:54,475 - bot.telegram_handlers - INFO - Новость 90cc92cf9c2ed675 опубликована и удалена из модерации
+2025-09-04 14:54:03,763 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-04 14:54:08,436 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-04 14:54:08,437 - telegram.ext.Application - INFO - Application is stopping. This might take a moment.
+2025-09-04 14:54:08,437 - telegram.ext.Application - INFO - Application.stop() complete
+2025-09-04 14:54:08,437 - bot.bot_runner_simple - INFO - Shutting down...
+2025-09-04 14:54:08,447 - bot.database - INFO - Database force saved
+2025-09-04 14:54:08,447 - bot.bot_runner_simple - INFO - Database saved before shutdown
+2025-09-04 15:34:09,355 - bot.bot_runner_simple - INFO - Using new SafeNewsDB
+2025-09-04 15:34:09,370 - bot.database - INFO - Database initialized: 52 news items, 69 sent IDs
+2025-09-04 15:34:09,375 - bot.database - INFO - Database initialized: 52 news items, 69 sent IDs
+2025-09-04 15:34:09,382 - bot.bot_runner_simple - INFO - Starting Telegram News Bot
+2025-09-04 15:34:10,346 - bot.bot_runner_simple - INFO - Bot starting...
+2025-09-04 15:34:10,642 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getMe "HTTP/1.1 200 OK"
+2025-09-04 15:34:10,697 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/deleteWebhook "HTTP/1.1 200 OK"
+2025-09-04 15:34:10,750 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/deleteWebhook "HTTP/1.1 200 OK"
+2025-09-04 15:34:10,750 - telegram.ext.Application - INFO - Application started
+2025-09-04 15:34:20,951 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-04 15:34:27,745 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-04 15:34:28,006 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/answerCallbackQuery "HTTP/1.1 200 OK"
+2025-09-04 15:34:28,006 - bot.telegram_handlers - INFO - Обрабатываем действие: edit для новости af45df4c3c1b4374
+2025-09-04 15:34:28,142 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/sendMessage "HTTP/1.1 200 OK"
+2025-09-04 15:34:28,285 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/sendMessage "HTTP/1.1 200 OK"
+2025-09-04 15:34:28,805 - bot.telegram_handlers - INFO - Сохранены ID сообщений с превью для новости af45df4c3c1b4374: [873, 874]
+2025-09-04 15:34:28,950 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/sendMessage "HTTP/1.1 200 OK"
+2025-09-04 15:34:36,397 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-04 15:34:36,399 - bot.telegram_handlers - INFO - edit_text_handler вызван с текстом: проверка2
+2025-09-04 15:34:36,399 - bot.telegram_handlers - INFO - user_id: 6105807855, editing_news_id: af45df4c3c1b4374
+2025-09-04 15:34:36,399 - bot.telegram_handlers - INFO - ПЕРЕД обновлением: новость af45df4c3c1b4374
+2025-09-04 15:34:36,399 - bot.telegram_handlers - INFO - Обновляем full_text на: 'проверка2'
+2025-09-04 15:34:36,399 - bot.telegram_handlers - INFO - Обновляем edited на: True
+2025-09-04 15:34:36,415 - bot.telegram_handlers - INFO - Результат обновления: True
+2025-09-04 15:34:36,416 - bot.telegram_handlers - INFO - ПРОВЕРКА ПОСЛЕ обновления:
+2025-09-04 15:34:36,416 - bot.telegram_handlers - INFO - Actual full_text: 'Компания Sinovoltaics опубликовала отчет, в котором содержатся сведения о фабриках по производству с...'
+2025-09-04 15:34:36,416 - bot.telegram_handlers - INFO - Actual edited: False
+2025-09-04 15:34:36,416 - bot.telegram_handlers - ERROR - ❌ ДАННЫЕ НЕ ОБНОВИЛИСЬ!
+❌ ДАННЫЕ НЕ ОБНОВИЛИСЬ!
+2025-09-04 15:34:36,416 - bot.telegram_handlers - INFO - Текст новости af45df4c3c1b4374 обновлен
+2025-09-04 15:34:36,704 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/editMessageText "HTTP/1.1 200 OK"
+2025-09-04 15:34:36,859 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/sendMessage "HTTP/1.1 200 OK"
+2025-09-04 15:34:44,070 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-04 15:34:44,406 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/answerCallbackQuery "HTTP/1.1 200 OK"
+2025-09-04 15:34:44,406 - bot.telegram_handlers - INFO - Обрабатываем действие: approve для новости af45df4c3c1b4374
+2025-09-04 15:34:44,406 - bot.telegram_handlers - INFO - Публикуем новость af45df4c3c1b4374, full_text: Компания Sinovoltaics опубликовала отчет, в котором содержатся сведения о фабриках по производству с...
+2025-09-04 15:34:44,406 - bot.telegram_handlers - INFO - Edited flag: False
+2025-09-04 15:34:44,407 - bot.telegram_handlers - INFO - Финальный текст для публикации: 🔥 Мощности по выпуску солнечных панелей на Ближнем Востоке и в Африке вырастут до 62 ГВт к 2030
+
+Компания Sinovoltaics опубликовала отчет, в котором содержатся сведения о фабриках по производству солн...
+2025-09-04 15:34:44,700 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/sendMessage "HTTP/1.1 200 OK"
+2025-09-04 15:34:44,701 - bot.telegram_handlers - INFO - Новость af45df4c3c1b4374 успешно опубликована в канал
+2025-09-04 15:34:44,894 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/sendMessage "HTTP/1.1 200 OK"
+2025-09-04 15:34:45,055 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/deleteMessage "HTTP/1.1 200 OK"
+2025-09-04 15:34:45,055 - bot.telegram_handlers - INFO - Сообщение 817 для новости af45df4c3c1b4374 удалено
+2025-09-04 15:34:45,163 - bot.telegram_handlers - INFO - Удалено 1 из 1 сообщений для новости af45df4c3c1b4374
+2025-09-04 15:34:45,176 - bot.telegram_handlers - INFO - Новость af45df4c3c1b4374 опубликована и удалена из модерации
+2025-09-04 15:34:54,138 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-04 15:35:04,194 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-04 15:35:14,252 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-04 15:35:24,305 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-04 15:35:34,379 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-04 15:35:44,465 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-04 15:35:54,553 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-04 15:35:59,547 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-04 15:35:59,547 - telegram.ext.Application - INFO - Application is stopping. This might take a moment.
+2025-09-04 15:35:59,547 - telegram.ext.Application - INFO - Application.stop() complete
+2025-09-04 15:35:59,548 - bot.bot_runner_simple - INFO - Shutting down...
+2025-09-04 15:35:59,559 - bot.database - INFO - Database force saved
+2025-09-04 15:35:59,560 - bot.bot_runner_simple - INFO - Database saved before shutdown
+2025-09-04 15:36:11,769 - bot.bot_runner_simple - INFO - Using new SafeNewsDB
+2025-09-04 15:36:11,784 - bot.database - INFO - Database initialized: 51 news items, 68 sent IDs
+2025-09-04 15:36:11,789 - bot.database - INFO - Database initialized: 51 news items, 68 sent IDs
+2025-09-04 15:36:11,796 - bot.bot_runner_simple - INFO - Starting Telegram News Bot
+2025-09-04 15:36:12,707 - bot.bot_runner_simple - INFO - Bot starting...
+2025-09-04 15:36:13,000 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getMe "HTTP/1.1 200 OK"
+2025-09-04 15:36:13,129 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/deleteWebhook "HTTP/1.1 200 OK"
+2025-09-04 15:36:13,185 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/deleteWebhook "HTTP/1.1 200 OK"
+2025-09-04 15:36:13,186 - telegram.ext.Application - INFO - Application started
+2025-09-04 15:36:23,374 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-04 15:36:27,288 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-04 15:36:27,449 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/answerCallbackQuery "HTTP/1.1 200 OK"
+2025-09-04 15:36:27,449 - bot.telegram_handlers - INFO - Обрабатываем действие: edit для новости 2084bcf05c83eb6f
+2025-09-04 15:36:27,568 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/sendMessage "HTTP/1.1 200 OK"
+2025-09-04 15:36:27,837 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/sendMessage "HTTP/1.1 200 OK"
+2025-09-04 15:36:28,351 - bot.telegram_handlers - INFO - Сохранены ID сообщений с превью для новости 2084bcf05c83eb6f: [877, 878]
+2025-09-04 15:36:28,481 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/sendMessage "HTTP/1.1 200 OK"
+2025-09-04 15:36:37,344 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-04 15:36:37,665 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-04 15:36:37,666 - bot.telegram_handlers - INFO - edit_text_handler вызван с текстом: проверка 3
+2025-09-04 15:36:37,666 - bot.telegram_handlers - INFO - user_id: 6105807855, editing_news_id: 2084bcf05c83eb6f
+2025-09-04 15:36:37,666 - bot.telegram_handlers - INFO - ПЕРЕД обновлением: новость 2084bcf05c83eb6f
+2025-09-04 15:36:37,666 - bot.telegram_handlers - INFO - Обновляем full_text на: 'проверка 3'
+2025-09-04 15:36:37,666 - bot.telegram_handlers - INFO - Обновляем edited на: True
+2025-09-04 15:36:37,679 - bot.database - INFO - Database force saved
+2025-09-04 15:36:37,679 - bot.telegram_handlers - INFO - ✅ Прямое обновление выполнено
+2025-09-04 15:36:37,679 - bot.telegram_handlers - INFO - ПРОВЕРКА ПОСЛЕ обновления:
+2025-09-04 15:36:37,679 - bot.telegram_handlers - INFO - Actual full_text: 'проверка 3...'
+2025-09-04 15:36:37,679 - bot.telegram_handlers - INFO - Actual edited: True
+2025-09-04 15:36:37,679 - bot.telegram_handlers - INFO - ✅ Данные успешно обновлены!
+2025-09-04 15:36:37,679 - bot.telegram_handlers - INFO - Текст новости 2084bcf05c83eb6f обновлен
+2025-09-04 15:36:37,890 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/editMessageText "HTTP/1.1 200 OK"
+2025-09-04 15:36:37,969 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/sendMessage "HTTP/1.1 200 OK"
+2025-09-04 15:36:43,582 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-04 15:36:43,763 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/answerCallbackQuery "HTTP/1.1 200 OK"
+2025-09-04 15:36:43,764 - bot.telegram_handlers - INFO - Обрабатываем действие: approve для новости 2084bcf05c83eb6f
+2025-09-04 15:36:43,764 - bot.telegram_handlers - INFO - Публикуем новость 2084bcf05c83eb6f, full_text: проверка 3...
+2025-09-04 15:36:43,764 - bot.telegram_handlers - INFO - Edited flag: True
+2025-09-04 15:36:43,764 - bot.telegram_handlers - INFO - Финальный текст для публикации: 🔥 Индийский производитель нержавеющей стали расширяет использование зеленого водорода
+
+проверка 3
+
+Источник: RENEN - ВИЭ
+Оригинал: https://renen.ru/indijskij-proizvoditel-nerzhaveyushhej-stali-rasshir...
+2025-09-04 15:36:43,884 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/sendMessage "HTTP/1.1 200 OK"
+2025-09-04 15:36:43,885 - bot.telegram_handlers - INFO - Новость 2084bcf05c83eb6f успешно опубликована в канал
+2025-09-04 15:36:44,350 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/sendMessage "HTTP/1.1 200 OK"
+2025-09-04 15:36:44,434 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/deleteMessage "HTTP/1.1 200 OK"
+2025-09-04 15:36:44,435 - bot.telegram_handlers - INFO - Сообщение 816 для новости 2084bcf05c83eb6f удалено
+2025-09-04 15:36:44,550 - bot.telegram_handlers - INFO - Удалено 1 из 1 сообщений для новости 2084bcf05c83eb6f
+2025-09-04 15:36:44,565 - bot.telegram_handlers - INFO - Новость 2084bcf05c83eb6f опубликована (отредактированной) и удалена из модерации
+2025-09-04 15:36:53,679 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-04 15:37:03,745 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-04 15:37:13,799 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-04 15:37:23,855 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-04 15:37:33,948 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-04 15:37:44,012 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-04 15:37:54,071 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-04 15:38:04,132 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-04 15:38:14,188 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-04 15:38:24,287 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-04 15:38:33,921 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-04 15:38:33,922 - telegram.ext.Application - INFO - Application is stopping. This might take a moment.
+2025-09-04 15:38:33,922 - telegram.ext.Application - INFO - Application.stop() complete
+2025-09-04 15:38:33,923 - bot.bot_runner_simple - INFO - Shutting down...
+2025-09-04 15:38:33,933 - bot.database - INFO - Database force saved
+2025-09-04 15:38:33,933 - bot.bot_runner_simple - INFO - Database saved before shutdown
