@@ -74,8 +74,13 @@ class BotHandlers:
             success = await self.telegram.publish_news(context.bot, news_item, news_id)
 
             if success:
-                # Clean up preview messages if they exist
-                await self._cleanup_preview_messages(news_item, context.bot, news_id)
+                # Clean up preview messages if they exist (check if they weren't already cleaned)
+                preview_ids = news_item.get("preview_message_ids")
+                preview_chat_id = news_item.get("preview_chat_id")
+
+                if preview_ids and preview_chat_id:
+                    logger.info(f"Cleaning up remaining preview messages for news {news_id}")
+                    await self._cleanup_preview_messages(news_item, context.bot, news_id)
 
                 # Delete moderation message
                 await self.telegram.safe_delete_messages(
@@ -123,11 +128,8 @@ class BotHandlers:
             # Update database
             self.db.update_news(news_id, {"status": "rejected"})
 
-            # Send confirmation
-            try:
-                await query.message.reply_text(f"❌ Новость {news_id} отклонена и удалена.")
-            except Exception:
-                pass
+            # Log successful rejection
+            logger.info(f"News {news_id} successfully rejected and removed")
 
             # Remove from database
             self.db.delete_news(news_id)

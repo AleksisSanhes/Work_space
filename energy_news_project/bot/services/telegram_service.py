@@ -114,6 +114,9 @@ class TelegramService:
                               **kwargs) -> Optional[Message]:
         """Send message with exponential backoff retry logic."""
 
+        logger.info(f"TELEGRAM_SERVICE: Attempting to send message to chat_id={chat_id}")
+        logger.info(f"TELEGRAM_SERVICE: Message text preview: {text[:100]}...")
+
         # Check for duplicate messages
         message_hash = hashlib.md5(f"{chat_id}:{text}".encode()).hexdigest()
         if message_hash in self._message_cache:
@@ -123,13 +126,16 @@ class TelegramService:
                 return None
 
         async def _send():
-            return await bot.send_message(
+            logger.info(f"TELEGRAM_SERVICE: Executing bot.send_message to {chat_id}")
+            result = await bot.send_message(
                 chat_id=chat_id,
                 text=text,
                 reply_markup=reply_markup,
                 disable_web_page_preview=True,
                 **kwargs
             )
+            logger.info(f"TELEGRAM_SERVICE: Successfully sent message to {chat_id}, message_id={result.message_id}")
+            return result
 
         for attempt in range(self.config.retry_attempts):
             try:
@@ -159,16 +165,20 @@ class TelegramService:
                 await asyncio.sleep(wait_time)
 
             except TelegramError as e:
-                logger.error(f"Telegram error on attempt {attempt + 1}: {e}")
+                logger.error(f"TELEGRAM_SERVICE ERROR: Telegram error on attempt {attempt + 1} (chat_id: {chat_id}): {e}")
+                logger.error(f"TELEGRAM_SERVICE ERROR: Message text (first 200 chars): {text[:200]}")
                 if "Bad Request" in str(e):  # Don't retry bad requests
+                    logger.error(f"TELEGRAM_SERVICE ERROR: Bad Request details: {e}")
+                    logger.error(f"TELEGRAM_SERVICE ERROR: This is the request causing Bad Request!")
                     break
                 await asyncio.sleep(2 ** attempt)
 
             except Exception as e:
-                logger.error(f"Unexpected error on attempt {attempt + 1}: {e}")
+                logger.error(f"TELEGRAM_SERVICE ERROR: Unexpected error on attempt {attempt + 1} (chat_id: {chat_id}): {e}")
+                logger.error(f"TELEGRAM_SERVICE ERROR: Message text (first 200 chars): {text[:200]}")
                 await asyncio.sleep(2 ** attempt)
 
-        logger.error(f"Failed to send message after {self.config.retry_attempts} attempts")
+        logger.error(f"TELEGRAM_SERVICE: Failed to send message after {self.config.retry_attempts} attempts to chat_id: {chat_id}")
         return None
 
     async def split_and_send_message(self, bot: Bot, chat_id: str, text: str,
@@ -220,22 +230,29 @@ class TelegramService:
                                    message_ids: List[int], news_id: str = "") -> int:
         """Safely delete multiple messages."""
         if not message_ids:
+            logger.debug(f"No message IDs provided for deletion (news: {news_id})")
             return 0
 
         deleted_count = 0
         for message_id in message_ids:
             if message_id is None:
+                logger.debug(f"Skipping None message_id for news {news_id}")
                 continue
 
             try:
                 await bot.delete_message(chat_id=chat_id, message_id=message_id)
                 deleted_count += 1
                 await asyncio.sleep(0.1)  # Small delay between deletions
+                logger.debug(f"Successfully deleted message {message_id} for news {news_id}")
 
             except TelegramError as e:
-                logger.warning(f"Failed to delete message {message_id} for news {news_id}: {e}")
+                # Check if it's a "message to delete not found" error
+                if "message to delete not found" in str(e).lower() or "message can't be deleted" in str(e).lower():
+                    logger.debug(f"Message {message_id} already deleted or not found for news {news_id}")
+                else:
+                    logger.warning(f"Failed to delete message {message_id} for news {news_id}: {e}")
             except Exception as e:
-                logger.error(f"Unexpected error deleting message {message_id}: {e}")
+                logger.error(f"Unexpected error deleting message {message_id} for news {news_id}: {e}")
 
         logger.info(f"Deleted {deleted_count}/{len(message_ids)} messages for news {news_id}")
         return deleted_count
