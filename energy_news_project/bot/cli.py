@@ -4,13 +4,8 @@ import json
 import asyncio
 from typing import Union
 
-# Try to import the new database first, fallback to old one
-try:
-    from bot.database import SafeNewsDB as NewsDB
-except ImportError:
-    from bot.database import SafeNewsDB
-
-from bot.telegram_bot import send_to_moderation, make_news_id
+from bot.database import SafeNewsDB
+from bot.telegram_bot import make_news_id
 
 DATA_DIR = "data"
 
@@ -27,7 +22,7 @@ async def safe_input(prompt):
         return ""
 
 
-async def load_and_send_news(db: Union[NewsDB, "SafeNewsDB"], bot):
+async def load_and_send_news(db: SafeNewsDB, bot, telegram_service=None):
     """
     Консольное меню для загрузки новостей и отправки их в модерацию.
     """
@@ -42,7 +37,7 @@ async def load_and_send_news(db: Union[NewsDB, "SafeNewsDB"], bot):
 
         choice = await safe_input("Введите пункт меню: ")
 
-        if not choice:  # Если ввод пустой из-за ошибки
+        if not choice:
             continue
 
         # --- 1) Последний файл ---
@@ -84,26 +79,14 @@ async def load_and_send_news(db: Union[NewsDB, "SafeNewsDB"], bot):
 
         # --- 3) Количество новостей ---
         elif choice == "3":
-            # Handle both old and new database formats
-            if hasattr(db, 'news_db'):
-                print(f"📊 В базе {len(db.news_db)} новостей.")
-            elif hasattr(db, '__len__'):
-                print(f"📊 В базе {len(db)} новостей.")
-            else:
-                print("📊 Не удалось получить количество новостей.")
+            print(f"📊 В базе {len(db)} новостей.")
             continue
 
         # --- 4) Очистка базы ---
         elif choice == "4":
             confirm = await safe_input("Вы уверены, что хотите очистить базу? (yes/no): ")
             if confirm.lower() in ['yes', 'y', 'да', 'д']:
-                if hasattr(db, 'clear_all'):
-                    db.clear_all()
-                elif hasattr(db, 'news_db'):
-                    db.news_db.clear()
-                    db.sent_ids.clear()
-                    db.save_db()
-                    db.save_sent_ids()
+                db.clear_all()
                 print("🗑️ NEWS_DB и sent_ids.json очищены.")
             else:
                 print("❌ Очистка отменена.")
@@ -112,16 +95,10 @@ async def load_and_send_news(db: Union[NewsDB, "SafeNewsDB"], bot):
         # --- 5) Очистка поврежденных записей ---
         elif choice == "5":
             broken_count = 0
-            if hasattr(db, 'news_db'):
-                for news_id, data in list(db.news_db.items()):
-                    if data.get("message_id") is None:
-                        if hasattr(db, 'delete_news'):
-                            db.delete_news(news_id)
-                        else:
-                            del db.news_db[news_id]
-                        broken_count += 1
-                if hasattr(db, 'save_db'):
-                    db.save_db()
+            for news_id, data in list(db.news_db.items()):
+                if data.get("message_id") is None:
+                    db.delete_news(news_id)
+                    broken_count += 1
             print(f"🔧 Удалено {broken_count} записей с поврежденными message_id.")
             continue
 
@@ -147,23 +124,24 @@ async def load_and_send_news(db: Union[NewsDB, "SafeNewsDB"], bot):
                 try:
                     item_id = make_news_id(item, i)
 
-                    # Check if already sent (handle both database types)
-                    already_sent = False
-                    if hasattr(db, 'is_sent'):
-                        already_sent = db.is_sent(item_id)
-                    elif hasattr(db, 'sent_ids') and item_id in db.sent_ids:
-                        already_sent = True
-
-                    if already_sent:
+                    if db.is_sent(item_id):
                         print(f"⏩ Новость {item_id} уже была отправлена ранее, пропускаем")
                         continue
 
                     item["id"] = item_id
                     print(f"📨 Отправляем новость {item_id} в канал модерации...")
-                    await send_to_moderation(bot, item, db)
-                    count += 1
 
-                    # Небольшая задержка между отправками
+                    # Используем telegram_service если доступен, иначе fallback к старой функции
+                    if telegram_service:
+                        message = await telegram_service.send_to_moderation(bot, item, item_id)
+                        if message and message.message_id:
+                            db.add_news(item_id, item, message.message_id, telegram_service.config.moderation_channel)
+                    else:
+                        # Fallback к старой функции
+                        from bot.telegram_bot import send_to_moderation
+                        await send_to_moderation(bot, item, db)
+
+                    count += 1
                     await asyncio.sleep(1)
 
                 except Exception as e:
@@ -174,5 +152,4 @@ async def load_and_send_news(db: Union[NewsDB, "SafeNewsDB"], bot):
             if failed_count > 0:
                 print(f"⚠️ Не удалось обработать: {failed_count} новостей.")
 
-            # Очищаем переменную для следующей итерации
             del news_list

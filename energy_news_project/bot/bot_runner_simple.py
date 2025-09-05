@@ -30,49 +30,44 @@ logging.getLogger().addHandler(error_handler)
 
 logger = logging.getLogger(__name__)
 
-# Import your existing modules
-try:
-    from bot.database import SafeNewsDB
-
-    NEW_DATABASE = True
-    logger.info("Using new SafeNewsDB")
-except ImportError:
-    from bot.db import NewsDB as SafeNewsDB
-
-    NEW_DATABASE = False
-    logger.info("Using legacy NewsDB")
-
-from bot.cli import load_and_send_news
-
 # Load environment variables
 from dotenv import load_dotenv
 
 load_dotenv()
 
-# Configuration
-TOKEN = os.getenv("TELEGRAM_BOT_TOKEN", "8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8")
-MODERATION_CHANNEL = os.getenv("MODERATION_CHANNEL", "-1002996332660")
-PUBLISH_CHANNEL = os.getenv("PUBLISH_CHANNEL", "-1003006895565")
+# НОВЫЕ ИМПОРТЫ - заменяем старые
+from config import config
+from bot.database import SafeNewsDB
+from bot.services.telegram_service import TelegramService
+from bot.cli import load_and_send_news
 
-if not TOKEN:
+logger.info("Using SafeNewsDB")
+
+# УДАЛЯЕМ старые константы - теперь в config
+# TOKEN = os.getenv("TELEGRAM_BOT_TOKEN", "8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8")
+# MODERATION_CHANNEL = os.getenv("MODERATION_CHANNEL", "-1002996332660")
+# PUBLISH_CHANNEL = os.getenv("PUBLISH_CHANNEL", "-1003006895565")
+
+# Проверяем токен из конфигурации
+if not config.telegram.bot_token:
     logger.error("TELEGRAM_BOT_TOKEN not found!")
     sys.exit(1)
 
-# Initialize database
-if NEW_DATABASE:
-    db = SafeNewsDB()
-else:
-    db = NewsDB()
-if NEW_DATABASE:
-    db = SafeNewsDB()
-else:
-    db = SafeNewsDB()
+# Initialize database and services
+db = SafeNewsDB(
+    db_file=config.database.db_file,
+    sent_ids_file=config.database.sent_ids_file,
+    backup_interval=config.database.backup_interval
+)
+
+# НОВЫЙ СЕРВИС
+telegram_service = TelegramService(config.telegram)
 
 # Import handlers
 from bot.telegram_handlers import button_handler, edit_text_handler, skip_edit_handler
 
 
-# Simple command handlers
+# Simple command handlers - ОБНОВЛЯЕМ
 async def start(update, context):
     await update.message.reply_text(
         "🤖 Бот модерации энергетических новостей запущен!\n\n"
@@ -101,26 +96,27 @@ async def help_command(update, context):
     await update.message.reply_text(help_text)
 
 
+# ПОЛНОСТЬЮ ПЕРЕПИСЫВАЕМ stats_command
 async def stats_command(update, context):
     try:
-        if hasattr(db, 'get_stats'):
-            stats = db.get_stats()
-            stats_text = (
-                f"📊 Статистика системы\n\n"
-                f"📰 База данных:\n"
-                f"• Всего новостей: {stats.get('total_news', 0)}\n"
-                f"• Отправлено: {stats.get('sent_count', 0)}\n"
-            )
-        else:
-            # Legacy database
-            total_news = len(db.news_db) if hasattr(db, 'news_db') else 0
-            sent_count = len(db.sent_ids) if hasattr(db, 'sent_ids') else 0
-            stats_text = (
-                f"📊 Статистика системы\n\n"
-                f"📰 База данных:\n"
-                f"• Всего новостей: {total_news}\n"
-                f"• Отправлено: {sent_count}\n"
-            )
+        db_stats = db.get_stats()
+        telegram_stats = telegram_service.get_circuit_breaker_stats()
+
+        stats_text = (
+            f"📊 Статистика системы\n\n"
+            f"📰 База данных:\n"
+            f"• Всего новостей: {db_stats['total_news']}\n"
+            f"• Отправлено: {db_stats['sent_count']}\n"
+            f"• Ожидает модерации: {db_stats['pending']}\n"
+            f"• Опубликовано: {db_stats['published']}\n"
+            f"• Отклонено: {db_stats['rejected']}\n"
+            f"• Размер БД: {db_stats['db_size_mb']:.2f} МБ\n\n"
+            f"📡 Telegram API:\n"
+            f"• Статус: {telegram_stats['state']}\n"
+            f"• Успешных запросов: {telegram_stats['success_count']}\n"
+            f"• Неудачных запросов: {telegram_stats['failure_count']}\n"
+            f"• Успешность: {telegram_stats['success_rate']:.1f}%"
+        )
 
         await update.message.reply_text(stats_text)
     except Exception as e:
@@ -128,13 +124,19 @@ async def stats_command(update, context):
         await update.message.reply_text(f"⚠️ Ошибка получения статистики: {str(e)}")
 
 
+# ПЕРЕПИСЫВАЕМ test_publish_command
 async def test_publish_command(update, context):
     try:
-        await context.bot.send_message(
-            chat_id=PUBLISH_CHANNEL,
-            text="🔔 Тестовая публикация"
+        success = await telegram_service.send_with_retry(
+            context.bot,
+            config.telegram.publish_channel,
+            "🔔 Тестовая публикация"
         )
-        await update.message.reply_text("✅ Отправлено (если бот имеет доступ к каналу).")
+
+        if success:
+            await update.message.reply_text("✅ Тестовое сообщение успешно отправлено.")
+        else:
+            await update.message.reply_text("❌ Не удалось отправить тестовое сообщение.")
     except Exception as e:
         await update.message.reply_text(f"⚠️ Ошибка при публикации: {e}")
 
@@ -150,14 +152,15 @@ async def post_init(app):
     except Exception as e:
         logger.warning(f"Не удалось удалить webhook: {e}")
 
-    # Запуск консольного меню в отдельной таске
-    asyncio.create_task(load_and_send_news(db, app.bot))
+    # ОБНОВЛЯЕМ вызов load_and_send_news
+    asyncio.create_task(load_and_send_news(db, app.bot, telegram_service))
 
 
 def run_bot():
     logger.info("Starting Telegram News Bot")
 
-    application = Application.builder().token(TOKEN).post_init(post_init).build()
+    # ИСПОЛЬЗУЕМ конфигурацию
+    application = Application.builder().token(config.telegram.bot_token).post_init(post_init).build()
 
     # Command handlers
     application.add_handler(CommandHandler("start", start))
@@ -166,16 +169,16 @@ def run_bot():
     application.add_handler(CommandHandler("testpublish", test_publish_command))
     application.add_handler(CommandHandler("skip", skip_edit_handler))
 
-    # Callback handlers
+    # ОБНОВЛЯЕМ Callback handlers - передаем telegram_service
     application.add_handler(CallbackQueryHandler(
-        lambda u, c: button_handler(u, c, db),
+        lambda u, c: button_handler(u, c, db, telegram_service),
         pattern=r"^(approve|reject|edit)\|"
     ))
 
-    # Message handlers
+    # ОБНОВЛЯЕМ Message handlers
     application.add_handler(MessageHandler(
         filters.TEXT & ~filters.COMMAND & filters.ChatType.PRIVATE,
-        lambda u, c: edit_text_handler(u, c, db)
+        lambda u, c: edit_text_handler(u, c, db, telegram_service)
     ))
 
     # Error handler
@@ -195,12 +198,11 @@ def run_bot():
     finally:
         # Cleanup
         logger.info("Shutting down...")
-        if hasattr(db, 'force_save'):
-            try:
-                db.force_save()
-                logger.info("Database saved before shutdown")
-            except Exception as e:
-                logger.error(f"Error saving database: {e}")
+        try:
+            db.force_save()
+            logger.info("Database saved before shutdown")
+        except Exception as e:
+            logger.error(f"Error saving database: {e}")
 
 
 if __name__ == "__main__":

@@ -4,98 +4,12 @@ import logging
 from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import ContextTypes
 from telegram.error import TelegramError
-from bot.telegram_bot import PUBLISH_CHANNEL
 from bot.formatters import format_news_for_publication
 
 logger = logging.getLogger(__name__)
 
 # Global store for editing sessions (handles context issues)
 EDITING_SESSIONS = {}
-
-
-async def split_and_send_text(bot, chat_id, text, max_length=4000):
-    """
-    Разбивает длинный текст на части и отправляет несколько сообщений.
-    Возвращает список ID отправленных сообщений.
-    """
-    message_ids = []
-
-    if len(text) <= max_length:
-        try:
-            message = await bot.send_message(chat_id=chat_id, text=text)
-            if message:
-                message_ids.append(message.message_id)
-            await asyncio.sleep(0.5)
-        except Exception as e:
-            logger.error(f"Ошибка отправки сообщения: {e}")
-        return message_ids
-
-    # Разбиваем по предложениям для лучшей читаемости
-    sentences = text.split('. ')
-    current_chunk = ""
-
-    for sentence in sentences:
-        if len(current_chunk + sentence + '. ') <= max_length:
-            current_chunk += sentence + '. '
-        else:
-            if current_chunk:
-                try:
-                    message = await bot.send_message(chat_id=chat_id, text=current_chunk.strip())
-                    if message:
-                        message_ids.append(message.message_id)
-                    await asyncio.sleep(0.5)
-                except Exception as e:
-                    logger.error(f"Ошибка отправки части сообщения: {e}")
-                current_chunk = sentence + '. '
-            else:
-                # Если предложение слишком длинное, разбиваем принудительно
-                while len(sentence) > max_length:
-                    try:
-                        message = await bot.send_message(chat_id=chat_id, text=sentence[:max_length])
-                        if message:
-                            message_ids.append(message.message_id)
-                        await asyncio.sleep(0.5)
-                    except Exception as e:
-                        logger.error(f"Ошибка отправки длинного сообщения: {e}")
-                    sentence = sentence[max_length:]
-                current_chunk = sentence + '. ' if sentence else ""
-
-    # Отправляем остаток
-    if current_chunk:
-        try:
-            message = await bot.send_message(chat_id=chat_id, text=current_chunk.strip())
-            if message:
-                message_ids.append(message.message_id)
-        except Exception as e:
-            logger.error(f"Ошибка отправки остатка сообщения: {e}")
-
-    return message_ids
-
-
-async def safe_delete_messages(bot, chat_id, message_ids, news_id):
-    """
-    Безопасное удаление множественных сообщений с обработкой ошибок.
-    """
-    if not message_ids:
-        logger.warning(f"Нет сообщений для удаления для новости {news_id}")
-        return 0
-
-    deleted_count = 0
-    for message_id in message_ids:
-        if message_id is None:
-            continue
-        try:
-            await bot.delete_message(chat_id=chat_id, message_id=message_id)
-            deleted_count += 1
-            logger.info(f"Сообщение {message_id} для новости {news_id} удалено")
-            await asyncio.sleep(0.1)
-        except TelegramError as e:
-            logger.warning(f"Не удалось удалить сообщение {message_id} для новости {news_id}: {e}")
-        except Exception as e:
-            logger.error(f"Неожиданная ошибка при удалении сообщения {message_id}: {e}")
-
-    logger.info(f"Удалено {deleted_count} из {len(message_ids)} сообщений для новости {news_id}")
-    return deleted_count
 
 
 def _safe_escape_html(text):
@@ -168,7 +82,7 @@ def _update_news_database(db, news_id, updates):
         return False
 
 
-async def button_handler(update: Update, context: ContextTypes.DEFAULT_TYPE, db):
+async def button_handler(update: Update, context: ContextTypes.DEFAULT_TYPE, db, telegram_service):
     """Обработчик нажатий кнопок."""
     query = update.callback_query
     await query.answer()
@@ -184,9 +98,9 @@ async def button_handler(update: Update, context: ContextTypes.DEFAULT_TYPE, db)
             return
 
         if action == "approve":
-            await _handle_approve(query, context, db, news_id, data_entry)
+            await _handle_approve(query, context, db, news_id, data_entry, telegram_service)
         elif action == "reject":
-            await _handle_reject(query, context, db, news_id, data_entry)
+            await _handle_reject(query, context, db, news_id, data_entry, telegram_service)
         elif action == "edit":
             # Обработка редактирования напрямую здесь
             news_item = data_entry["news_data"]
@@ -198,8 +112,10 @@ async def button_handler(update: Update, context: ContextTypes.DEFAULT_TYPE, db)
                     f"📝 Текущий полный текст новости (ID: {news_id}):"
                 )
 
-                # Отправляем текст частями
-                text_message_ids = await split_and_send_text(context.bot, query.message.chat_id, full_text)
+                # Отправляем текст частями используя telegram_service
+                text_message_ids = await telegram_service.split_and_send_message(
+                    context.bot, query.message.chat_id, full_text
+                )
                 all_preview_ids = [header_message.message_id] + text_message_ids
 
                 # Сохраняем ID превью сообщений
@@ -239,7 +155,7 @@ async def button_handler(update: Update, context: ContextTypes.DEFAULT_TYPE, db)
             await query.message.reply_text(f"⚠️ Ошибка: {e}")
 
 
-async def _handle_approve(query, context, db, news_id, data_entry):
+async def _handle_approve(query, context, db, news_id, data_entry, telegram_service):
     """Обработка одобрения новости."""
     # Получаем свежие данные перед публикацией
     fresh_data_entry = db.get_news(news_id)
@@ -255,42 +171,38 @@ async def _handle_approve(query, context, db, news_id, data_entry):
     logger.info(f"Публикуем новость {news_id}, full_text: {news_item.get('full_text', '')[:100]}...")
     logger.info(f"Edited flag: {news_item.get('edited', False)}")
 
-    publication_text = format_news_for_publication(news_item)
     edit_status = " (отредактированной)" if news_item.get("edited", False) else ""
 
-    # Логируем финальный текст для публикации
-    logger.info(f"Финальный текст для публикации: {publication_text[:200]}...")
-
     try:
-        # Публикуем в канал
-        await context.bot.send_message(
-            chat_id=PUBLISH_CHANNEL,
-            text=publication_text,
-            disable_web_page_preview=True,
-        )
-        logger.info(f"Новость {news_id} успешно опубликована в канал")
+        # Публикуем в канал используя telegram_service
+        success = await telegram_service.publish_news(context.bot, news_item, news_id)
 
-        # Уведомление модератору
-        try:
-            await query.message.reply_text(f"✅ Новость {news_id} успешно опубликована{edit_status}!")
-        except Exception as e:
-            logger.warning(f"Не удалось отправить уведомление модератору: {e}")
+        if success:
+            logger.info(f"Новость {news_id} успешно опубликована в канал")
 
-        # Очистка превью сообщений
-        if news_item.get("preview_message_ids") and news_item.get("preview_chat_id"):
-            await safe_delete_messages(
-                context.bot,
-                news_item["preview_chat_id"],
-                news_item["preview_message_ids"],
-                news_id
-            )
+            # Уведомление модератору
+            try:
+                await query.message.reply_text(f"✅ Новость {news_id} успешно опубликована{edit_status}!")
+            except Exception as e:
+                logger.warning(f"Не удалось отправить уведомление модератору: {e}")
 
-        # Удаление сообщения модерации
-        await safe_delete_messages(context.bot, channel_id, [message_id], news_id)
+            # Очистка превью сообщений используя telegram_service
+            if news_item.get("preview_message_ids") and news_item.get("preview_chat_id"):
+                await telegram_service.safe_delete_messages(
+                    context.bot,
+                    news_item["preview_chat_id"],
+                    news_item["preview_message_ids"],
+                    news_id
+                )
 
-        # Удаление из базы данных
-        db.delete_news(news_id)
-        logger.info(f"Новость {news_id} опубликована{edit_status} и удалена из модерации")
+            # Удаление сообщения модерации используя telegram_service
+            await telegram_service.safe_delete_messages(context.bot, channel_id, [message_id], news_id)
+
+            # Удаление из базы данных
+            db.delete_news(news_id)
+            logger.info(f"Новость {news_id} опубликована{edit_status} и удалена из модерации")
+        else:
+            await query.edit_message_text("❌ Ошибка при публикации новости.")
 
     except Exception as e:
         logger.error(f"Ошибка публикации новости {news_id}: {e}")
@@ -300,7 +212,7 @@ async def _handle_approve(query, context, db, news_id, data_entry):
             await query.message.reply_text(f"❌ Ошибка публикации: {e}")
 
 
-async def _handle_reject(query, context, db, news_id, data_entry):
+async def _handle_reject(query, context, db, news_id, data_entry, telegram_service):
     """Обработка отклонения новости."""
     news_item = data_entry["news_data"]
     channel_id = data_entry["channel_id"]
@@ -311,24 +223,24 @@ async def _handle_reject(query, context, db, news_id, data_entry):
     except Exception as e:
         logger.warning(f"Не удалось отправить уведомление об отклонении: {e}")
 
-    # Очистка превью сообщений
+    # Очистка превью сообщений используя telegram_service
     if news_item.get("preview_message_ids") and news_item.get("preview_chat_id"):
-        await safe_delete_messages(
+        await telegram_service.safe_delete_messages(
             context.bot,
             news_item["preview_chat_id"],
             news_item["preview_message_ids"],
             news_id
         )
 
-    # Удаление сообщения модерации
-    await safe_delete_messages(context.bot, channel_id, [message_id], news_id)
+    # Удаление сообщения модерации используя telegram_service
+    await telegram_service.safe_delete_messages(context.bot, channel_id, [message_id], news_id)
 
     # Удаление из базы данных
     db.delete_news(news_id)
     logger.info(f"Новость {news_id} отклонена и удалена из модерации")
 
 
-async def edit_text_handler(update: Update, context: ContextTypes.DEFAULT_TYPE, db):
+async def edit_text_handler(update: Update, context: ContextTypes.DEFAULT_TYPE, db, telegram_service):
     """Обработчик редактирования текста."""
     logger.info(f"edit_text_handler вызван с текстом: {update.message.text[:100]}")
 
@@ -394,9 +306,9 @@ async def edit_text_handler(update: Update, context: ContextTypes.DEFAULT_TYPE, 
     else:
         logger.error("❌ Не удалось получить данные для проверки!")
 
-    # Очистка старых превью сообщений
+    # Очистка старых превью сообщений используя telegram_service
     if data_entry["news_data"].get("preview_message_ids") and data_entry["news_data"].get("preview_chat_id"):
-        await safe_delete_messages(
+        await telegram_service.safe_delete_messages(
             context.bot,
             data_entry["news_data"]["preview_chat_id"],
             data_entry["news_data"]["preview_message_ids"],
@@ -411,7 +323,7 @@ async def edit_text_handler(update: Update, context: ContextTypes.DEFAULT_TYPE, 
 
     logger.info(f"Текст новости {news_id} обновлен")
 
-    # Обновляем сообщение в канале модерации
+    # Обновляем сообщение в канале модерации используя telegram_service
     try:
         channel_id = data_entry["channel_id"]
         message_id = data_entry["message_id"]
@@ -429,40 +341,21 @@ async def edit_text_handler(update: Update, context: ContextTypes.DEFAULT_TYPE, 
         fresh_data_entry = db.get_news(news_id)
         news_item = fresh_data_entry["news_data"]
 
-        # Формируем обновленный текст
-        clean_title = _safe_escape_html(news_item.get("title", ""))
-        clean_preview = _safe_escape_html(news_item.get("preview", ""))
-        clean_source = _safe_escape_html(news_item.get("source", ""))
-        clean_date = _safe_escape_html(news_item.get("date", ""))
-        clean_url = news_item.get('url', '')
-
-        keyboard = [
-            [
-                InlineKeyboardButton("✅ Опубликовать", callback_data=f"approve|{news_id}"),
-                InlineKeyboardButton("❌ Отклонить", callback_data=f"reject|{news_id}"),
-                InlineKeyboardButton("✏️ Редактировать", callback_data=f"edit|{news_id}")
-            ]
-        ]
-
-        updated_text = (
-            f"📰 {clean_title} ✏️ ОТРЕДАКТИРОВАНО\n\n"
-            f"{clean_preview}\n\n"
-            f"Источник: {clean_source} ({clean_date})\n"
-            f"{clean_url}"
+        # Используем telegram_service для обновления сообщения модерации
+        success = await telegram_service.update_moderation_message(
+            context.bot, channel_id, message_id, news_item, news_id
         )
 
-        await context.bot.edit_message_text(
-            chat_id=channel_id,
-            message_id=message_id,
-            text=updated_text,
-            reply_markup=InlineKeyboardMarkup(keyboard),
-            disable_web_page_preview=True
-        )
-
-        await update.message.reply_text(
-            "✅ Текст новости обновлён и сообщение в канале модерации обновлено!\n"
-            "Теперь нажмите кнопку 'Опубликовать' для публикации отредактированной версии."
-        )
+        if success:
+            await update.message.reply_text(
+                "✅ Текст новости обновлён и сообщение в канале модерации обновлено!\n"
+                "Теперь нажмите кнопку 'Опубликовать' для публикации отредактированной версии."
+            )
+        else:
+            await update.message.reply_text(
+                "✅ Текст новости обновлён!\n"
+                "⚠️ Не удалось обновить сообщение в канале модерации, но изменения сохранены."
+            )
 
     except Exception as e:
         logger.error(f"Ошибка обновления сообщения в канале модерации: {e}")
