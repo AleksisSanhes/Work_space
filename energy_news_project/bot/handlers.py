@@ -1,4 +1,4 @@
-# bot/handlers/callback_handlers.py
+# bot/handlers.py
 import logging
 from typing import Optional
 from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
@@ -12,13 +12,14 @@ from bot.formatters import format_news_for_publication
 logger = logging.getLogger(__name__)
 
 
-class CallbackHandlers:
-    """Handlers for inline keyboard callbacks."""
+class BotHandlers:
+    """Unified handlers for all bot interactions."""
 
     def __init__(self, database: SafeNewsDB, telegram_service: TelegramService):
         self.db = database
         self.telegram = telegram_service
 
+    # ===== CALLBACK HANDLERS =====
     async def button_handler(self, update: Update, context: ContextTypes.DEFAULT_TYPE):
         """Handle callback button presses from moderation messages."""
         query = update.callback_query
@@ -202,25 +203,7 @@ class CallbackHandlers:
             )
             logger.info(f"Cleaned up preview messages for news {news_id}")
 
-
-# bot/handlers/message_handlers.py
-import logging
-from telegram import Update
-from telegram.ext import ContextTypes
-
-from bot.database import SafeNewsDB
-from bot.services.telegram_service import TelegramService
-
-logger = logging.getLogger(__name__)
-
-
-class MessageHandlers:
-    """Handlers for text messages."""
-
-    def __init__(self, database: SafeNewsDB, telegram_service: TelegramService):
-        self.db = database
-        self.telegram = telegram_service
-
+    # ===== MESSAGE HANDLERS =====
     async def edit_text_handler(self, update: Update, context: ContextTypes.DEFAULT_TYPE):
         """Handle text messages for news editing."""
         if not update.message or not update.message.text:
@@ -277,6 +260,8 @@ class MessageHandlers:
             "updated_at": None  # Will be set automatically by database
         }
 
+        logger.info(f"Updating news {news_id} with new text: {new_text[:100]}...")
+
         # Clean up old preview messages
         news_item = data_entry["news_data"]
         preview_ids = news_item.get("preview_message_ids")
@@ -295,6 +280,18 @@ class MessageHandlers:
 
         # Save changes
         success = self.db.update_news(news_id, updates)
+
+        # Verify the update was successful
+        if success:
+            verification = self.db.get_news(news_id)
+            if verification:
+                actual_text = verification["news_data"].get("full_text", "")
+                actual_edited = verification["news_data"].get("edited", False)
+                logger.info(f"Verification - text updated: {actual_text == new_text}, edited flag: {actual_edited}")
+            else:
+                logger.error(f"Could not verify update for news {news_id}")
+        else:
+            logger.error(f"Failed to update news {news_id}")
 
         if not success:
             await update.message.reply_text("⚠️ Не удалось обновить новость.")
@@ -335,25 +332,7 @@ class MessageHandlers:
         context.user_data["editing_news_id"] = None
         logger.info(f"News {news_id} text updated successfully")
 
-
-# bot/handlers/command_handlers.py
-import logging
-from telegram import Update
-from telegram.ext import ContextTypes
-
-from bot.database import SafeNewsDB
-from bot.services.telegram_service import TelegramService
-
-logger = logging.getLogger(__name__)
-
-
-class CommandHandlers:
-    """Handlers for bot commands."""
-
-    def __init__(self, database: SafeNewsDB, telegram_service: TelegramService):
-        self.db = database
-        self.telegram = telegram_service
-
+    # ===== COMMAND HANDLERS =====
     async def start_command(self, update: Update, context: ContextTypes.DEFAULT_TYPE):
         """Handle /start command."""
         welcome_text = (

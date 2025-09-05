@@ -228,14 +228,43 @@ class SafeNewsDB:
             return self.news_db.get(news_id)
 
     def update_news(self, news_id: str, updates: dict):
-        """Update news item."""
+        """Update news item with support for nested keys like 'news_data.full_text'."""
         with self.transaction():
-            if news_id in self.news_db:
-                self.news_db[news_id].update(updates)
+            if news_id not in self.news_db:
+                logger.warning(f"News {news_id} not found for update")
+                return False
+
+            try:
+                for key, value in updates.items():
+                    if '.' in key:
+                        # Handle nested keys like 'news_data.full_text'
+                        parts = key.split('.')
+                        current = self.news_db[news_id]
+
+                        # Navigate to the parent of the target key
+                        for part in parts[:-1]:
+                            if part not in current:
+                                current[part] = {}
+                            current = current[part]
+
+                        # Set the final value
+                        final_key = parts[-1]
+                        current[final_key] = value
+                        logger.debug(f"Updated {key} = {value}")
+                    else:
+                        # Direct key update
+                        self.news_db[news_id][key] = value
+                        logger.debug(f"Updated {key} = {value}")
+
+                # Always update the timestamp
                 self.news_db[news_id]["updated_at"] = datetime.now().isoformat()
-                logger.debug(f"Updated news: {news_id}")
+
+                logger.debug(f"Successfully updated news {news_id}")
                 return True
-            return False
+
+            except Exception as e:
+                logger.error(f"Error updating news {news_id}: {e}")
+                raise  # This will trigger transaction rollback
 
     def delete_news(self, news_id: str):
         """Delete news item."""
