@@ -5,7 +5,6 @@ import asyncio
 from typing import Union
 
 from bot.database import SafeNewsDB
-from bot.telegram_bot import make_news_id
 
 DATA_DIR = "data"
 
@@ -22,7 +21,7 @@ async def safe_input(prompt):
         return ""
 
 
-async def load_and_send_news(db: SafeNewsDB, bot, telegram_service=None):
+async def load_and_send_news(db: SafeNewsDB, bot, telegram_service):
     """
     Консольное меню для загрузки новостей и отправки их в модерацию.
     """
@@ -122,7 +121,8 @@ async def load_and_send_news(db: SafeNewsDB, bot, telegram_service=None):
                     continue
 
                 try:
-                    item_id = make_news_id(item, i)
+                    # Используем telegram_service для генерации ID
+                    item_id = telegram_service.make_news_id(item, i)
 
                     if db.is_sent(item_id):
                         print(f"⏩ Новость {item_id} уже была отправлена ранее, пропускаем")
@@ -131,15 +131,10 @@ async def load_and_send_news(db: SafeNewsDB, bot, telegram_service=None):
                     item["id"] = item_id
                     print(f"📨 Отправляем новость {item_id} в канал модерации...")
 
-                    # Используем telegram_service если доступен, иначе fallback к старой функции
-                    if telegram_service:
-                        message = await telegram_service.send_to_moderation(bot, item, item_id)
-                        if message and message.message_id:
-                            db.add_news(item_id, item, message.message_id, telegram_service.config.moderation_channel)
-                    else:
-                        # Fallback к старой функции
-                        from bot.telegram_bot import send_to_moderation
-                        await send_to_moderation(bot, item, db)
+                    # Отправляем через telegram_service
+                    message = await telegram_service.send_to_moderation(bot, item, item_id)
+                    if message and message.message_id:
+                        db.add_news(item_id, item, message.message_id, telegram_service.config.moderation_channel)
 
                     count += 1
                     await asyncio.sleep(1)
