@@ -1,0 +1,1670 @@
+===== /Users/alexey/PyCharmProjects/Work_space/energy_news_project/bot/middleware/rate_limiter.py =====
+# bot/middleware/rate_limiter.py
+import time
+import logging
+from collections import defaultdict, deque
+from typing import Dict, Optional
+from telegram.ext import BaseRateLimiter
+from telegram import Update
+
+logger = logging.getLogger(__name__)
+
+
+class RateLimiter(BaseRateLimiter):
+    """Custom rate limiter with per-user and global limits."""
+
+    def __init__(self,
+                 global_rate: int = 30,  # requests per minute globally
+                 user_rate: int = 10,  # requests per minute per user
+                 window_size: int = 60):  # time window in seconds
+
+        self.global_rate = global_rate
+        self.user_rate = user_rate
+        self.window_size = window_size
+
+        # Storage for request timestamps
+        self.global_requests: deque = deque()
+        self.user_requests: Dict[int, deque] = defaultdict(lambda: deque())
+
+        # Admin users (can be configured)
+        self.admin_users = set()
+
+    def add_admin_user(self, user_id: int):
+        """Add admin user (no rate limiting)."""
+        self.admin_users.add(user_id)
+        logger.info(f"Added admin user: {user_id}")
+
+    def _clean_old_requests(self, request_queue: deque, current_time: float):
+        """Remove requests older than window_size."""
+        while request_queue and current_time - request_queue[0] > self.window_size:
+            request_queue.popleft()
+
+    async def process_request(self,
+                              callback,
+                              update: Update,
+                              application,
+                              check_result=None) -> None:
+        """Process request with rate limiting."""
+        current_time = time.time()
+
+        # Get user ID
+        user_id = None
+        if update.effective_user:
+            user_id = update.effective_user.id
+
+        # Skip rate limiting for admin users
+        if user_id in self.admin_users:
+            await callback()
+            return
+
+        # Clean old requests
+        self._clean_old_requests(self.global_requests, current_time)
+        if user_id:
+            self._clean_old_requests(self.user_requests[user_id], current_time)
+
+        # Check global rate limit
+        if len(self.global_requests) >= self.global_rate:
+            logger.warning(f"Global rate limit exceeded")
+            if update.effective_message:
+                await update.effective_message.reply_text(
+                    "⏱️ Система перегружена. Попробуйте позже."
+                )
+            return
+
+        # Check user rate limit
+        if user_id and len(self.user_requests[user_id]) >= self.user_rate:
+            logger.warning(f"User rate limit exceeded for user {user_id}")
+            if update.effective_message:
+                await update.effective_message.reply_text(
+                    "⏱️ Слишком много запросов. Подождите минуту."
+                )
+            return
+
+        # Record request
+        self.global_requests.append(current_time)
+        if user_id:
+            self.user_requests[user_id].append(current_time)
+
+        # Execute callback
+        try:
+            await callback()
+        except Exception as e:
+            logger.error(f"Callback execution error: {e}")
+            raise
+
+    def get_stats(self) -> Dict:
+        """Get rate limiter statistics."""
+        current_time = time.time()
+
+        # Clean old requests first
+        self._clean_old_requests(self.global_requests, current_time)
+
+        active_users = 0
+        for user_queue in self.user_requests.values():
+            self._clean_old_requests(user_queue, current_time)
+            if len(user_queue) > 0:
+                active_users += 1
+
+        return {
+            "global_requests_current_window": len(self.global_requests),
+            "global_rate_limit": self.global_rate,
+            "user_rate_limit": self.user_rate,
+            "active_users": active_users,
+            "admin_users": len(self.admin_users),
+            "window_size": self.window_size
+        }===== /Users/alexey/PyCharmProjects/Work_space/energy_news_project/bot/formatters.py =====
+# bot/formatters.py
+import re
+import html
+
+def safe_clean_text(text: str) -> str:
+    """
+    Очищает текст от HTML-тегов, лишних пробелов и спецсимволов.
+    """
+    if not text:
+        return ""
+    # Удаляем HTML теги
+    text = re.sub(r"<[^>]+>", "", text)
+    # Раскодируем HTML сущности
+    text = html.unescape(text)
+    # Заменяем множественные пробелы на один
+    text = re.sub(r"\s+", " ", text).strip()
+    return text
+
+
+def format_news_for_publication(news_item: dict, max_length: int = 3800) -> str:
+    """
+    Форматирует новость для публикации в канал Telegram.
+    """
+    title = safe_clean_text(news_item.get("title", "Без заголовка"))
+    text = safe_clean_text(news_item.get("full_text", ""))
+    source = safe_clean_text(news_item.get("source", "Источник не указан"))
+    url = news_item.get("url", "")
+
+    if len(text) > max_length:
+        text = text[:max_length] + "... [обрезано]"
+
+    return f"🔥 {title}\n\n{text}\n\nИсточник: {source}\nОригинал: {url}"
+===== /Users/alexey/PyCharmProjects/Work_space/energy_news_project/bot/database.py =====
+# bot/database.py
+import json
+import os
+import shutil
+import threading
+import time
+from contextlib import contextmanager
+from datetime import datetime, timedelta
+from typing import Dict, Set, Optional, Any
+import logging
+
+logger = logging.getLogger(__name__)
+
+
+class SafeNewsDB:
+    """Thread-safe news database with transactions, caching, and automatic backups."""
+
+    def __init__(self, db_file="data/news_db.json", sent_ids_file="data/sent_ids.json", backup_interval=3600):
+        self.db_file = db_file
+        self.sent_ids_file = sent_ids_file
+        self.backup_interval = backup_interval
+
+        # Ensure directories exist
+        os.makedirs(os.path.dirname(self.db_file), exist_ok=True)
+        os.makedirs(os.path.dirname(self.sent_ids_file), exist_ok=True)
+
+        # Thread safety
+        self._lock = threading.RLock()
+
+        # In-memory data
+        self.news_db: Dict[str, Any] = {}
+        self.sent_ids: Set[str] = set()
+
+        # Load existing data
+        self._load_db()
+        self._load_sent_ids()
+
+        # Background backup
+        self._last_backup = time.time()
+        self._start_backup_thread()
+
+        logger.info(f"Database initialized: {len(self.news_db)} news items, {len(self.sent_ids)} sent IDs")
+
+    def _start_backup_thread(self):
+        """Start background thread for periodic backups."""
+
+        def backup_worker():
+            while True:
+                try:
+                    time.sleep(300)  # Check every 5 minutes
+                    if time.time() - self._last_backup > self.backup_interval:
+                        self._create_backup()
+                        self._last_backup = time.time()
+                except Exception as e:
+                    logger.error(f"Backup thread error: {e}")
+
+        backup_thread = threading.Thread(target=backup_worker, daemon=True)
+        backup_thread.start()
+
+    def _create_backup(self):
+        """Create backup files with timestamp."""
+        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+
+        try:
+            with self._lock:
+                # Backup news database
+                backup_db_file = f"{self.db_file}.backup_{timestamp}"
+                if os.path.exists(self.db_file):
+                    shutil.copy2(self.db_file, backup_db_file)
+
+                # Backup sent IDs
+                backup_ids_file = f"{self.sent_ids_file}.backup_{timestamp}"
+                if os.path.exists(self.sent_ids_file):
+                    shutil.copy2(self.sent_ids_file, backup_ids_file)
+
+                logger.info(f"Backup created: {backup_db_file}")
+
+                # Clean old backups (keep only last 10)
+                self._cleanup_old_backups()
+
+        except Exception as e:
+            logger.error(f"Backup creation failed: {e}")
+
+    def _cleanup_old_backups(self):
+        """Remove old backup files, keeping only the 10 most recent."""
+        try:
+            db_dir = os.path.dirname(self.db_file)
+            db_name = os.path.basename(self.db_file)
+            ids_name = os.path.basename(self.sent_ids_file)
+
+            # Get all backup files
+            db_backups = [f for f in os.listdir(db_dir) if f.startswith(f"{db_name}.backup_")]
+            ids_backups = [f for f in os.listdir(db_dir) if f.startswith(f"{ids_name}.backup_")]
+
+            # Sort by modification time and remove old ones
+            for backups in [db_backups, ids_backups]:
+                if len(backups) > 10:
+                    backups.sort(key=lambda x: os.path.getmtime(os.path.join(db_dir, x)))
+                    for old_backup in backups[:-10]:
+                        os.remove(os.path.join(db_dir, old_backup))
+                        logger.debug(f"Removed old backup: {old_backup}")
+
+        except Exception as e:
+            logger.error(f"Backup cleanup failed: {e}")
+
+    def _load_db(self):
+        """Load news database from file."""
+        if os.path.exists(self.db_file):
+            try:
+                with open(self.db_file, "r", encoding="utf-8") as f:
+                    data = json.load(f)
+                    if isinstance(data, dict):
+                        self.news_db = data
+                    else:
+                        logger.warning("Invalid database format, starting with empty database")
+                        self.news_db = {}
+            except (json.JSONDecodeError, IOError) as e:
+                logger.error(f"Failed to load database: {e}")
+                # Try to load from latest backup
+                self._restore_from_backup()
+
+    def _load_sent_ids(self):
+        """Load sent IDs from file."""
+        if os.path.exists(self.sent_ids_file):
+            try:
+                with open(self.sent_ids_file, "r", encoding="utf-8") as f:
+                    data = json.load(f)
+                    if isinstance(data, list):
+                        self.sent_ids = set(data)
+                    else:
+                        logger.warning("Invalid sent IDs format, starting with empty set")
+                        self.sent_ids = set()
+            except (json.JSONDecodeError, IOError) as e:
+                logger.error(f"Failed to load sent IDs: {e}")
+                self.sent_ids = set()
+
+    def _restore_from_backup(self):
+        """Restore from the most recent backup."""
+        try:
+            db_dir = os.path.dirname(self.db_file)
+            db_name = os.path.basename(self.db_file)
+
+            backups = [f for f in os.listdir(db_dir) if f.startswith(f"{db_name}.backup_")]
+            if not backups:
+                logger.warning("No backups found")
+                return
+
+            # Get most recent backup
+            latest_backup = max(backups, key=lambda x: os.path.getmtime(os.path.join(db_dir, x)))
+            backup_path = os.path.join(db_dir, latest_backup)
+
+            with open(backup_path, "r", encoding="utf-8") as f:
+                self.news_db = json.load(f)
+
+            logger.info(f"Restored from backup: {latest_backup}")
+
+        except Exception as e:
+            logger.error(f"Failed to restore from backup: {e}")
+            self.news_db = {}
+
+    def _save_db(self):
+        """Save news database to file."""
+        try:
+            # Write to temporary file first
+            temp_file = f"{self.db_file}.tmp"
+            with open(temp_file, "w", encoding="utf-8") as f:
+                json.dump(self.news_db, f, ensure_ascii=False, indent=2)
+
+            # Atomic move
+            shutil.move(temp_file, self.db_file)
+
+        except Exception as e:
+            logger.error(f"Failed to save database: {e}")
+            # Clean up temp file if it exists
+            if os.path.exists(f"{self.db_file}.tmp"):
+                os.remove(f"{self.db_file}.tmp")
+            raise
+
+    def _save_sent_ids(self):
+        """Save sent IDs to file."""
+        try:
+            temp_file = f"{self.sent_ids_file}.tmp"
+            with open(temp_file, "w", encoding="utf-8") as f:
+                json.dump(list(self.sent_ids), f, ensure_ascii=False, indent=2)
+
+            shutil.move(temp_file, self.sent_ids_file)
+
+        except Exception as e:
+            logger.error(f"Failed to save sent IDs: {e}")
+            if os.path.exists(f"{self.sent_ids_file}.tmp"):
+                os.remove(f"{self.sent_ids_file}.tmp")
+            raise
+
+    @contextmanager
+    def transaction(self):
+        """Context manager for database transactions."""
+        with self._lock:
+            old_news_db = self.news_db.copy()
+            old_sent_ids = self.sent_ids.copy()
+
+            try:
+                yield
+                self._save_db()
+                self._save_sent_ids()
+            except Exception as e:
+                # Rollback on error
+                self.news_db = old_news_db
+                self.sent_ids = old_sent_ids
+                logger.error(f"Transaction rolled back due to error: {e}")
+                raise
+
+    def add_news(self, news_id: str, news_data: dict, message_id: int, channel_id: str):
+        """Add news item to database."""
+        with self.transaction():
+            self.news_db[news_id] = {
+                "news_data": news_data,
+                "message_id": message_id,
+                "channel_id": channel_id,
+                "created_at": datetime.now().isoformat(),
+                "updated_at": datetime.now().isoformat()
+            }
+            self.sent_ids.add(news_id)
+            logger.debug(f"Added news: {news_id}")
+
+    def get_news(self, news_id: str) -> Optional[dict]:
+        """Get news item by ID."""
+        with self._lock:
+            return self.news_db.get(news_id)
+
+    def update_news(self, news_id: str, updates: dict):
+        """Update news item with support for nested keys like 'news_data.full_text'."""
+        with self.transaction():
+            if news_id not in self.news_db:
+                logger.warning(f"News {news_id} not found for update")
+                return False
+
+            try:
+                for key, value in updates.items():
+                    if '.' in key:
+                        # Handle nested keys like 'news_data.full_text'
+                        parts = key.split('.')
+                        current = self.news_db[news_id]
+
+                        # Navigate to the parent of the target key
+                        for part in parts[:-1]:
+                            if part not in current:
+                                current[part] = {}
+                            current = current[part]
+
+                        # Set the final value
+                        final_key = parts[-1]
+                        current[final_key] = value
+                        logger.debug(f"Updated {key} = {value}")
+                    else:
+                        # Direct key update
+                        self.news_db[news_id][key] = value
+                        logger.debug(f"Updated {key} = {value}")
+
+                # Always update the timestamp
+                self.news_db[news_id]["updated_at"] = datetime.now().isoformat()
+
+                logger.debug(f"Successfully updated news {news_id}")
+                return True
+
+            except Exception as e:
+                logger.error(f"Error updating news {news_id}: {e}")
+                raise  # This will trigger transaction rollback
+
+    def delete_news(self, news_id: str):
+        """Delete news item."""
+        with self.transaction():
+            if news_id in self.news_db:
+                del self.news_db[news_id]
+                self.sent_ids.discard(news_id)
+                logger.debug(f"Deleted news: {news_id}")
+                return True
+            return False
+
+    def is_sent(self, news_id: str) -> bool:
+        """Check if news was already sent."""
+        with self._lock:
+            return news_id in self.sent_ids
+
+    def get_all_news_ids(self) -> Set[str]:
+        """Get all news IDs."""
+        with self._lock:
+            return set(self.news_db.keys())
+
+    def get_stats(self) -> dict:
+        """Get database statistics."""
+        with self._lock:
+            total_news = len(self.news_db)
+            sent_count = len(self.sent_ids)
+
+            # Count by status
+            pending = 0
+            published = 0
+            rejected = 0
+
+            for news_data in self.news_db.values():
+                status = news_data.get("status", "pending")
+                if status == "pending":
+                    pending += 1
+                elif status == "published":
+                    published += 1
+                elif status == "rejected":
+                    rejected += 1
+
+            return {
+                "total_news": total_news,
+                "sent_count": sent_count,
+                "pending": pending,
+                "published": published,
+                "rejected": rejected,
+                "db_size_mb": os.path.getsize(self.db_file) / 1024 / 1024 if os.path.exists(self.db_file) else 0
+            }
+
+    def cleanup_old_news(self, days: int = 30):
+        """Remove news older than specified days."""
+        cutoff_date = datetime.now() - timedelta(days=days)
+        cutoff_str = cutoff_date.isoformat()
+
+        with self.transaction():
+            to_remove = []
+            for news_id, news_data in self.news_db.items():
+                created_at = news_data.get("created_at", "")
+                if created_at and created_at < cutoff_str:
+                    to_remove.append(news_id)
+
+            removed_count = 0
+            for news_id in to_remove:
+                if self.delete_news(news_id):
+                    removed_count += 1
+
+            logger.info(f"Cleaned up {removed_count} old news items")
+            return removed_count
+
+    def clear_all(self):
+        """Clear all data (use with caution)."""
+        with self.transaction():
+            self.news_db.clear()
+            self.sent_ids.clear()
+            logger.warning("Database cleared")
+
+    def force_save(self):
+        """Force save all data to disk."""
+        with self._lock:
+            self._save_db()
+            self._save_sent_ids()
+            logger.info("Database force saved")
+
+    def __len__(self):
+        """Return number of news items."""
+        with self._lock:
+            return len(self.news_db)
+
+    def __contains__(self, news_id):
+        """Check if news ID exists."""
+        with self._lock:
+            return news_id in self.news_db
+
+    # Compatibility methods for legacy code
+    def save_db(self):
+        """Legacy compatibility method - maps to force_save()."""
+        self.force_save()
+
+    def save_sent_ids(self):
+        """Legacy compatibility method - maps to force_save()."""
+        self.force_save()===== /Users/alexey/PyCharmProjects/Work_space/energy_news_project/bot/bot_runner_simple.py =====
+# bot/bot_runner_simple.py
+import asyncio
+import logging
+import sys
+import os
+from telegram.ext import (
+    Application, CommandHandler, CallbackQueryHandler,
+    MessageHandler, filters, ContextTypes
+)
+from telegram.constants import ChatType
+
+# Create logs directory
+os.makedirs("logs", exist_ok=True)
+
+# Setup logging
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
+    handlers=[
+        logging.FileHandler("logs/bot.log", encoding="utf-8"),
+        logging.FileHandler("logs/errors.log", encoding="utf-8", mode='a'),
+        logging.StreamHandler(sys.stdout)
+    ]
+)
+
+# Filter for error log
+error_handler = logging.FileHandler("logs/errors.log", encoding="utf-8")
+error_handler.setLevel(logging.ERROR)
+logging.getLogger().addHandler(error_handler)
+
+logger = logging.getLogger(__name__)
+
+# Load environment variables
+from dotenv import load_dotenv
+
+load_dotenv()
+
+# Import configuration and services
+from config import config
+from bot.database import SafeNewsDB
+from bot.services.telegram_service import TelegramService
+from bot.handlers import BotHandlers
+from bot.cli import load_and_send_news
+
+logger.info("Using SafeNewsDB and unified BotHandlers")
+
+# Check token
+if not config.telegram.bot_token:
+    logger.error("TELEGRAM_BOT_TOKEN not found!")
+    sys.exit(1)
+
+# Initialize database and services
+db = SafeNewsDB(
+    db_file=config.database.db_file,
+    sent_ids_file=config.database.sent_ids_file,
+    backup_interval=config.database.backup_interval
+)
+
+telegram_service = TelegramService(config.telegram)
+
+# Initialize unified handlers
+handlers = BotHandlers(db, telegram_service)
+
+
+async def error_handler(update: object, context: ContextTypes.DEFAULT_TYPE) -> None:
+    """Log errors caused by Updates."""
+    logger.error("Exception while handling an update:", exc_info=context.error)
+
+
+async def post_init(app):
+    try:
+        await app.bot.delete_webhook(drop_pending_updates=True)
+    except Exception as e:
+        logger.warning(f"Не удалось удалить webhook: {e}")
+
+    # Start news loading task
+    asyncio.create_task(load_and_send_news(db, app.bot, telegram_service))
+
+
+def run_bot():
+    logger.info("Starting Telegram News Bot")
+
+    application = Application.builder().token(config.telegram.bot_token).post_init(post_init).build()
+
+    # Command handlers
+    application.add_handler(CommandHandler("start", handlers.start_command))
+    application.add_handler(CommandHandler("help", handlers.help_command))
+    application.add_handler(CommandHandler("stats", handlers.stats_command))
+    application.add_handler(CommandHandler("health", handlers.health_command))
+    application.add_handler(CommandHandler("testpublish", handlers.test_publish_command))
+    application.add_handler(CommandHandler("skip", handlers.skip_edit_command))
+
+    # Callback handlers
+    application.add_handler(CallbackQueryHandler(
+        handlers.button_handler,
+        pattern=r"^(approve|reject|edit)\|"
+    ))
+
+    # Message handlers
+    application.add_handler(MessageHandler(
+        filters.TEXT & ~filters.COMMAND & filters.ChatType.PRIVATE,
+        handlers.edit_text_handler
+    ))
+
+    # Error handler
+    application.add_error_handler(error_handler)
+
+    logger.info("Bot starting...")
+
+    try:
+        application.run_polling(
+            drop_pending_updates=True,
+            close_loop=False
+        )
+    except KeyboardInterrupt:
+        logger.info("Bot stopped by user")
+    except Exception as e:
+        logger.error(f"Bot runtime error: {e}")
+    finally:
+        # Cleanup
+        logger.info("Shutting down...")
+        try:
+            db.force_save()
+            logger.info("Database saved before shutdown")
+        except Exception as e:
+            logger.error(f"Error saving database: {e}")
+
+
+if __name__ == "__main__":
+    run_bot()===== /Users/alexey/PyCharmProjects/Work_space/energy_news_project/bot/handlers.py =====
+# bot/handlers.py
+import logging
+from typing import Optional
+from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
+from telegram.ext import ContextTypes
+from telegram.error import TelegramError
+
+from bot.database import SafeNewsDB
+from bot.services.telegram_service import TelegramService
+from bot.formatters import format_news_for_publication
+
+logger = logging.getLogger(__name__)
+
+
+class BotHandlers:
+    """Unified handlers for all bot interactions."""
+
+    def __init__(self, database: SafeNewsDB, telegram_service: TelegramService):
+        self.db = database
+        self.telegram = telegram_service
+
+    # ===== CALLBACK HANDLERS =====
+    async def button_handler(self, update: Update, context: ContextTypes.DEFAULT_TYPE):
+        """Handle callback button presses from moderation messages."""
+        query = update.callback_query
+        if not query:
+            return
+
+        await query.answer()
+
+        try:
+            # Parse callback data
+            if "|" not in query.data:
+                await query.edit_message_text("⚠️ Неверный формат данных кнопки.")
+                return
+
+            action, news_id = query.data.split("|", 1)
+            logger.info(f"Processing action: {action} for news: {news_id}")
+
+            # Get news data
+            data_entry = self.db.get_news(news_id)
+            if not data_entry:
+                await query.edit_message_text("⚠️ Новость не найдена в базе данных.")
+                return
+
+            # Route to appropriate handler
+            if action == "approve":
+                await self._handle_approve(query, news_id, data_entry, context)
+            elif action == "reject":
+                await self._handle_reject(query, news_id, data_entry, context)
+            elif action == "edit":
+                await self._handle_edit(query, news_id, data_entry, context)
+            else:
+                await query.edit_message_text(f"⚠️ Неизвестное действие: {action}")
+
+        except Exception as e:
+            logger.error(f"Callback handler error: {e}", exc_info=True)
+            try:
+                await query.edit_message_text(f"⚠️ Ошибка обработки: {str(e)}")
+            except TelegramError:
+                # If edit fails, try to send a new message
+                await query.message.reply_text(f"⚠️ Ошибка обработки: {str(e)}")
+
+    async def _handle_approve(self, query, news_id: str, data_entry: dict, context: ContextTypes.DEFAULT_TYPE):
+        """Handle news approval and publication."""
+        try:
+            news_item = data_entry["news_data"]
+            channel_id = data_entry["channel_id"]
+            message_id = data_entry["message_id"]
+
+            edit_status = " (отредактированной)" if news_item.get("edited", False) else ""
+
+            # Publish to main channel
+            success = await self.telegram.publish_news(context.bot, news_item, news_id)
+
+            if success:
+                # Clean up preview messages if they exist (check if they weren't already cleaned)
+                preview_ids = news_item.get("preview_message_ids")
+                preview_chat_id = news_item.get("preview_chat_id")
+
+                if preview_ids and preview_chat_id:
+                    logger.info(f"Cleaning up remaining preview messages for news {news_id}")
+                    await self._cleanup_preview_messages(news_item, context.bot, news_id)
+
+                # Delete moderation message
+                await self.telegram.safe_delete_messages(
+                    context.bot, channel_id, [message_id], news_id
+                )
+
+                # Update database
+                self.db.update_news(news_id, {"status": "published"})
+
+                # Skip sending any notifications to avoid Bad Request
+                logger.info(f"News {news_id} successfully approved and published{edit_status} - notifications disabled")
+                # Remove from database after successful publication
+                self.db.delete_news(news_id)
+
+                logger.info(f"News {news_id} approved and published{edit_status}")
+
+            else:
+                await query.edit_message_text("❌ Ошибка при публикации новости.")
+
+        except Exception as e:
+            logger.error(f"Approve handler error for {news_id}: {e}")
+            await query.edit_message_text(f"❌ Ошибка публикации: {str(e)}")
+
+    async def _handle_reject(self, query, news_id: str, data_entry: dict, context: ContextTypes.DEFAULT_TYPE):
+        """Handle news rejection and cleanup."""
+        try:
+            news_item = data_entry["news_data"]
+            channel_id = data_entry["channel_id"]
+            message_id = data_entry["message_id"]
+
+            # Clean up preview messages if they exist
+            await self._cleanup_preview_messages(news_item, context.bot, news_id)
+
+            # Delete moderation message
+            await self.telegram.safe_delete_messages(
+                context.bot, channel_id, [message_id], news_id
+            )
+
+            # Update database
+            self.db.update_news(news_id, {"status": "rejected"})
+
+            # Log successful rejection
+            logger.info(f"News {news_id} successfully rejected and removed")
+
+            # Remove from database
+            self.db.delete_news(news_id)
+
+            logger.info(f"News {news_id} rejected and removed")
+
+        except Exception as e:
+            logger.error(f"Reject handler error for {news_id}: {e}")
+            await query.edit_message_text(f"❌ Ошибка отклонения: {str(e)}")
+
+    async def _handle_edit(self, query, news_id: str, data_entry: dict, context: ContextTypes.DEFAULT_TYPE):
+        """Handle edit request - show full text and prepare for editing."""
+        try:
+            news_item = data_entry["news_data"]
+            full_text = news_item.get("full_text", "")
+
+            if full_text:
+                # Send header message
+                header_msg = await query.message.reply_text(
+                    f"📝 Текущий полный текст новости (ID: {news_id}):"
+                )
+
+                # Send full text in chunks
+                text_message_ids = await self.telegram.split_and_send_message(
+                    context.bot, query.message.chat_id, full_text
+                )
+
+                # Store preview message IDs
+                all_preview_ids = [header_msg.message_id] + text_message_ids
+
+                # Update news data with preview info
+                updates = {
+                    "news_data.preview_message_ids": all_preview_ids,
+                    "news_data.preview_chat_id": query.message.chat_id
+                }
+                self.db.update_news(news_id, updates)
+
+                logger.info(f"Preview messages sent for news {news_id}: {all_preview_ids}")
+
+            else:
+                # No full text available
+                preview_msg = await query.message.reply_text("⚠️ Полный текст новости отсутствует.")
+
+                updates = {
+                    "news_data.preview_message_ids": [preview_msg.message_id],
+                    "news_data.preview_chat_id": query.message.chat_id
+                }
+                self.db.update_news(news_id, updates)
+
+            # Send edit instructions
+            await query.message.reply_text(
+                "✏️ Отправьте исправленный текст новости.\n"
+                "Чтобы оставить как есть — отправьте /skip\n"
+                "⚠️ После редактирования сообщение в канале модерации будет обновлено."
+            )
+
+            # Set editing state
+            if context.user_data is not None:
+                context.user_data["editing_news_id"] = news_id
+
+        except Exception as e:
+            logger.error(f"Edit handler error for {news_id}: {e}")
+            await query.edit_message_text(f"❌ Ошибка подготовки к редактированию: {str(e)}")
+
+    async def _cleanup_preview_messages(self, news_item: dict, bot, news_id: str):
+        """Clean up preview messages if they exist."""
+        preview_ids = news_item.get("preview_message_ids")
+        preview_chat_id = news_item.get("preview_chat_id")
+
+        if preview_ids and preview_chat_id:
+            await self.telegram.safe_delete_messages(
+                bot, preview_chat_id, preview_ids, news_id
+            )
+            logger.info(f"Cleaned up preview messages for news {news_id}")
+
+    # ===== MESSAGE HANDLERS =====
+    async def edit_text_handler(self, update: Update, context: ContextTypes.DEFAULT_TYPE):
+        """Handle text messages for news editing."""
+        if not update.message or not update.message.text:
+            return
+
+        logger.debug(f"Received text message: {update.message.text[:100]}...")
+
+        # Check if user data exists and has editing state
+        if not context.user_data:
+            logger.debug("No user data available")
+            return
+
+        news_id = context.user_data.get("editing_news_id")
+        if not news_id:
+            logger.debug("No active editing session")
+            return
+
+        try:
+            # Handle skip command
+            if update.message.text.strip() == "/skip":
+                await self._handle_skip_edit(update, context, news_id)
+                return
+
+            # Process the edited text
+            await self._process_edited_text(update, context, news_id)
+
+        except Exception as e:
+            logger.error(f"Edit text handler error: {e}", exc_info=True)
+            await update.message.reply_text(f"⚠️ Ошибка обработки текста: {str(e)}")
+            # Clear editing state on error
+            context.user_data["editing_news_id"] = None
+
+    async def _handle_skip_edit(self, update: Update, context: ContextTypes.DEFAULT_TYPE, news_id: str):
+        """Handle skip editing command."""
+        context.user_data["editing_news_id"] = None
+        await update.message.reply_text("✅ Редактирование пропущено.")
+        logger.info(f"Editing skipped for news {news_id}")
+
+    async def _process_edited_text(self, update: Update, context: ContextTypes.DEFAULT_TYPE, news_id: str):
+        """Process the edited text for a news item."""
+        new_text = update.message.text.strip()
+
+        # Get news data
+        data_entry = self.db.get_news(news_id)
+        if not data_entry:
+            await update.message.reply_text("⚠️ Новость не найдена в базе.")
+            context.user_data["editing_news_id"] = None
+            return
+
+        # Update news data
+        updates = {
+            "news_data.full_text": new_text,
+            "news_data.edited": True,
+            "updated_at": None  # Will be set automatically by database
+        }
+
+        logger.info(f"Updating news {news_id} with new text: {new_text[:100]}...")
+
+        # Clean up old preview messages
+        news_item = data_entry["news_data"]
+        preview_ids = news_item.get("preview_message_ids")
+        preview_chat_id = news_item.get("preview_chat_id")
+
+        if preview_ids and preview_chat_id:
+            await self.telegram.safe_delete_messages(
+                context.bot, preview_chat_id, preview_ids, news_id
+            )
+
+            # Clear preview info
+            updates.update({
+                "news_data.preview_message_ids": [],
+                "news_data.preview_chat_id": None
+            })
+
+        # Save changes
+        success = self.db.update_news(news_id, updates)
+
+        # Verify the update was successful
+        if success:
+            verification = self.db.get_news(news_id)
+            if verification:
+                actual_text = verification["news_data"].get("full_text", "")
+                actual_edited = verification["news_data"].get("edited", False)
+                logger.info(f"Verification - text updated: {actual_text == new_text}, edited flag: {actual_edited}")
+            else:
+                logger.error(f"Could not verify update for news {news_id}")
+        else:
+            logger.error(f"Failed to update news {news_id}")
+
+        if not success:
+            await update.message.reply_text("⚠️ Не удалось обновить новость.")
+            context.user_data["editing_news_id"] = None
+            return
+
+        # Update moderation message
+        channel_id = data_entry["channel_id"]
+        message_id = data_entry["message_id"]
+
+        if message_id:
+            # Get updated news data
+            updated_entry = self.db.get_news(news_id)
+            updated_news_item = updated_entry["news_data"] if updated_entry else news_item
+
+            success = await self.telegram.update_moderation_message(
+                context.bot, channel_id, message_id, updated_news_item, news_id
+            )
+
+            if success:
+                await update.message.reply_text(
+                    "✅ Текст новости обновлён и сообщение в канале модерации обновлено!\n"
+                    "Теперь нажмите кнопку 'Опубликовать' для публикации отредактированной версии."
+                )
+            else:
+                await update.message.reply_text(
+                    "✅ Текст новости обновлён!\n"
+                    "⚠️ Не удалось обновить сообщение в канале модерации, но изменения сохранены.\n"
+                    "Нажмите кнопку 'Опубликовать' для публикации отредактированной версии."
+                )
+        else:
+            await update.message.reply_text(
+                "✅ Текст новости обновлён!\n"
+                "⚠️ Сообщение в канале модерации не найдено, но изменения сохранены."
+            )
+
+        # Clear editing state
+        context.user_data["editing_news_id"] = None
+        logger.info(f"News {news_id} text updated successfully")
+
+    # ===== COMMAND HANDLERS =====
+    async def start_command(self, update: Update, context: ContextTypes.DEFAULT_TYPE):
+        """Handle /start command."""
+        welcome_text = (
+            "🤖 Бот модерации энергетических новостей запущен!\n\n"
+            "Доступные команды:\n"
+            "/help - Показать справку\n"
+            "/stats - Показать статистику\n"
+            "/health - Проверить состояние системы\n"
+            "/testpublish - Тест публикации в канал"
+        )
+
+        await update.message.reply_text(welcome_text)
+        logger.info(f"Start command from user {update.effective_user.id}")
+
+    async def help_command(self, update: Update, context: ContextTypes.DEFAULT_TYPE):
+        """Handle /help command."""
+        help_text = (
+            "📖 Справка по боту модерации новостей\n\n"
+            "🔧 Команды:\n"
+            "/start - Запуск бота\n"
+            "/help - Эта справка\n"
+            "/stats - Статистика базы данных\n"
+            "/health - Состояние системы\n"
+            "/testpublish - Тестовая публикация\n"
+            "/skip - Пропустить редактирование\n\n"
+            "📝 Процесс модерации:\n"
+            "1. Новости автоматически отправляются в канал модерации\n"
+            "2. Используйте кнопки: ✅ Опубликовать, ❌ Отклонить, ✏️ Редактировать\n"
+            "3. При редактировании отправьте новый текст или /skip\n\n"
+            "⚠️ Все действия логируются для анализа."
+        )
+
+        await update.message.reply_text(help_text)
+
+    async def stats_command(self, update: Update, context: ContextTypes.DEFAULT_TYPE):
+        """Handle /stats command."""
+        try:
+            db_stats = self.db.get_stats()
+            telegram_stats = self.telegram.get_circuit_breaker_stats()
+
+            stats_text = (
+                f"📊 Статистика системы\n\n"
+                f"📰 База данных:\n"
+                f"• Всего новостей: {db_stats['total_news']}\n"
+                f"• Отправлено: {db_stats['sent_count']}\n"
+                f"• Ожидает модерации: {db_stats['pending']}\n"
+                f"• Опубликовано: {db_stats['published']}\n"
+                f"• Отклонено: {db_stats['rejected']}\n"
+                f"• Размер БД: {db_stats['db_size_mb']:.2f} МБ\n\n"
+                f"📡 Telegram API:\n"
+                f"• Статус: {telegram_stats['state']}\n"
+                f"• Успешных запросов: {telegram_stats['success_count']}\n"
+                f"• Неудачных запросов: {telegram_stats['failure_count']}\n"
+                f"• Успешность: {telegram_stats['success_rate']:.1f}%"
+            )
+
+            await update.message.reply_text(stats_text)
+
+        except Exception as e:
+            logger.error(f"Stats command error: {e}")
+            await update.message.reply_text(f"⚠️ Ошибка получения статистики: {str(e)}")
+
+    async def health_command(self, update: Update, context: ContextTypes.DEFAULT_TYPE):
+        """Handle /health command."""
+        try:
+            health_info = await self.telegram.health_check(context.bot)
+
+            status_emoji = "🟢" if health_info["telegram_api"] == "healthy" else "🔴"
+
+            health_text = (
+                f"🏥 Состояние системы\n\n"
+                f"{status_emoji} Telegram API: {health_info['telegram_api']}\n"
+                f"🔌 Circuit Breaker: {health_info['circuit_breaker']}\n"
+                f"💾 Размер кеша: {health_info['cache_size']}\n"
+            )
+
+            if "bot_username" in health_info:
+                health_text += f"🤖 Бот: @{health_info['bot_username']}\n"
+
+            if "error" in health_info:
+                health_text += f"❌ Ошибка: {health_info['error']}\n"
+
+            await update.message.reply_text(health_text)
+
+        except Exception as e:
+            logger.error(f"Health command error: {e}")
+            await update.message.reply_text(f"⚠️ Ошибка проверки состояния: {str(e)}")
+
+    async def test_publish_command(self, update: Update, context: ContextTypes.DEFAULT_TYPE):
+        """Handle /testpublish command."""
+        try:
+            test_message = await self.telegram.send_with_retry(
+                context.bot,
+                self.telegram.config.publish_channel,
+                "🔔 Тестовое сообщение от бота модерации"
+            )
+
+            if test_message:
+                await update.message.reply_text("✅ Тестовое сообщение успешно отправлено в канал публикации.")
+            else:
+                await update.message.reply_text("❌ Не удалось отправить тестовое сообщение.")
+
+        except Exception as e:
+            logger.error(f"Test publish error: {e}")
+            await update.message.reply_text(f"⚠️ Ошибка при тестовой публикации: {str(e)}")
+
+    async def skip_edit_command(self, update: Update, context: ContextTypes.DEFAULT_TYPE):
+        """Handle /skip command."""
+        if not context.user_data:
+            await update.message.reply_text("ℹ️ Нет активного процесса редактирования.")
+            return
+
+        news_id = context.user_data.get("editing_news_id")
+        if news_id:
+            context.user_data["editing_news_id"] = None
+            await update.message.reply_text("✅ Редактирование пропущено.")
+            logger.info(f"Editing skipped for news {news_id}")
+        else:
+            await update.message.reply_text("ℹ️ Нет активного процесса редактирования.")
+
+    # Admin commands (only if debug mode is enabled)
+    async def cleanup_command(self, update: Update, context: ContextTypes.DEFAULT_TYPE):
+        """Handle /cleanup command (admin only)."""
+        try:
+            removed_count = self.db.cleanup_old_news(days=30)
+            await update.message.reply_text(f"🗑️ Очищено {removed_count} старых новостей.")
+
+        except Exception as e:
+            logger.error(f"Cleanup command error: {e}")
+            await update.message.reply_text(f"⚠️ Ошибка очистки: {str(e)}")
+
+    async def backup_command(self, update: Update, context: ContextTypes.DEFAULT_TYPE):
+        """Handle /backup command (admin only)."""
+        try:
+            self.db.force_save()
+            await update.message.reply_text("💾 Принудительное сохранение базы данных выполнено.")
+
+        except Exception as e:
+            logger.error(f"Backup command error: {e}")
+            await update.message.reply_text(f"⚠️ Ошибка сохранения: {str(e)}")===== /Users/alexey/PyCharmProjects/Work_space/energy_news_project/bot/__init__.py =====
+# Пакет для Telegram-бота модерации и публикации
+===== /Users/alexey/PyCharmProjects/Work_space/energy_news_project/bot/cli.py =====
+# bot/cli.py
+import os
+import json
+import asyncio
+from typing import Union
+
+from bot.database import SafeNewsDB
+
+DATA_DIR = "data"
+
+
+async def safe_input(prompt):
+    """Безопасный ввод с обработкой кодировки"""
+    try:
+        return (await asyncio.to_thread(input, prompt)).strip()
+    except UnicodeDecodeError:
+        print("⚠️ Ошибка кодировки. Попробуйте еще раз.")
+        return ""
+    except Exception as e:
+        print(f"⚠️ Ошибка ввода: {e}")
+        return ""
+
+
+async def load_and_send_news(db: SafeNewsDB, bot, telegram_service):
+    """
+    Консольное меню для загрузки новостей и отправки их в модерацию.
+    """
+    while True:
+        print("\nВыберите действие:")
+        print("1) Загрузить новые новости из последнего файла energy_news*.json")
+        print("2) Загрузить новости из выбранного файла")
+        print("3) Показать количество новостей в базе")
+        print("4) Очистить NEWS_DB и sent_ids.json")
+        print("5) Очистить поврежденные записи (без message_id)")
+        print("0) Выход")
+
+        choice = await safe_input("Введите пункт меню: ")
+
+        if not choice:
+            continue
+
+        # --- 1) Последний файл ---
+        if choice == "1":
+            files = [os.path.join(DATA_DIR, f) for f in os.listdir(DATA_DIR)
+                     if f.startswith("energy_news") and f.endswith(".json")]
+            latest_file = max(files, key=os.path.getctime) if files else None
+
+            if not latest_file:
+                print("❗ Нет файлов energy_news*.json")
+                continue
+
+            try:
+                with open(latest_file, "r", encoding="utf-8") as f:
+                    news_list = json.load(f)
+                print(f"📂 Загружено {len(news_list)} новостей из {os.path.basename(latest_file)}")
+            except Exception as e:
+                print(f"❗ Ошибка чтения файла {latest_file}: {e}")
+                continue
+
+        # --- 2) Выбранный файл ---
+        elif choice == "2":
+            file_name = await safe_input("Введите имя файла в папке data/: ")
+            if not file_name:
+                continue
+
+            file_path = os.path.join(DATA_DIR, file_name)
+            if not os.path.exists(file_path):
+                print("❗ Файл не найден")
+                continue
+
+            try:
+                with open(file_path, "r", encoding="utf-8") as f:
+                    news_list = json.load(f)
+                print(f"📂 Загружено {len(news_list)} новостей из {file_name}")
+            except Exception as e:
+                print(f"❗ Ошибка чтения файла {file_path}: {e}")
+                continue
+
+        # --- 3) Количество новостей ---
+        elif choice == "3":
+            print(f"📊 В базе {len(db)} новостей.")
+            continue
+
+        # --- 4) Очистка базы ---
+        elif choice == "4":
+            confirm = await safe_input("Вы уверены, что хотите очистить базу? (yes/no): ")
+            if confirm.lower() in ['yes', 'y', 'да', 'д']:
+                db.clear_all()
+                print("🗑️ NEWS_DB и sent_ids.json очищены.")
+            else:
+                print("❌ Очистка отменена.")
+            continue
+
+        # --- 5) Очистка поврежденных записей ---
+        elif choice == "5":
+            broken_count = 0
+            for news_id, data in list(db.news_db.items()):
+                if data.get("message_id") is None:
+                    db.delete_news(news_id)
+                    broken_count += 1
+            print(f"🔧 Удалено {broken_count} записей с поврежденными message_id.")
+            continue
+
+        # --- 0) Выход ---
+        elif choice == "0":
+            print("👋 Выход из режима загрузки новостей.")
+            break
+        else:
+            print("❌ Неверный выбор. Попробуйте снова.")
+            continue
+
+        # --- Отправка новостей в модерацию ---
+        if 'news_list' in locals():
+            count = 0
+            failed_count = 0
+
+            for i, item in enumerate(news_list):
+                if not all(k in item for k in ["title", "source", "date", "url", "preview", "full_text"]):
+                    print(f"⚠️ Пропущена новость #{i} — не хватает ключей")
+                    failed_count += 1
+                    continue
+
+                try:
+                    # Используем telegram_service для генерации ID
+                    item_id = telegram_service.make_news_id(item, i)
+
+                    if db.is_sent(item_id):
+                        print(f"⏩ Новость {item_id} уже была отправлена ранее, пропускаем")
+                        continue
+
+                    item["id"] = item_id
+                    print(f"📨 Отправляем новость {item_id} в канал модерации...")
+
+                    # Отправляем через telegram_service
+                    message = await telegram_service.send_to_moderation(bot, item, item_id)
+                    if message and message.message_id:
+                        db.add_news(item_id, item, message.message_id, telegram_service.config.moderation_channel)
+
+                    count += 1
+                    await asyncio.sleep(1)
+
+                except Exception as e:
+                    print(f"❗ Ошибка отправки новости #{i}: {e}")
+                    failed_count += 1
+
+            print(f"✅ Всего отправлено в модерацию: {count} новых новостей.")
+            if failed_count > 0:
+                print(f"⚠️ Не удалось обработать: {failed_count} новостей.")
+
+            del news_list===== /Users/alexey/PyCharmProjects/Work_space/energy_news_project/bot/services/telegram_service.py =====
+# bot/services/telegram_service.py
+import asyncio
+import hashlib
+import logging
+import time
+from contextlib import asynccontextmanager
+from enum import Enum
+from typing import List, Optional, Dict, Any
+from dataclasses import dataclass, field
+
+from telegram import Bot, InlineKeyboardButton, InlineKeyboardMarkup, Message
+from telegram.error import TelegramError, RetryAfter, TimedOut, NetworkError
+
+from bot.formatters import format_news_for_publication
+from config import TelegramConfig
+
+logger = logging.getLogger(__name__)
+
+
+class CircuitBreakerState(Enum):
+    CLOSED = "closed"
+    OPEN = "open"
+    HALF_OPEN = "half_open"
+
+
+@dataclass
+class CircuitBreakerStats:
+    failure_count: int = 0
+    last_failure_time: float = 0
+    success_count: int = 0
+    total_requests: int = 0
+    state_changes: List[tuple] = field(default_factory=list)
+
+
+class CircuitBreaker:
+    """Circuit breaker for handling service failures gracefully."""
+
+    def __init__(self, failure_threshold: int = 5, recovery_timeout: float = 60.0,
+                 expected_exception: type = TelegramError):
+        self.failure_threshold = failure_threshold
+        self.recovery_timeout = recovery_timeout
+        self.expected_exception = expected_exception
+
+        self.state = CircuitBreakerState.CLOSED
+        self.stats = CircuitBreakerStats()
+
+    def _change_state(self, new_state: CircuitBreakerState, reason: str = ""):
+        old_state = self.state
+        self.state = new_state
+        timestamp = time.time()
+        self.stats.state_changes.append((timestamp, old_state.value, new_state.value, reason))
+        logger.info(f"Circuit breaker state changed: {old_state.value} -> {new_state.value} ({reason})")
+
+    def _should_attempt_reset(self) -> bool:
+        return (
+                self.state == CircuitBreakerState.OPEN and
+                time.time() - self.stats.last_failure_time > self.recovery_timeout
+        )
+
+    async def call(self, func, *args, **kwargs):
+        """Execute function with circuit breaker protection."""
+        self.stats.total_requests += 1
+
+        if self.state == CircuitBreakerState.OPEN:
+            if self._should_attempt_reset():
+                self._change_state(CircuitBreakerState.HALF_OPEN, "recovery timeout reached")
+            else:
+                raise TelegramError("Circuit breaker is OPEN")
+
+        try:
+            result = await func(*args, **kwargs)
+
+            # Success
+            if self.state == CircuitBreakerState.HALF_OPEN:
+                self._change_state(CircuitBreakerState.CLOSED, "successful call in half-open state")
+                self.stats.failure_count = 0
+
+            self.stats.success_count += 1
+            return result
+
+        except self.expected_exception as e:
+            self.stats.failure_count += 1
+            self.stats.last_failure_time = time.time()
+
+            if (self.state == CircuitBreakerState.CLOSED and
+                    self.stats.failure_count >= self.failure_threshold):
+                self._change_state(CircuitBreakerState.OPEN, f"failure threshold reached ({self.stats.failure_count})")
+            elif self.state == CircuitBreakerState.HALF_OPEN:
+                self._change_state(CircuitBreakerState.OPEN, "failure in half-open state")
+
+            raise
+
+
+class TelegramService:
+    """Enhanced Telegram service with reliability features."""
+
+    def __init__(self, config: TelegramConfig):
+        self.config = config
+        self.circuit_breaker = CircuitBreaker()
+        self._message_cache: Dict[str, int] = {}  # Cache for deduplication
+
+    def make_news_id(self, item: dict, index: int = 0) -> str:
+        """Generate unique ID for news item."""
+        key = (item.get("url") or "").strip()
+        if not key:
+            key = f"{item.get('title', '')}-{item.get('date', '')}".strip()
+        if not key:
+            key = item.get("preview", "")[:120]
+
+        return hashlib.sha256(key.encode("utf-8")).hexdigest()[:16]
+
+    async def send_with_retry(self, bot: Bot, chat_id: str, text: str,
+                              reply_markup: Optional[InlineKeyboardMarkup] = None,
+                              **kwargs) -> Optional[Message]:
+        """Send message with exponential backoff retry logic."""
+
+        logger.info(f"TELEGRAM_SERVICE: Attempting to send message to chat_id={chat_id}")
+        logger.info(f"TELEGRAM_SERVICE: Message text preview: {text[:100]}...")
+
+        # Check for duplicate messages
+        message_hash = hashlib.md5(f"{chat_id}:{text}".encode()).hexdigest()
+        if message_hash in self._message_cache:
+            recent_time = time.time() - self._message_cache[message_hash]
+            if recent_time < 60:  # Prevent duplicates within 1 minute
+                logger.warning(f"Duplicate message detected, skipping: {text[:50]}...")
+                return None
+
+        async def _send():
+            logger.info(f"TELEGRAM_SERVICE: Executing bot.send_message to {chat_id}")
+            result = await bot.send_message(
+                chat_id=chat_id,
+                text=text,
+                reply_markup=reply_markup,
+                disable_web_page_preview=True,
+                **kwargs
+            )
+            logger.info(f"TELEGRAM_SERVICE: Successfully sent message to {chat_id}, message_id={result.message_id}")
+            return result
+
+        for attempt in range(self.config.retry_attempts):
+            try:
+                message = await self.circuit_breaker.call(_send)
+
+                if message:
+                    self._message_cache[message_hash] = time.time()
+                    # Clean old cache entries
+                    if len(self._message_cache) > 1000:
+                        current_time = time.time()
+                        self._message_cache = {
+                            k: v for k, v in self._message_cache.items()
+                            if current_time - v < 3600  # Keep only last hour
+                        }
+
+                await asyncio.sleep(self.config.flood_control_delay)
+                return message
+
+            except RetryAfter as e:
+                wait_time = e.retry_after + 1
+                logger.warning(f"Rate limited, waiting {wait_time} seconds...")
+                await asyncio.sleep(wait_time)
+
+            except (TimedOut, NetworkError) as e:
+                wait_time = min(2 ** attempt, 60)  # Exponential backoff, max 60s
+                logger.warning(f"Network error on attempt {attempt + 1}: {e}. Retrying in {wait_time}s...")
+                await asyncio.sleep(wait_time)
+
+            except TelegramError as e:
+                logger.error(f"TELEGRAM_SERVICE ERROR: Telegram error on attempt {attempt + 1} (chat_id: {chat_id}): {e}")
+                logger.error(f"TELEGRAM_SERVICE ERROR: Message text (first 200 chars): {text[:200]}")
+                if "Bad Request" in str(e):  # Don't retry bad requests
+                    logger.error(f"TELEGRAM_SERVICE ERROR: Bad Request details: {e}")
+                    logger.error(f"TELEGRAM_SERVICE ERROR: This is the request causing Bad Request!")
+                    break
+                await asyncio.sleep(2 ** attempt)
+
+            except Exception as e:
+                logger.error(f"TELEGRAM_SERVICE ERROR: Unexpected error on attempt {attempt + 1} (chat_id: {chat_id}): {e}")
+                logger.error(f"TELEGRAM_SERVICE ERROR: Message text (first 200 chars): {text[:200]}")
+                await asyncio.sleep(2 ** attempt)
+
+        logger.error(f"TELEGRAM_SERVICE: Failed to send message after {self.config.retry_attempts} attempts to chat_id: {chat_id}")
+        return None
+
+    async def split_and_send_message(self, bot: Bot, chat_id: str, text: str,
+                                     max_length: int = None) -> List[int]:
+        """Split long text and send as multiple messages."""
+        if max_length is None:
+            max_length = self.config.max_message_length
+
+        message_ids = []
+
+        if len(text) <= max_length:
+            message = await self.send_with_retry(bot, chat_id, text)
+            if message:
+                message_ids.append(message.message_id)
+            return message_ids
+
+        # Smart splitting by sentences
+        sentences = text.split('. ')
+        current_chunk = ""
+
+        for sentence in sentences:
+            if len(current_chunk + sentence + '. ') <= max_length:
+                current_chunk += sentence + '. '
+            else:
+                if current_chunk:
+                    message = await self.send_with_retry(bot, chat_id, current_chunk.strip())
+                    if message:
+                        message_ids.append(message.message_id)
+                    current_chunk = sentence + '. '
+                else:
+                    # Handle very long sentences
+                    while len(sentence) > max_length:
+                        chunk = sentence[:max_length]
+                        message = await self.send_with_retry(bot, chat_id, chunk)
+                        if message:
+                            message_ids.append(message.message_id)
+                        sentence = sentence[max_length:]
+                    current_chunk = sentence + '. ' if sentence else ""
+
+        # Send remaining text
+        if current_chunk:
+            message = await self.send_with_retry(bot, chat_id, current_chunk.strip())
+            if message:
+                message_ids.append(message.message_id)
+
+        return message_ids
+
+    async def safe_delete_messages(self, bot: Bot, chat_id: str,
+                                   message_ids: List[int], news_id: str = "") -> int:
+        """Safely delete multiple messages."""
+        if not message_ids:
+            logger.debug(f"No message IDs provided for deletion (news: {news_id})")
+            return 0
+
+        deleted_count = 0
+        for message_id in message_ids:
+            if message_id is None:
+                logger.debug(f"Skipping None message_id for news {news_id}")
+                continue
+
+            try:
+                await bot.delete_message(chat_id=chat_id, message_id=message_id)
+                deleted_count += 1
+                await asyncio.sleep(0.1)  # Small delay between deletions
+                logger.debug(f"Successfully deleted message {message_id} for news {news_id}")
+
+            except TelegramError as e:
+                # Check if it's a "message to delete not found" error
+                if "message to delete not found" in str(e).lower() or "message can't be deleted" in str(e).lower():
+                    logger.debug(f"Message {message_id} already deleted or not found for news {news_id}")
+                else:
+                    logger.warning(f"Failed to delete message {message_id} for news {news_id}: {e}")
+            except Exception as e:
+                logger.error(f"Unexpected error deleting message {message_id} for news {news_id}: {e}")
+
+        logger.info(f"Deleted {deleted_count}/{len(message_ids)} messages for news {news_id}")
+        return deleted_count
+
+    def create_moderation_keyboard(self, news_id: str) -> InlineKeyboardMarkup:
+        """Create keyboard for news moderation."""
+        keyboard = [
+            [
+                InlineKeyboardButton("✅ Опубликовать", callback_data=f"approve|{news_id}"),
+                InlineKeyboardButton("❌ Отклонить", callback_data=f"reject|{news_id}"),
+                InlineKeyboardButton("✏️ Редактировать", callback_data=f"edit|{news_id}")
+            ]
+        ]
+        return InlineKeyboardMarkup(keyboard)
+
+    def safe_escape_text(self, text: str) -> str:
+        """Safely escape text for Telegram."""
+        if not text:
+            return ""
+
+        # Remove HTML tags
+        import re
+        text = re.sub(r'<[^>]+>', '', str(text))
+
+        # Clean multiple whitespaces
+        text = re.sub(r'\s+', ' ', text).strip()
+
+        return text
+
+    def format_moderation_message(self, news_item: dict, news_id: str, edited: bool = False) -> str:
+        """Format news item for moderation channel."""
+        title = self.safe_escape_text(news_item.get("title", "Без заголовка"))
+        preview = self.safe_escape_text(news_item.get("preview", ""))
+        source = self.safe_escape_text(news_item.get("source", "Источник не указан"))
+        date = self.safe_escape_text(news_item.get("date", ""))
+        url = news_item.get("url", "")
+
+        edit_marker = " ✏️ ОТРЕДАКТИРОВАНО" if edited else ""
+
+        return (
+            f"📰 {title}{edit_marker}\n\n"
+            f"{preview}\n\n"
+            f"Источник: {source} ({date})\n"
+            f"{url}"
+        )
+
+    async def send_to_moderation(self, bot: Bot, news_item: dict, news_id: str) -> Optional[Message]:
+        """Send news to moderation channel."""
+        try:
+            text = self.format_moderation_message(news_item, news_id)
+            keyboard = self.create_moderation_keyboard(news_id)
+
+            message = await self.send_with_retry(
+                bot,
+                self.config.moderation_channel,
+                text,
+                reply_markup=keyboard
+            )
+
+            if message:
+                logger.info(f"News {news_id} sent to moderation (message_id={message.message_id})")
+            else:
+                logger.error(f"Failed to send news {news_id} to moderation")
+
+            return message
+
+        except Exception as e:
+            logger.error(f"Error sending news {news_id} to moderation: {e}")
+            return None
+
+    async def publish_news(self, bot: Bot, news_item: dict, news_id: str) -> bool:
+        """Publish news to the main channel."""
+        try:
+            publication_text = format_news_for_publication(news_item)
+
+            message = await self.send_with_retry(
+                bot,
+                self.config.publish_channel,
+                publication_text
+            )
+
+            if message:
+                logger.info(f"News {news_id} published successfully")
+                return True
+            else:
+                logger.error(f"Failed to publish news {news_id}")
+                return False
+
+        except Exception as e:
+            logger.error(f"Error publishing news {news_id}: {e}")
+            return False
+
+    async def update_moderation_message(self, bot: Bot, chat_id: str, message_id: int,
+                                        news_item: dict, news_id: str) -> bool:
+        """Update moderation message after editing."""
+        try:
+            updated_text = self.format_moderation_message(news_item, news_id, edited=True)
+            keyboard = self.create_moderation_keyboard(news_id)
+
+            await bot.edit_message_text(
+                chat_id=chat_id,
+                message_id=message_id,
+                text=updated_text,
+                reply_markup=keyboard,
+                disable_web_page_preview=True
+            )
+
+            logger.info(f"Moderation message updated for news {news_id}")
+            return True
+
+        except TelegramError as e:
+            logger.error(f"Failed to update moderation message for news {news_id}: {e}")
+            return False
+
+    def get_circuit_breaker_stats(self) -> dict:
+        """Get circuit breaker statistics."""
+        stats = self.circuit_breaker.stats
+        return {
+            "state": self.circuit_breaker.state.value,
+            "failure_count": stats.failure_count,
+            "success_count": stats.success_count,
+            "total_requests": stats.total_requests,
+            "last_failure_time": stats.last_failure_time,
+            "success_rate": (stats.success_count / max(stats.total_requests, 1)) * 100
+        }
+
+    async def health_check(self, bot: Bot) -> dict:
+        """Perform health check on Telegram service."""
+        health_info = {
+            "telegram_api": "unknown",
+            "circuit_breaker": self.circuit_breaker.state.value,
+            "cache_size": len(self._message_cache)
+        }
+
+        try:
+            # Test API connectivity
+            bot_info = await bot.get_me()
+            health_info["telegram_api"] = "healthy"
+            health_info["bot_username"] = bot_info.username
+
+        except Exception as e:
+            health_info["telegram_api"] = "unhealthy"
+            health_info["error"] = str(e)
+
+        return health_info

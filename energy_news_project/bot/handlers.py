@@ -90,14 +90,8 @@ class BotHandlers:
                 # Update database
                 self.db.update_news(news_id, {"status": "published"})
 
-                # Send confirmation
-                try:
-                    await query.message.reply_text(
-                        f"✅ Новость {news_id} успешно опубликована{edit_status}!"
-                    )
-                except Exception:
-                    pass  # Not critical if confirmation fails
-
+                # Skip sending any notifications to avoid Bad Request
+                logger.info(f"News {news_id} successfully approved and published{edit_status} - notifications disabled")
                 # Remove from database after successful publication
                 self.db.delete_news(news_id)
 

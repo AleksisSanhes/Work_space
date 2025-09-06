@@ -2035,3 +2035,138 @@ TypeError: button_handler() takes 3 positional arguments but 4 were given
 2025-09-05 15:46:50,232 - bot.bot_runner_simple - INFO - Shutting down...
 2025-09-05 15:46:50,243 - bot.database - INFO - Database force saved
 2025-09-05 15:46:50,243 - bot.bot_runner_simple - INFO - Database saved before shutdown
+2025-09-06 11:12:01,623 - bot.bot_runner_simple - INFO - Using SafeNewsDB and unified BotHandlers
+2025-09-06 11:12:01,625 - bot.database - INFO - Database initialized: 66 news items, 83 sent IDs
+2025-09-06 11:12:01,625 - bot.bot_runner_simple - INFO - Starting Telegram News Bot
+2025-09-06 11:12:01,655 - bot.bot_runner_simple - INFO - Bot starting...
+2025-09-06 11:12:01,898 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getMe "HTTP/1.1 200 OK"
+2025-09-06 11:12:01,957 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/deleteWebhook "HTTP/1.1 200 OK"
+2025-09-06 11:12:02,014 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/deleteWebhook "HTTP/1.1 200 OK"
+2025-09-06 11:12:02,017 - telegram.ext.Application - INFO - Application started
+2025-09-06 11:12:07,012 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-06 11:12:07,013 - telegram.ext.Application - INFO - Application is stopping. This might take a moment.
+2025-09-06 11:12:07,014 - telegram.ext.Application - INFO - Application.stop() complete
+2025-09-06 11:12:07,015 - bot.bot_runner_simple - INFO - Shutting down...
+2025-09-06 11:12:07,024 - bot.database - INFO - Database force saved
+2025-09-06 11:12:07,024 - bot.bot_runner_simple - INFO - Database saved before shutdown
+2025-09-06 11:16:46,067 - bot.bot_runner_simple - INFO - Using SafeNewsDB and unified BotHandlers
+2025-09-06 11:16:46,069 - bot.database - INFO - Database initialized: 66 news items, 83 sent IDs
+2025-09-06 11:16:46,069 - bot.bot_runner_simple - INFO - Starting Telegram News Bot
+2025-09-06 11:16:46,098 - bot.bot_runner_simple - INFO - Bot starting...
+2025-09-06 11:16:46,461 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getMe "HTTP/1.1 200 OK"
+2025-09-06 11:16:46,533 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/deleteWebhook "HTTP/1.1 200 OK"
+2025-09-06 11:16:46,596 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/deleteWebhook "HTTP/1.1 200 OK"
+2025-09-06 11:16:46,597 - telegram.ext.Application - INFO - Application started
+2025-09-06 11:16:56,830 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-06 11:16:57,733 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-06 11:16:57,986 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/answerCallbackQuery "HTTP/1.1 200 OK"
+2025-09-06 11:16:57,987 - bot.handlers - INFO - Processing action: edit for news: 186fca823a04bd66
+2025-09-06 11:16:58,141 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/sendMessage "HTTP/1.1 200 OK"
+2025-09-06 11:16:58,144 - bot.services.telegram_service - INFO - TELEGRAM_SERVICE: Attempting to send message to chat_id=-1002996332660
+2025-09-06 11:16:58,144 - bot.services.telegram_service - INFO - TELEGRAM_SERVICE: Message text preview: Last Updated on:1st September 2025, 11:16 am Tesla dominates headlines. BYD gets the analysis articl...
+2025-09-06 11:16:58,144 - bot.services.telegram_service - INFO - TELEGRAM_SERVICE: Executing bot.send_message to -1002996332660
+2025-09-06 11:16:58,297 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/sendMessage "HTTP/1.1 200 OK"
+2025-09-06 11:16:58,298 - bot.services.telegram_service - INFO - TELEGRAM_SERVICE: Successfully sent message to -1002996332660, message_id=964
+2025-09-06 11:16:59,800 - bot.services.telegram_service - INFO - TELEGRAM_SERVICE: Attempting to send message to chat_id=-1002996332660
+2025-09-06 11:16:59,800 - bot.services.telegram_service - INFO - TELEGRAM_SERVICE: Message text preview: Industry analysts predict this launch could capture 8-10% market share within its first year, based ...
+2025-09-06 11:16:59,800 - bot.services.telegram_service - INFO - TELEGRAM_SERVICE: Executing bot.send_message to -1002996332660
+2025-09-06 11:16:59,984 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/sendMessage "HTTP/1.1 200 OK"
+2025-09-06 11:16:59,985 - bot.services.telegram_service - INFO - TELEGRAM_SERVICE: Successfully sent message to -1002996332660, message_id=965
+2025-09-06 11:17:01,487 - bot.services.telegram_service - INFO - TELEGRAM_SERVICE: Attempting to send message to chat_id=-1002996332660
+2025-09-06 11:17:01,488 - bot.services.telegram_service - INFO - TELEGRAM_SERVICE: Message text preview: Exchange rate: 1 USD = 87.50 INR (August 2025) Raymond Gregory Tribdino, or Tribs, is an automotive ...
+2025-09-06 11:17:01,488 - bot.services.telegram_service - INFO - TELEGRAM_SERVICE: Executing bot.send_message to -1002996332660
+2025-09-06 11:17:01,618 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/sendMessage "HTTP/1.1 200 OK"
+2025-09-06 11:17:01,620 - bot.services.telegram_service - INFO - TELEGRAM_SERVICE: Successfully sent message to -1002996332660, message_id=966
+2025-09-06 11:17:03,132 - bot.handlers - INFO - Preview messages sent for news 186fca823a04bd66: [963, 964, 965, 966]
+2025-09-06 11:17:03,245 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/sendMessage "HTTP/1.1 200 OK"
+2025-09-06 11:17:07,797 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-06 11:17:09,584 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-06 11:17:09,587 - bot.handlers - INFO - Updating news 186fca823a04bd66 with new text: 16...
+2025-09-06 11:17:10,025 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/deleteMessage "HTTP/1.1 200 OK"
+2025-09-06 11:17:10,321 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/deleteMessage "HTTP/1.1 200 OK"
+2025-09-06 11:17:10,564 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/deleteMessage "HTTP/1.1 200 OK"
+2025-09-06 11:17:10,790 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/deleteMessage "HTTP/1.1 200 OK"
+2025-09-06 11:17:10,892 - bot.services.telegram_service - INFO - Deleted 4/4 messages for news 186fca823a04bd66
+2025-09-06 11:17:10,903 - bot.handlers - INFO - Verification - text updated: True, edited flag: True
+2025-09-06 11:17:11,016 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/editMessageText "HTTP/1.1 200 OK"
+2025-09-06 11:17:11,018 - bot.services.telegram_service - INFO - Moderation message updated for news 186fca823a04bd66
+2025-09-06 11:17:11,100 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/sendMessage "HTTP/1.1 200 OK"
+2025-09-06 11:17:11,102 - bot.handlers - INFO - News 186fca823a04bd66 text updated successfully
+2025-09-06 11:17:16,799 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-06 11:17:17,074 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/answerCallbackQuery "HTTP/1.1 200 OK"
+2025-09-06 11:17:17,075 - bot.handlers - INFO - Processing action: approve for news: 186fca823a04bd66
+2025-09-06 11:17:17,075 - bot.services.telegram_service - INFO - TELEGRAM_SERVICE: Attempting to send message to chat_id=-1003006895565
+2025-09-06 11:17:17,075 - bot.services.telegram_service - INFO - TELEGRAM_SERVICE: Message text preview: 🔥 India Is Building A Strong EV Ecosystem While The World Only Sees Tesla & BYD
+
+16
+
+Источник: Clean...
+2025-09-06 11:17:17,075 - bot.services.telegram_service - INFO - TELEGRAM_SERVICE: Executing bot.send_message to -1003006895565
+2025-09-06 11:17:17,248 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/sendMessage "HTTP/1.1 200 OK"
+2025-09-06 11:17:17,250 - bot.services.telegram_service - INFO - TELEGRAM_SERVICE: Successfully sent message to -1003006895565, message_id=111
+2025-09-06 11:17:18,752 - bot.services.telegram_service - INFO - News 186fca823a04bd66 published successfully
+2025-09-06 11:17:18,878 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/deleteMessage "HTTP/1.1 200 OK"
+2025-09-06 11:17:18,980 - bot.services.telegram_service - INFO - Deleted 1/1 messages for news 186fca823a04bd66
+2025-09-06 11:17:19,051 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/sendMessage "HTTP/1.1 400 Bad Request"
+2025-09-06 11:17:19,061 - bot.handlers - INFO - News 186fca823a04bd66 approved and published (отредактированной)
+2025-09-06 11:17:24,084 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-06 11:17:24,086 - telegram.ext.Application - INFO - Application is stopping. This might take a moment.
+2025-09-06 11:17:24,086 - telegram.ext.Application - INFO - Application.stop() complete
+2025-09-06 11:17:24,087 - bot.bot_runner_simple - INFO - Shutting down...
+2025-09-06 11:17:24,097 - bot.database - INFO - Database force saved
+2025-09-06 11:17:24,097 - bot.bot_runner_simple - INFO - Database saved before shutdown
+2025-09-06 11:22:09,580 - bot.bot_runner_simple - INFO - Using SafeNewsDB and unified BotHandlers
+2025-09-06 11:22:09,583 - bot.database - INFO - Database initialized: 65 news items, 82 sent IDs
+2025-09-06 11:22:09,583 - bot.bot_runner_simple - INFO - Starting Telegram News Bot
+2025-09-06 11:22:09,617 - bot.bot_runner_simple - INFO - Bot starting...
+2025-09-06 11:22:09,975 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getMe "HTTP/1.1 200 OK"
+2025-09-06 11:22:10,049 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/deleteWebhook "HTTP/1.1 200 OK"
+2025-09-06 11:22:10,106 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/deleteWebhook "HTTP/1.1 200 OK"
+2025-09-06 11:22:10,107 - telegram.ext.Application - INFO - Application started
+2025-09-06 11:22:19,891 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-06 11:22:20,189 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/answerCallbackQuery "HTTP/1.1 200 OK"
+2025-09-06 11:22:20,191 - bot.handlers - INFO - Processing action: edit for news: dd25519f0756926b
+2025-09-06 11:22:20,317 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/sendMessage "HTTP/1.1 200 OK"
+2025-09-06 11:22:20,320 - bot.services.telegram_service - INFO - TELEGRAM_SERVICE: Attempting to send message to chat_id=-1002996332660
+2025-09-06 11:22:20,320 - bot.services.telegram_service - INFO - TELEGRAM_SERVICE: Message text preview: Last Updated on:1st September 2025, 11:23 am This article was curated together withCarbon Removal In...
+2025-09-06 11:22:20,321 - bot.services.telegram_service - INFO - TELEGRAM_SERVICE: Executing bot.send_message to -1002996332660
+2025-09-06 11:22:20,487 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/sendMessage "HTTP/1.1 200 OK"
+2025-09-06 11:22:20,488 - bot.services.telegram_service - INFO - TELEGRAM_SERVICE: Successfully sent message to -1002996332660, message_id=969
+2025-09-06 11:22:22,001 - bot.handlers - INFO - Preview messages sent for news dd25519f0756926b: [968, 969]
+2025-09-06 11:22:22,147 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/sendMessage "HTTP/1.1 200 OK"
+2025-09-06 11:22:29,959 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-06 11:22:30,276 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-06 11:22:30,278 - bot.handlers - INFO - Updating news dd25519f0756926b with new text: 17...
+2025-09-06 11:22:30,615 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/deleteMessage "HTTP/1.1 200 OK"
+2025-09-06 11:22:30,807 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/deleteMessage "HTTP/1.1 200 OK"
+2025-09-06 11:22:30,910 - bot.services.telegram_service - INFO - Deleted 2/2 messages for news dd25519f0756926b
+2025-09-06 11:22:30,921 - bot.handlers - INFO - Verification - text updated: True, edited flag: True
+2025-09-06 11:22:31,067 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/editMessageText "HTTP/1.1 200 OK"
+2025-09-06 11:22:31,069 - bot.services.telegram_service - INFO - Moderation message updated for news dd25519f0756926b
+2025-09-06 11:22:31,189 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/sendMessage "HTTP/1.1 200 OK"
+2025-09-06 11:22:31,190 - bot.handlers - INFO - News dd25519f0756926b text updated successfully
+2025-09-06 11:22:37,050 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-06 11:22:37,380 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/answerCallbackQuery "HTTP/1.1 200 OK"
+2025-09-06 11:22:37,381 - bot.handlers - INFO - Processing action: approve for news: dd25519f0756926b
+2025-09-06 11:22:37,382 - bot.services.telegram_service - INFO - TELEGRAM_SERVICE: Attempting to send message to chat_id=-1003006895565
+2025-09-06 11:22:37,382 - bot.services.telegram_service - INFO - TELEGRAM_SERVICE: Message text preview: 🔥 Carbon Removal India Alliance: India’s Carbon & CDR Policy Update H1 – 2025
+
+17
+
+Источник: CleanTe...
+2025-09-06 11:22:37,382 - bot.services.telegram_service - INFO - TELEGRAM_SERVICE: Executing bot.send_message to -1003006895565
+2025-09-06 11:22:37,562 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/sendMessage "HTTP/1.1 200 OK"
+2025-09-06 11:22:37,563 - bot.services.telegram_service - INFO - TELEGRAM_SERVICE: Successfully sent message to -1003006895565, message_id=112
+2025-09-06 11:22:39,064 - bot.services.telegram_service - INFO - News dd25519f0756926b published successfully
+2025-09-06 11:22:39,225 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/deleteMessage "HTTP/1.1 200 OK"
+2025-09-06 11:22:39,327 - bot.services.telegram_service - INFO - Deleted 1/1 messages for news dd25519f0756926b
+2025-09-06 11:22:39,337 - bot.handlers - INFO - News dd25519f0756926b successfully approved and published (отредактированной) - notifications disabled
+2025-09-06 11:22:39,341 - bot.handlers - INFO - News dd25519f0756926b approved and published (отредактированной)
+2025-09-06 11:22:47,201 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-06 11:22:57,640 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-06 11:23:00,892 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8217915867:AAFLPnQmnxhHmjloF4Ct3HhR9jjRjVYV6C8/getUpdates "HTTP/1.1 200 OK"
+2025-09-06 11:23:00,894 - telegram.ext.Application - INFO - Application is stopping. This might take a moment.
+2025-09-06 11:23:00,894 - telegram.ext.Application - INFO - Application.stop() complete
+2025-09-06 11:23:00,895 - bot.bot_runner_simple - INFO - Shutting down...
+2025-09-06 11:23:00,905 - bot.database - INFO - Database force saved
+2025-09-06 11:23:00,905 - bot.bot_runner_simple - INFO - Database saved before shutdown
